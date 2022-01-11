@@ -36,6 +36,7 @@ export const GlobalStyles = createGlobalStyle`
   body {
     line-height: 1;
     background-color: black;
+    color: white
   }
 
   ol, ul {
@@ -68,9 +69,9 @@ export const GlobalStyles = createGlobalStyle`
   input[type=search] {
     -webkit-appearance: none;
     -moz-appearance: none;
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
   }
 
   textarea {
@@ -119,7 +120,7 @@ export const GlobalStyles = createGlobalStyle`
    */
 
   html {
-    font-size: 100%; /* 1 */
+    font-size: 62.5%; /* 1 */
     -webkit-text-size-adjust: 100%; /* 2 */
     -ms-text-size-adjust: 100%; /* 2 */
   }
@@ -258,7 +259,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   /**
-   * 1. Address box sizing set to content-box in IE 8/9.
+   * 1. Address box sizing set to border-box in IE 8/9.
    * 2. Remove excess padding in IE 8/9.
    * 3. Remove excess padding in IE 7.
    *    Known issue: excess padding remains in IE 6.
@@ -280,9 +281,9 @@ export const GlobalStyles = createGlobalStyle`
 
   input[type="search"] {
     -webkit-appearance: textfield; /* 1 */
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box; /* 2 */
-    box-sizing: content-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box; /* 2 */
+    box-sizing: border-box;
   }
 
   /**
@@ -362,5 +363,11 @@ export const GlobalStyles = createGlobalStyle`
     background: #ccc;
     color: #000;
     padding: 0.2em 0;
+  }
+  
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
   }
 `;
