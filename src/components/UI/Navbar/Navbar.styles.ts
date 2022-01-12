@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.nav`
   width: 100%;
-  height: 5rem;
+  height: 6rem;
   padding: 0 3rem;
   font-size: 1.8rem;
   

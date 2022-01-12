@@ -14,10 +14,11 @@ export const Wrapper = styled.div`
   align-items: center;
   
   cursor: pointer;
+
+  transition: all linear .2s;
   
   :hover {
     background-color: white;
     color: #1A1F38;
-  ;
   }
 `
