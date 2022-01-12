@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import image from '../../../assets/spider.jpg'
+import image from '../../assets/spider.jpg'
 
 export const Wrapper = styled.header`
   width: 100%;

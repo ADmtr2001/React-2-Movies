@@ -4,7 +4,7 @@ import {Wrapper} from "./RecommendedMovie.styles";
 
 import {AiFillStar} from 'react-icons/ai'
 import ReactPlayer from "react-player";
-import StyledLink from "../Button/StyledLink";
+import StyledLink from "../UI/Button/StyledLink";
 
 const RecommendedMovie = () => {
   return (

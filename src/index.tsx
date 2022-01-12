@@ -3,8 +3,15 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import {GlobalStyles} from "./globalStyles";
 import {BrowserRouter} from "react-router-dom";
+import {setupStore} from "./store/store";
+import {Provider} from "react-redux";
 
-ReactDOM.render(<BrowserRouter>
-  <GlobalStyles/>
-  <App/>
-</BrowserRouter>, document.getElementById("root"));
+const store = setupStore();
+
+ReactDOM.render(
+  <BrowserRouter>
+    <Provider store={store}>
+      <GlobalStyles/>
+      <App/>
+    </Provider>
+  </BrowserRouter>, document.getElementById("root"));
