@@ -1,42 +1,89 @@
 import {IMovie} from "../../../types/IMovie";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {fetchAsyncMovies} from "./MovieActionCreators";
+import {fetchAsyncMovies, fetchAsyncRecommended, fetchAsyncShows} from "./MovieActionCreators";
 
 interface MovieState {
   movies: IMovie[];
-  isLoading: boolean;
-  error: string;
+  shows: IMovie[];
+  recommended: IMovie[];
+  moviesIsLoading: boolean;
+  showsIsLoading: boolean;
+  recommendedIsLoading: boolean;
+  moviesError: string;
+  showsError: string;
+  recommendedError: string;
 };
 
 const initialState: MovieState = {
   movies: [],
-  isLoading: false,
-  error: "",
+  shows: [],
+  recommended: [],
+  moviesIsLoading: false,
+  showsIsLoading: false,
+  recommendedIsLoading: false,
+  moviesError: '',
+  showsError: '',
+  recommendedError: '',
 };
 
 export const movieSlice = createSlice({
   name: 'movie',
   initialState,
-  reducers: {
-  },
+  reducers: {},
   extraReducers: {
     [fetchAsyncMovies.fulfilled.type]: (
       state: MovieState,
       action: PayloadAction<IMovie[]>
     ) => {
-      state.isLoading = false;
-      state.error = '';
+      state.moviesIsLoading = false;
+      state.moviesError = '';
       state.movies = action.payload;
     },
     [fetchAsyncMovies.pending.type]: (state: MovieState) => {
-      state.isLoading = true;
+      state.moviesIsLoading = true;
     },
     [fetchAsyncMovies.rejected.type]: (
       state: MovieState,
       action: PayloadAction<string>
     ) => {
-      state.isLoading = false;
-      state.error = action.payload;
+      state.moviesIsLoading = false;
+      state.moviesError = action.payload;
+    },
+    [fetchAsyncShows.fulfilled.type]: (
+      state: MovieState,
+      action: PayloadAction<IMovie[]>
+    ) => {
+      state.showsIsLoading = false;
+      state.showsError = '';
+      state.shows = action.payload;
+    },
+    [fetchAsyncShows.pending.type]: (state: MovieState) => {
+      state.showsIsLoading = true;
+    },
+    [fetchAsyncShows.rejected.type]: (
+      state: MovieState,
+      action: PayloadAction<string>
+    ) => {
+      state.showsIsLoading = false;
+      state.showsError = action.payload;
+    },
+    [fetchAsyncRecommended.fulfilled.type]: (
+      state: MovieState,
+      action: PayloadAction<IMovie[]>
+    ) => {
+      state.recommendedIsLoading = false;
+      state.recommendedError = '';
+      state.recommended = action.payload;
+    },
+    [fetchAsyncRecommended.pending.type]: (state: MovieState) => {
+      state.recommendedIsLoading = true;
+    },
+    [fetchAsyncRecommended.rejected.type]: (
+      state: MovieState,
+      action: PayloadAction<string>
+    ) => {
+      state.recommendedIsLoading = false;
+      state.recommendedError = action.payload;
     }
   }
 });

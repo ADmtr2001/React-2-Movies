@@ -6,7 +6,7 @@ export const Wrapper = styled.nav`
   padding: 0 3rem;
   font-size: 1.8rem;
   
-  background-color: #1A1F38;
+  background-color: #131313;
   
   display: flex;
   justify-content: space-between;

@@ -5,23 +5,24 @@ import Navbar from "./components/UI/Navbar/Navbar";
 import RecommendedMovie from "./components/RecommendedMovie/RecommendedMovie";
 import {useAppDispatch, useAppSelector} from "./hooks/redux";
 import {movieSlice} from "./store/reducers/movie/MovieSlice";
-import {fetchAsyncMovies} from "./store/reducers/movie/MovieActionCreators";
+import {fetchAsyncMovies, fetchAsyncRecommended, fetchAsyncShows} from "./store/reducers/movie/MovieActionCreators";
+import Home from "./components/Home/Home";
 
 const App = () => {
   const dispatch = useAppDispatch();
-  const {movies} = useAppSelector(state => state.movie);
 
   useEffect(() => {
     dispatch(fetchAsyncMovies());
+    dispatch(fetchAsyncShows());
+    dispatch(fetchAsyncRecommended());
   }, []);
 
-  console.log(movies)
-
-  return(
-  <Wrapper>
-    <Navbar/>
-    <RecommendedMovie/>
-  </Wrapper>
+  return (
+    <Wrapper>
+      <Navbar/>
+      <RecommendedMovie/>
+      <Home/>
+    </Wrapper>
   );
 };
 

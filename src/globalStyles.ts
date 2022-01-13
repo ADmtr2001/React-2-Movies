@@ -35,8 +35,9 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     line-height: 1;
-    background-color: black;
-    color: white
+    background-color: #232323;
+    color: white;
+    font-family: 'Roboto', sans-serif;
   }
 
   ol, ul {
