@@ -1,21 +1,20 @@
 import styled from "styled-components";
 
-import image from '../../assets/spider.jpg'
+import image from '../../assets/intro-film.jpg'
 
 export const Wrapper = styled.header`
   width: 100%;
-  height: 65rem;
+  height: 70rem;
   
-  background-image: url(${image});
+  background-image: url('https://occ-0-2774-2773.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABWPYs_BNraXXJ9USOd12nXFjmMY8EaPHNfJ8mK-M-yAJ-LVIPiI2czdfWF6vufw4Zlx28UQzT_kk5UXaGmQAqKS17cx_.jpg?r=e1a');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: top;
   
-  font-size: 2rem;
   background-color: white;
   
   .blur {
-    background-color: rgba(0, 0, 0, .4);
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,0.9500175070028011) 0%, rgba(0,0,0,0.47102591036414565) 49%, rgba(255,255,255,0) 100%);
     width: 100%;
     height: 100%;
 
@@ -26,18 +25,36 @@ export const Wrapper = styled.header`
     display: flex;
     justify-content: space-between;
 
-    margin: 21rem 3rem 0 8.1rem;
+    margin: 10rem 0 0 4rem;
   }
   
   .description {
-    width: 66rem;
+    width: 55rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin-right: 2rem;
     
     h1 {
-      font-size: 4rem;
+      font-size: 9rem;
+      font-family: 'Anton', sans-serif;
+      margin-bottom: 3rem;
+    }
+    
+    .short-info {
+      font-size: 1.5rem;
+      color: #747474;
+      margin-bottom: 2.5rem;
+    }
+    
+    .main-text {
+      font-size: 2.2rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    .cast-text {
+      font-size: 1.5rem;
+      margin-bottom: 2.5rem;
     }
     
     svg {
@@ -46,9 +63,11 @@ export const Wrapper = styled.header`
   }
   
   .rating {
+    font-size: 2rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    margin-bottom: 5rem;
   }
   
   .player {

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  background-color: #1A1F38;
+  background-color: #131313;
   
-  width: 25rem;
+  width: 23rem;
   height: 40rem;
   
   cursor: pointer;

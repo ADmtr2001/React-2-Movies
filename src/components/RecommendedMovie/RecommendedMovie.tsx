@@ -3,7 +3,6 @@ import React from 'react';
 import {Wrapper} from "./RecommendedMovie.styles";
 
 import {AiFillStar} from 'react-icons/ai'
-import ReactPlayer from "react-player";
 import StyledLink from "../UI/Button/StyledLink";
 
 const RecommendedMovie = () => {
@@ -12,23 +11,17 @@ const RecommendedMovie = () => {
       <div className='blur'>
         <div className='container'>
           <div className='description'>
-            <h1>Spider-Man: No Way Home</h1>
-            <p>In the film, Parker asks Dr. Stephen Strange (Cumberbatch) to use magic to make his Spider-Man identity a
-              secret again following its public revelation at the end of Far From Home. When the spell goes wrong, the
-              multiverse is broken open which allows visitors from alternate realities to enter Parker's universe.</p>
+            <h1>The Croods</h1>
+            <p className='short-info'>2013 | 7+ | 1h 38m | Family Movies</p>
+            <p className='main-text'>When an earthquake obliterates their cave, an unworldly prehistoric family is forced to journey through unfamiliar terrain in search of a new home.
+            </p>
+            <p className='cast-text'>Starring:Nicolas Cage, Emma Stone, Ryan Reynolds</p>
             <div className='rating'>
-              <AiFillStar/> 9.2
+              <AiFillStar/> 7.2
             </div>
             <div className='buttons'>
               <StyledLink/>
             </div>
-          </div>
-          <div className='player'>
-            <ReactPlayer
-              width='550px'
-              controls={true}
-              url="https://www.youtube.com/watch?v=JfVOs4VSpmA&ab_channel=SonyPicturesEntertainment"
-            />
           </div>
         </div>
       </div>

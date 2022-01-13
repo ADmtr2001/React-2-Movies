@@ -6,24 +6,26 @@ export const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     
-    color: white;
-    background-color: #1A1F38;
+    color: #FF4E4E;
+    background-color: transparent;
 
     text-decoration: none;
     border-radius: 0.3rem;
     
-    font-size: 3rem;
+    font-size: 2.8rem;
     
-    width: 17rem;
-    height: 4.5rem;
+    width: 23rem;
+    height: 5rem;
     
     outline: none;
-    border: none;
+    border: 0.954145px solid #FF4E4E;
+    border-radius: 4rem;
     
-    transition: background-color linear .2s;
+    transition: all linear .2s;
     
     :hover {
-      background-color: #27305e;
+      background-color: #FF4E4E;
+      color: white;
     }
   }
 `;

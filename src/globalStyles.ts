@@ -34,6 +34,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
+    height: 100%;
     line-height: 1;
     background-color: #232323;
     color: white;
@@ -364,6 +365,10 @@ export const GlobalStyles = createGlobalStyle`
     background: #ccc;
     color: #000;
     padding: 0.2em 0;
+  }
+  
+  html {
+    height: 100%;
   }
   
   *,
