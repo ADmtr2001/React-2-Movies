@@ -2,7 +2,8 @@ import React from 'react';
 
 import {BsSearch} from 'react-icons/bs';
 import {FaUser} from "react-icons/fa";
-import {AiOutlineStar} from "react-icons/ai"
+import {AiOutlineStar} from "react-icons/ai";
+import {MdOutlineWatchLater} from "react-icons/md";
 import logo from '../../../assets/logo.png';
 
 import {Wrapper} from "./Navbar.styles";
@@ -14,9 +15,10 @@ const Navbar = () => {
     <Wrapper>
       <div className='navbar-content'>
         <h2><img src={logo} alt='logo'/></h2>
-        <NavbarIcon icon={<FaUser/>}/>
         <NavbarIcon icon={<BsSearch/>}/>
         <NavbarIcon icon={<AiOutlineStar/>}/>
+        <NavbarIcon icon={<MdOutlineWatchLater/>}/>
+        <NavbarIcon icon={<FaUser/>}/>
       </div>
     </Wrapper>
   );

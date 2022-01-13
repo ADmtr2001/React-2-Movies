@@ -5,8 +5,8 @@ export const Wrapper = styled.div`
   h2 {
     margin-top: 2.5rem;
     margin-bottom: 3rem;
-    font-size: 4rem;
-    text-align: center;
+    margin-left: 1rem;
+    font-size: 2.5rem;
   }
   
   .movie-container {

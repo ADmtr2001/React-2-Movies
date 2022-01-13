@@ -6,6 +6,7 @@ import {useAppDispatch, useAppSelector} from "./hooks/redux";
 import {fetchAsyncMovies, fetchAsyncRecommended, fetchAsyncShows} from "./store/reducers/movie/MovieActionCreators";
 import {Route, Routes} from "react-router-dom";
 import Main from "./pages/Main";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -18,10 +19,13 @@ const App = () => {
 
   return (
     <Wrapper>
-      <Navbar/>
-      <Routes>
-        <Route path='/' element={<Main/>}/>
-      </Routes>
+      <div className='colons'>
+        <Navbar/>
+        <Routes>
+          <Route path='/' element={<Main/>}/>
+        </Routes>
+      </div>
+      <Footer/>
     </Wrapper>
   );
 };
