@@ -1,9 +1,9 @@
 import React, {FC} from 'react';
 
 import {Wrapper} from "./MovieCard.styles";
-import {IMovie} from "../../types/IMovie";
-
 import {BsSearch} from 'react-icons/bs';
+
+import {IMovie} from "../../types/IMovie";
 
 interface MovieCardProps {
   movie: IMovie;

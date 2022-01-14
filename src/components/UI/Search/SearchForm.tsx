@@ -1,9 +1,9 @@
 import React from 'react';
 
-import {BsSearch} from 'react-icons/bs';
 import Search from "./Search";
 
 import {Wrapper} from "./SearchForm.styles";
+import {BsSearch} from 'react-icons/bs';
 
 const SearchForm = () => {
   return (

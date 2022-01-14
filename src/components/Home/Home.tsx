@@ -1,8 +1,10 @@
 import React from 'react';
 
-import {Wrapper} from "./Home.styles";
 import MovieList from "../MovieList/MovieList";
+
 import {useAppSelector} from "../../hooks/redux";
+
+import {Wrapper} from "./Home.styles";
 
 const Home = () => {
   const {movies, shows, recommended} = useAppSelector(state => state.movie);

@@ -1,14 +1,14 @@
 import React from 'react';
 
-import {Wrapper} from "./RecommendedMovie.styles";
+import StyledLink from "../UI/StyledLink/StyledLink";
 
+import {Wrapper} from "./RecommendedMovie.styles";
 import {AiFillStar} from 'react-icons/ai'
-import StyledLink from "../UI/Button/StyledLink";
 
 const RecommendedMovie = () => {
   return (
     <Wrapper>
-      <div className='blur'>
+      <div className='gradient'>
         <div className='container'>
           <div className='description'>
             <h1>The Croods</h1>

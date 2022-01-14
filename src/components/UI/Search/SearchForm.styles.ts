@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
+import {setFlex} from "../../../styles/mixins/Mixins.styles";
+
 export const Wrapper = styled.form`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${setFlex({justify: 'center', align: 'center'})};
 
   margin: 0 2rem;
   
@@ -14,9 +14,7 @@ export const Wrapper = styled.form`
     
     cursor: pointer;
     margin-left: 1rem;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+    ${setFlex({justify: 'center', align: 'center'})};
   }
 `;

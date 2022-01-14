@@ -1,14 +1,13 @@
 import React from 'react';
 
+import NavbarIcon from "./NavbarIcon";
+
+import {Wrapper} from "./Navbar.styles";
 import {BsSearch} from 'react-icons/bs';
 import {FaUser} from "react-icons/fa";
 import {AiOutlineStar} from "react-icons/ai";
 import {MdOutlineWatchLater} from "react-icons/md";
-import logo from '../../../assets/logo.png';
-
-import {Wrapper} from "./Navbar.styles";
-
-import NavbarIcon from "./NavbarIcon";
+import logo from '../../assets/logo.png';
 
 const Navbar = () => {
   return (

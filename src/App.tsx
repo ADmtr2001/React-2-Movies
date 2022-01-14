@@ -1,11 +1,11 @@
 import React, {useEffect} from "react";
 
-import {Wrapper} from './App.styles';
-import Navbar from "./components/UI/Navbar/Navbar";
+import {Wrapper} from './styles/App.styles';
+import Navbar from "./components/Navbar/Navbar";
 import {useAppDispatch, useAppSelector} from "./hooks/redux";
 import {fetchAsyncMovies, fetchAsyncRecommended, fetchAsyncShows} from "./store/reducers/movie/MovieActionCreators";
 import {Route, Routes} from "react-router-dom";
-import Main from "./pages/Main";
+import Main from "./pages/Main/Main";
 import Footer from "./components/Footer/Footer";
 
 const App = () => {

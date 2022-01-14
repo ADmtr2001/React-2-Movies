@@ -1,17 +1,17 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
-  font-size: 3rem;
+import {setFlex} from "../../styles/mixins/Mixins.styles";
 
-  width: 50px;
-  height: 50px;
+export const Wrapper = styled.div`
+  font-size: 2.5rem;
+
+  width: 40px;
+  height: 40px;
 
   border: 2px solid white;
   border-radius: 50%;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${setFlex({justify: 'center', align: 'center'})};
 
   cursor: pointer;
 

@@ -1,25 +1,24 @@
 import styled from "styled-components";
 
+import {setFlex} from "../../../styles/mixins/Mixins.styles";
+
 export const Wrapper = styled.div`
   a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    ${setFlex({justify: 'center', align: 'center'})};
     
     color: #FF4E4E;
     background-color: transparent;
-
-    text-decoration: none;
-    border-radius: 0.3rem;
     
     font-size: 2.8rem;
     
     width: 23rem;
     height: 5rem;
-    
+
+    text-decoration: none;
     outline: none;
     border: 0.954145px solid #FF4E4E;
-    
+    border-radius: 0.3rem;
+
     transition: all linear .2s;
     
     :hover {

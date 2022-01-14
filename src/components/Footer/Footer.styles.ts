@@ -1,15 +1,16 @@
 import styled from "styled-components";
 
+import {setFlex} from "../../styles/mixins/Mixins.styles";
+
 export const Wrapper = styled.footer`
-  margin-left: 10rem;
-  
-  background-color: #080808;
   color: #747474;
+  background-color: #080808;
   
-  display: flex;
-  justify-content: space-around;
+  ${setFlex({justify: "space-around"})};
+  
   margin-top: 5rem;
-  
+  margin-left: 10rem;
+
   .colon {
     margin-top: 2rem;
     margin-bottom: 2rem;

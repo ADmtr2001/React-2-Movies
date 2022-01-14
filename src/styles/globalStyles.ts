@@ -376,4 +376,9 @@ export const GlobalStyles = createGlobalStyle`
   *::before {
     box-sizing: border-box;
   }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 `;
