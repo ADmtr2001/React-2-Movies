@@ -29,11 +29,15 @@ export const Wrapper = styled.nav`
     }
 
     h2 {
-      font-size: 2.5rem;
+      a {
+        outline: none;
+        
+        font-size: 2.5rem;
 
-      ${setFlex({justify: 'center', align: 'center'})};
+        ${setFlex({justify: 'center', align: 'center'})};
 
-      cursor: pointer;
+        cursor: pointer;
+      }
     }
   }
 `;

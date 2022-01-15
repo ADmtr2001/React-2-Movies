@@ -8,7 +8,8 @@ export const Wrapper = styled.footer`
   
   ${setFlex({justify: "space-around"})};
   
-  margin-top: 5rem;
+  //margin-top: 5rem;
+  margin-top: auto;
   margin-left: 10rem;
   padding: 0 3rem;
 

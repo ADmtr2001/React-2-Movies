@@ -5,6 +5,11 @@ import {fetchAsyncMovies, fetchAsyncRecommended, fetchAsyncShows} from "./store/
 
 import Navbar from "./components/Navbar/Navbar";
 import Main from "./pages/Main/Main";
+import Search from "./pages/Search/Search";
+import Favorite from "./pages/Favorite/Favorite";
+import WatchLater from "./pages/WatchLater/WatchLater";
+import User from './pages/User/User';
+import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import Footer from "./components/Footer/Footer";
 import ScrollToTopButton from "./components/UI/ScrollToTopButton/ScrollToTopButton";
 import {Route, Routes} from "react-router-dom";
@@ -24,9 +29,16 @@ const App = () => {
     <Wrapper>
       <div className='colons'>
         <Navbar/>
-        <Routes>
-          <Route path='/' element={<Main/>}/>
-        </Routes>
+        <div className='content'>
+          <Routes>
+            <Route path='/' element={<Main/>}/>
+            <Route path='search' element={<Search/>}/>
+            <Route path='favorite' element={<Favorite/>}/>
+            <Route path='watch-later' element={<WatchLater/>}/>
+            <Route path='user' element={<User/>}/>
+            <Route path='*' element={<PageNotFound/>}/>
+          </Routes>
+        </div>
       </div>
       <Footer/>
       <ScrollToTopButton/>

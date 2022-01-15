@@ -8,16 +8,17 @@ import {FaUser} from "react-icons/fa";
 import {AiOutlineStar} from "react-icons/ai";
 import {MdOutlineWatchLater} from "react-icons/md";
 import logo from '../../assets/logo.png';
+import {Link} from "react-router-dom";
 
 const Navbar = () => {
   return (
     <Wrapper>
       <div className='navbar-content'>
-        <h2><img src={logo} alt='logo'/></h2>
-        <NavbarIcon icon={<BsSearch/>}/>
-        <NavbarIcon icon={<AiOutlineStar/>}/>
-        <NavbarIcon icon={<MdOutlineWatchLater/>}/>
-        <NavbarIcon icon={<FaUser/>}/>
+        <h2><Link to='/'><img src={logo} alt='logo'/></Link></h2>
+        <NavbarIcon to='/search' icon={<BsSearch/>}/>
+        <NavbarIcon to='/favorite' icon={<AiOutlineStar/>}/>
+        <NavbarIcon to='/watch-later' icon={<MdOutlineWatchLater/>}/>
+        <NavbarIcon to='/user' icon={<FaUser/>}/>
       </div>
     </Wrapper>
   );
