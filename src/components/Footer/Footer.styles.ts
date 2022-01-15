@@ -10,6 +10,7 @@ export const Wrapper = styled.footer`
   
   margin-top: 5rem;
   margin-left: 10rem;
+  padding: 0 3rem;
 
   .colon {
     margin-top: 2rem;

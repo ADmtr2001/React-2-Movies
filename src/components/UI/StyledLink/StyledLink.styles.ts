@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
 
     text-decoration: none;
     outline: none;
-    border: 0.954145px solid #FF4E4E;
+    border: 0.1rem solid #FF4E4E;
     border-radius: 0.3rem;
 
     transition: all linear .2s;

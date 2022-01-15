@@ -9,6 +9,7 @@ export const Wrapper = styled.header`
   background-image: url('https://occ-0-2774-2773.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABWPYs_BNraXXJ9USOd12nXFjmMY8EaPHNfJ8mK-M-yAJ-LVIPiI2czdfWF6vufw4Zlx28UQzT_kk5UXaGmQAqKS17cx_.jpg?r=e1a');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   
   .gradient {
     background: rgb(0,0,0);

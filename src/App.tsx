@@ -1,12 +1,15 @@
 import React, {useEffect} from "react";
 
-import {Wrapper} from './styles/App.styles';
-import Navbar from "./components/Navbar/Navbar";
-import {useAppDispatch, useAppSelector} from "./hooks/redux";
+import {useAppDispatch} from "./hooks/redux";
 import {fetchAsyncMovies, fetchAsyncRecommended, fetchAsyncShows} from "./store/reducers/movie/MovieActionCreators";
-import {Route, Routes} from "react-router-dom";
+
+import Navbar from "./components/Navbar/Navbar";
 import Main from "./pages/Main/Main";
 import Footer from "./components/Footer/Footer";
+import ScrollToTopButton from "./components/UI/ScrollToTopButton/ScrollToTopButton";
+import {Route, Routes} from "react-router-dom";
+
+import {Wrapper} from './styles/App.styles';
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -26,6 +29,7 @@ const App = () => {
         </Routes>
       </div>
       <Footer/>
+      <ScrollToTopButton/>
     </Wrapper>
   );
 };
