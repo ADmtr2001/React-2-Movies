@@ -1,13 +1,18 @@
-import React from 'react';
+import React, {FC} from 'react';
 
 import {Link} from "react-router-dom";
 
 import {Wrapper} from "./StyledLink.styles";
 
-const StyledLink = () => {
+interface StyledLinkProps {
+  text: string;
+  to: string;
+};
+
+const StyledLink: FC<StyledLinkProps> = ({text, to}) => {
   return (
     <Wrapper>
-      <Link to={'/'}>Film Page</Link>
+      <Link to={to}>{text}</Link>
     </Wrapper>
   );
 };

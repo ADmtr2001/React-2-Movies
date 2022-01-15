@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
     background-color: transparent;
     
     font-size: 2.8rem;
-    
+      
     width: 23rem;
     height: 5rem;
 
