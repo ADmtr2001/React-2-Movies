@@ -1,12 +1,14 @@
 import React, {FC, useEffect, useState} from 'react';
 
+import Loader from "../UI/Loader/Loader";
 import StyledLink from "../UI/StyledLink/StyledLink";
+
+import {useAppSelector} from "../../hooks/redux";
 
 import {Wrapper} from "./SingleMovie.styles";
 import {AiFillStar} from "react-icons/ai";
 
 import {ISingleMovie} from "../../types/IMovie";
-import {useAppSelector} from "../../hooks/redux";
 
 interface SingleMovieProps {
   movie: ISingleMovie | null;
@@ -47,7 +49,7 @@ const SingleMovie: FC<SingleMovieProps> = ({movie}) => {
   }
 
   if (singleMovieIsLoading) {
-    return <h1 style={{fontSize: '10rem', marginTop: '20rem'}}>'Loading...'</h1>;
+    return <Loader/>;
   }
 
   return (

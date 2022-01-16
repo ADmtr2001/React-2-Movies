@@ -1,5 +1,7 @@
 import React, {FC} from 'react';
 
+import {scrollToTop} from "../../utils/scrollToTop";
+
 import {Wrapper} from "./MovieCard.styles";
 import {BsSearch} from 'react-icons/bs';
 
@@ -11,7 +13,7 @@ interface MovieCardProps {
 
 const MovieCard: FC<MovieCardProps> = ({movie}) => {
   return (
-    <Wrapper to={`/movie/${movie.imdbID}`}>
+    <Wrapper to={`/movie/${movie.imdbID}`} onClick={scrollToTop}>
       <div className='image-container'>
         <div className='hover-container'><BsSearch/></div>
         <img src={movie.Poster} alt='film'/>

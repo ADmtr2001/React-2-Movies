@@ -1,17 +1,13 @@
 import React, {useEffect, useState} from 'react';
 
+import {scrollToTop} from "../../../utils/scrollToTop";
+
+
 import {Wrapper} from "./ScrollToTopButton.styles";
 import {AiOutlineArrowUp} from "react-icons/ai";
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  };
 
   useEffect(() => {
     const toggleVisibility = () => {
