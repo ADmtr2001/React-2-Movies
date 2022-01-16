@@ -2,6 +2,7 @@ import React, {FC, useEffect, useState} from 'react';
 
 import Loader from "../UI/Loader/Loader";
 import StyledLink from "../UI/StyledLink/StyledLink";
+import {Navigate} from "react-router-dom";
 
 import {useAppSelector} from "../../hooks/redux";
 
@@ -31,7 +32,7 @@ const SingleMovie: FC<SingleMovieProps> = ({movie}) => {
     }
   }, [singleMovieIsLoading]);
 
-  if (!movie) return null;
+  if (!movie) return <Navigate to='/'/>;
 
   const togglePlotVisibility = () => {
     setIsPlotFull((value) => {
