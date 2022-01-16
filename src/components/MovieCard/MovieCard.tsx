@@ -11,7 +11,7 @@ interface MovieCardProps {
 
 const MovieCard: FC<MovieCardProps> = ({movie}) => {
   return (
-    <Wrapper>
+    <Wrapper to={`/movie/${movie.imdbID}`}>
       <div className='image-container'>
         <div className='hover-container'><BsSearch/></div>
         <img src={movie.Poster} alt='film'/>

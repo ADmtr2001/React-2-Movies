@@ -9,6 +9,7 @@ import Search from "./pages/Search/Search";
 import Favorite from "./pages/Favorite/Favorite";
 import WatchLater from "./pages/WatchLater/WatchLater";
 import User from './pages/User/User';
+import Movie from "./pages/Movie/Movie";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import Footer from "./components/Footer/Footer";
 import ScrollToTopButton from "./components/UI/ScrollToTopButton/ScrollToTopButton";
@@ -36,6 +37,7 @@ const App = () => {
             <Route path='favorite' element={<Favorite/>}/>
             <Route path='watch-later' element={<WatchLater/>}/>
             <Route path='user' element={<User/>}/>
+            <Route path='movie/:id' element={<Movie/>}/>
             <Route path='*' element={<PageNotFound/>}/>
           </Routes>
         </div>

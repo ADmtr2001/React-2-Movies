@@ -1,29 +1,35 @@
-import {IMovie} from "../../../types/IMovie";
+import {IMovie, ISingleMovie} from "../../../types/IMovie";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {fetchAsyncMovies, fetchAsyncRecommended, fetchAsyncShows} from "./MovieActionCreators";
+import {fetchAsyncMovies, fetchAsyncRecommended, fetchAsyncShows, fetchAsyncSingleMovie} from "./MovieActionCreators";
 
 interface MovieState {
   movies: IMovie[];
   shows: IMovie[];
   recommended: IMovie[];
+  singleMovie: ISingleMovie | null;
   moviesIsLoading: boolean;
   showsIsLoading: boolean;
   recommendedIsLoading: boolean;
+  singleMovieIsLoading: boolean;
   moviesError: string;
   showsError: string;
   recommendedError: string;
+  singleMovieError: string;
 };
 
 const initialState: MovieState = {
   movies: [],
   shows: [],
   recommended: [],
+  singleMovie: null,
   moviesIsLoading: false,
   showsIsLoading: false,
   recommendedIsLoading: false,
+  singleMovieIsLoading: false,
   moviesError: '',
   showsError: '',
   recommendedError: '',
+  singleMovieError: '',
 };
 
 export const movieSlice = createSlice({
@@ -84,6 +90,24 @@ export const movieSlice = createSlice({
     ) => {
       state.recommendedIsLoading = false;
       state.recommendedError = action.payload;
+    },
+    [fetchAsyncSingleMovie.fulfilled.type]: (
+      state: MovieState,
+      action: PayloadAction<ISingleMovie>
+    ) => {
+      state.singleMovieIsLoading = false;
+      state.singleMovieError = '';
+      state.singleMovie = action.payload;
+    },
+    [fetchAsyncSingleMovie.pending.type]: (state: MovieState) => {
+      state.singleMovieIsLoading = true;
+    },
+    [fetchAsyncSingleMovie.rejected.type]: (
+      state: MovieState,
+      action: PayloadAction<string>
+    ) => {
+      state.singleMovieIsLoading = false;
+      state.singleMovieError = action.payload;
     }
   }
 });

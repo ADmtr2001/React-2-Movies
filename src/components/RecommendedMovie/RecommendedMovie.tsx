@@ -15,12 +15,12 @@ const RecommendedMovie = () => {
             <p className='short-info'>2013 | 7+ | 1h 38m | Family Movies</p>
             <p className='main-text'>When an earthquake obliterates their cave, an unworldly prehistoric family is forced to journey through unfamiliar terrain in search of a new home.
             </p>
-            <p className='cast-text'>Starring:Nicolas Cage, Emma Stone, Ryan Reynolds</p>
+            <p className='cast-text'>Starring: Nicolas Cage, Emma Stone, Ryan Reynolds</p>
             <div className='rating'>
               <AiFillStar/> 7.2
             </div>
             <div className='buttons'>
-              <StyledLink to='/' text='Film Page'/>
+              <StyledLink to='/movie/tt0481499' text='Film Page'/>
             </div>
           </div>
         </div>

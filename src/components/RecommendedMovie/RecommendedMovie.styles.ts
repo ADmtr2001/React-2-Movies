@@ -63,6 +63,10 @@ export const Wrapper = styled.header`
         margin-right: .5rem;
       }
     }
+    
+    p {
+      line-height: 1.3;
+    }
 
     .rating {
       font-size: 2rem;
