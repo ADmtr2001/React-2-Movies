@@ -1,4 +1,5 @@
 import styled, {keyframes} from "styled-components";
+
 import {setFlex} from "../../../styles/mixins/Mixins.styles";
 
 const loadAnimation = keyframes`
@@ -15,33 +16,44 @@ const loadAnimation = keyframes`
 export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
+  
   ${setFlex({align: 'center', justify: 'center'})};
   
   .lds-facebook {
     display: inline-block;
+    
     position: relative;
+    
     width: 80px;
     height: 80px;
   }
+  
   .lds-facebook div {
     display: inline-block;
+    
     position: absolute;
     left: 8px;
+    
     width: 16px;
+    
     background: #fff;
+    
     animation: ${loadAnimation} .75s cubic-bezier(0, 0.5, 0.5, 1) infinite;
   }
+  
   .lds-facebook div:nth-child(1) {
     left: 8px;
     animation-delay: -0.24s;
   }
+  
   .lds-facebook div:nth-child(2) {
     left: 32px;
     animation-delay: -0.12s;
   }
+  
   .lds-facebook div:nth-child(3) {
     left: 56px;
-    animation-delay: 0;
+    animation-delay: 0s;
   }
 `;
 

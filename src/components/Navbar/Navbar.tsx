@@ -13,7 +13,7 @@ import {Link} from "react-router-dom";
 const Navbar = () => {
   return (
     <Wrapper>
-      <div className='navbar-content'>
+      <div className='navbar-container'>
         <h2><Link to='/'><img src={logo} alt='logo'/></Link></h2>
         <NavbarIcon to='/search' icon={<BsSearch/>}/>
         <NavbarIcon to='/favorite' icon={<AiOutlineStar/>}/>

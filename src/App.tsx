@@ -4,13 +4,7 @@ import {useAppDispatch} from "./hooks/redux";
 import {fetchAsyncMovies, fetchAsyncRecommended, fetchAsyncShows} from "./store/reducers/movie/MovieActionCreators";
 
 import Navbar from "./components/Navbar/Navbar";
-import Main from "./pages/Main/Main";
-import Search from "./pages/Search/Search";
-import Favorite from "./pages/Favorite/Favorite";
-import WatchLater from "./pages/WatchLater/WatchLater";
-import User from './pages/User/User';
-import Movie from "./pages/Movie/Movie";
-import PageNotFound from "./pages/PageNotFound/PageNotFound";
+import {Main, Search, Favorite, WatchLater, User, Movie, PageNotFound} from './pages'
 import Footer from "./components/Footer/Footer";
 import ScrollToTopButton from "./components/UI/ScrollToTopButton/ScrollToTopButton";
 import {Route, Routes} from "react-router-dom";

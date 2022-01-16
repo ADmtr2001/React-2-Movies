@@ -2,12 +2,12 @@ import React, {FC} from 'react';
 
 import MovieCard from "../MovieCard/MovieCard";
 import Slider from 'react-slick'
-import {Settings} from "../../common/slider/settings";
+import Loader from "../UI/Loader/Loader";
 
 import {Wrapper} from "./MovieList.styles";
+import {Settings} from "../../common/slider/settings";
 
 import {IMovie} from "../../types/IMovie";
-import Loader from "../UI/Loader/Loader";
 
 interface MovieListProps {
   title: string;

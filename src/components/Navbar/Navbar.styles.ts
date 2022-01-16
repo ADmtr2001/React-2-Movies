@@ -14,7 +14,7 @@ export const Wrapper = styled.nav`
   
   background-color: #131313;
 
-  .navbar-content {
+  .navbar-container {
     margin-top: 2rem;
 
     ${setFlex({justify: 'flex-start', align: 'center', direction: 'column'})};

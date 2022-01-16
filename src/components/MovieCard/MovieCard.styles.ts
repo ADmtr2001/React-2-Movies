@@ -48,7 +48,7 @@ export const Wrapper = styled(Link)`
     }
   }
 
-  .description {
+  .description-container {
     padding: .75rem 1rem;
 
     h3 {

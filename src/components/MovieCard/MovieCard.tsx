@@ -18,7 +18,7 @@ const MovieCard: FC<MovieCardProps> = ({movie}) => {
         <div className='hover-container'><BsSearch/></div>
         <img src={movie.Poster} alt='film'/>
       </div>
-      <div className='description'>
+      <div className='description-container'>
         <h3>{movie.Title}</h3>
         <p>{movie.Year}</p>
       </div>

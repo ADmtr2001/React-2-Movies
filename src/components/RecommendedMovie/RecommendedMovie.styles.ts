@@ -26,7 +26,7 @@ export const Wrapper = styled.header`
 
     margin: 10rem 0 0 4rem;
 
-    .description {
+    .description-container {
       width: 55rem;
 
       ${setFlex({justify: 'space-between', direction: 'column'})};
