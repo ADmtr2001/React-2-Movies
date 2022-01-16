@@ -2,7 +2,6 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import {movieApi} from "../../../common/apis/movieApi";
 
 import {APIKey} from "../../../common/apis/movieApiKey";
-import {ISingleMovie} from "../../../types/IMovie";
 
 export  const fetchAsyncMovies = createAsyncThunk(
   'movie/fetchMovies',
@@ -50,12 +49,15 @@ export const fetchAsyncSingleMovie = createAsyncThunk(
   'movie/fetchSingleMovie',
   async (id: string, thunkAPI) => {
     try {
-      const response = await movieApi.get<ISingleMovie>(
+      const response = await movieApi.get<any>(
         `?apiKey=${APIKey}&i=${id}&plot=full`
       );
+
+      if (response.data.Response === 'False') throw Error('Failed to fetch data');
+
       return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue('Failed');
+    } catch (e: any) {
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );

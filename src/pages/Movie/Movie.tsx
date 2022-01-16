@@ -2,16 +2,19 @@ import React, {useEffect} from 'react';
 
 import SingleMovie from "../../components/SingleMovie/SingleMovie";
 
-import {useParams} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";
 
 import {Wrapper} from "./Movie.styles";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {fetchAsyncSingleMovie} from "../../store/reducers/movie/MovieActionCreators";
+import Loader from "../../components/UI/Loader/Loader";
+import PageNotFound from "../PageNotFound/PageNotFound";
 
 const Movie = () => {
   const {id} = useParams();
-  const {singleMovie} = useAppSelector(state => state.movie);
+  const {singleMovie, singleMovieIsLoading, singleMovieError} = useAppSelector(state => state.movie);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!id) return;
@@ -19,9 +22,17 @@ const Movie = () => {
     dispatch(fetchAsyncSingleMovie(id));
   }, []);
 
+  if (singleMovieError) {
+    return <PageNotFound/>
+  }
+
+  if (singleMovieIsLoading) {
+    return <Loader/>;
+  }
+
   return (
     <Wrapper>
-      <SingleMovie movie={singleMovie ? singleMovie : null}/>
+      {singleMovie ? <SingleMovie movie={singleMovie}/> : null}
     </Wrapper>
   );
 };
