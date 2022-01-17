@@ -10,6 +10,8 @@ import {MdOutlineWatchLater} from "react-icons/md";
 import {BiLogIn, BiLogOut} from "react-icons/bi";
 import logo from '../../assets/logo.png';
 import {Link} from "react-router-dom";
+import LoginForm from "../UI/LoginForm/LoginForm";
+import ReactDOM from "react-dom";
 
 const icons = [
   {path: '/favorite', icon: AiOutlineStar},
@@ -26,6 +28,7 @@ const Navbar = () => {
 
   return (
     <Wrapper>
+      {ReactDOM.createPortal(<LoginForm/>, document.querySelector('#modal-root') as Element)}
       <div className='navbar-container'>
         <h2><Link to='/'><img src={logo} alt='logo'/></Link></h2>
         <NavbarIcon icon={<BsSearch/>} to={'/search'}/>
