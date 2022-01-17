@@ -3,7 +3,9 @@ import React, {FC} from 'react';
 import {Wrapper} from "./Button.styles";
 
 interface ButtonProps {
-  type: "button" | "submit" | "reset" | undefined;
+  type?: "button" | "submit" | "reset" | undefined;
+  disabled?: boolean | undefined;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const Button: FC<ButtonProps> = (props) => {

@@ -21,6 +21,7 @@ const icons = [
 
 const Navbar = () => {
   const isAuth = true;
+  const isLoginVisible = false;
 
   const listOfIcons = icons.map(icon => (
     <NavbarIcon key={icon.path} to={icon.path} icon={<icon.icon/>}/>
@@ -28,7 +29,7 @@ const Navbar = () => {
 
   return (
     <Wrapper>
-      {ReactDOM.createPortal(<LoginForm/>, document.querySelector('#modal-root') as Element)}
+      {isLoginVisible && ReactDOM.createPortal(<LoginForm/>, document.querySelector('#modal-root') as Element)}
       <div className='navbar-container'>
         <h2><Link to='/'><img src={logo} alt='logo'/></Link></h2>
         <NavbarIcon icon={<BsSearch/>} to={'/search'}/>

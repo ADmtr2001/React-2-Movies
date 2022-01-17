@@ -23,8 +23,10 @@ const LoginForm = () => {
   });
 
   return (
-    <Wrapper>
-      <h2>Login</h2>
+    <>
+      <div className='blur-container'/>
+      <Wrapper>
+        <h2>Login</h2>
         <form onSubmit={formik.handleSubmit}>
           <label htmlFor="email">Email:</label>
           <input
@@ -43,9 +45,10 @@ const LoginForm = () => {
           />
           {formik.touched.password && formik.errors.password && <div className='error-container'>{formik.errors.password}</div>}
 
-          <Button type='submit'>Submit</Button>
+          <Button type='submit' disabled={!!formik.errors.email || !!formik.errors.password}>Login</Button>
         </form>
-    </Wrapper>
+      </Wrapper>
+    </>
   );
 };
 

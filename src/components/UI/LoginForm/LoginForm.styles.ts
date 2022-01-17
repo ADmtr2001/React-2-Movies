@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   background-color: #131313;
   
   position: fixed;
+  z-index: 1000;
   top: 50%;
   left: 50%;
   

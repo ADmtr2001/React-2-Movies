@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import {setFlex} from "../../../styles/mixins/Mixins.styles";
 
 export const Wrapper = styled.button`
@@ -19,8 +19,10 @@ export const Wrapper = styled.button`
 
   transition: all linear .2s;
 
-  :hover {
-    background-color: #FF4E4E;
-    color: white;
-  }
+  ${(props) => !props.disabled && css`
+    :hover {
+      background-color: #FF4E4E;
+      color: white;
+    }
+  `};
 `;

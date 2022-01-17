@@ -6,6 +6,8 @@ import {Wrapper} from "./SingleMovie.styles";
 import {AiFillStar} from "react-icons/ai";
 
 import {ISingleMovie} from "../../types/IMovie";
+import Button from "../UI/Button/Button";
+import {useNavigate} from "react-router-dom";
 
 interface SingleMovieProps {
   movie: ISingleMovie;
@@ -14,6 +16,7 @@ interface SingleMovieProps {
 const SingleMovie: FC<SingleMovieProps> = ({movie}) => {
   const [isPlotFull, setIsPlotFull] = useState(false);
   const [isMoreButtonVisible, setIsMoveButtonVisible] = useState(false);
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (movie.Plot.length <= 500) {
@@ -29,7 +32,11 @@ const SingleMovie: FC<SingleMovieProps> = ({movie}) => {
     setIsPlotFull((value) => {
       return !value;
     });
-  }
+  };
+
+  const navigateBack = () => {
+    navigate(-1);
+  };
 
   let plot: React.ReactNode;
   if (isPlotFull && !isMoreButtonVisible) {
@@ -58,7 +65,7 @@ const SingleMovie: FC<SingleMovieProps> = ({movie}) => {
         </div>
       </div>
       <div className='buttons-container'>
-        <StyledLink text='Back' to='/'/>
+        <Button onClick={navigateBack}>Back</Button>
       </div>
     </Wrapper>
   );

@@ -38,6 +38,28 @@ export const GlobalStyles = createGlobalStyle`
     color: white;
     font-family: 'Roboto', sans-serif;
   }
+  
+  #modal-root {
+    position: absolute;
+    z-index: -1000;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .blur-container {
+    width: 100%;
+    height: 100%;
+
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+
+    background-color: rgba(0, 0, 0 , 0.5);
+    backdrop-filter: blur(3px);
+  }
 
   ol, ul {
     list-style: none;
