@@ -16,18 +16,25 @@ interface MovieListProps {
 }
 
 const MovieList: FC<MovieListProps> = ({title, movies, isLoading}) => {
+  const moviesList = movies.map(movie => <MovieCard key={movie.imdbID} movie={movie}/>);
+
+  let moviesField: React.ReactNode;
+  if (isLoading) {
+    moviesField = <Loader/>
+  } else if (moviesList.length === 0) {
+    moviesField = <p className='error-container'>No media for your request</p>
+  } else {
+    moviesField = (
+      <Slider {...Settings}>
+        {moviesList}
+      </Slider>
+    );
+  }
+
   return (
     <Wrapper>
       <h2>{title}</h2>
-      {isLoading
-        ? (<Loader/>)
-        : (
-        <Slider {...Settings}>
-          {movies.map(movie => (
-            <MovieCard key={movie.imdbID} movie={movie}/>
-          ))}
-        </Slider>
-      )}
+      {moviesField}
     </Wrapper>
   );
 };

@@ -8,4 +8,9 @@ export const Wrapper = styled.div`
     
     font-size: 2.5rem;
   }
+  
+  .error-container {
+    text-align: center;
+    font-size: 1.5rem;
+  }
 `;

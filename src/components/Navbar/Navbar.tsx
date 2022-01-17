@@ -19,9 +19,8 @@ const icons = [
 
 const Navbar = () => {
   const listOfIcons = icons.map(icon => (
-    <NavbarIcon to={icon.path} icon={<icon.icon/>}/>
-  ))
-  ;
+    <NavbarIcon key={icon.path} to={icon.path} icon={<icon.icon/>}/>
+  ));
 
   return (
     <Wrapper>

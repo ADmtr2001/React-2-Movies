@@ -19,7 +19,7 @@ const MovieCard: FC<MovieCardProps> = ({movie}) => {
         <img src={movie.Poster} alt='film'/>
       </div>
       <div className='description-container'>
-        <h3>{movie.Title}</h3>
+        <h3>{movie.Title.length > 50 ? `${movie.Title.slice(0, 50)}...` : movie.Title}</h3>
         <p>{movie.Year}</p>
       </div>
     </Wrapper>

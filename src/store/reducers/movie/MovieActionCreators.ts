@@ -5,10 +5,10 @@ import {APIKey} from "../../../common/apis/movieApiKey";
 
 export  const fetchAsyncMovies = createAsyncThunk(
   'movie/fetchMovies',
-  async (term, thunkAPI) => {
+  async (term: string, thunkAPI) => {
     try {
       const response = await movieApi.get<any>(
-        `?apiKey=${APIKey}&s=Harry Potter&type=movie`
+        `?apiKey=${APIKey}&s=${term}&type=movie`
       );
       return response.data.Response === 'False' ? [] : response.data.Search;
     } catch (e) {
@@ -19,10 +19,10 @@ export  const fetchAsyncMovies = createAsyncThunk(
 
 export  const fetchAsyncShows = createAsyncThunk(
   'movie/fetchShows',
-  async (term, thunkAPI) => {
+  async (term: string, thunkAPI) => {
     try {
       const response = await movieApi.get<any>(
-        `?apiKey=${APIKey}&s=House&type=series`
+        `?apiKey=${APIKey}&s=${term}&type=series`
       );
       return response.data.Response === 'False' ? [] : response.data.Search;
     } catch (e) {
@@ -31,12 +31,13 @@ export  const fetchAsyncShows = createAsyncThunk(
   }
 );
 
+// Remove this one
 export const fetchAsyncRecommended = createAsyncThunk(
   'movie/fetchRecommended',
-  async (term, thunkAPI) => {
+  async (term: string, thunkAPI) => {
     try {
       const response = await movieApi.get<any>(
-        `?apiKey=${APIKey}&s=American`
+        `?apiKey=${APIKey}&s=${term}`
       );
       return response.data.Response === 'False' ? [] : response.data.Search;
     } catch (e) {

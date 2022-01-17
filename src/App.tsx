@@ -12,14 +12,6 @@ import {Route, Routes} from "react-router-dom";
 import {Wrapper} from './styles/App.styles';
 
 const App = () => {
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(fetchAsyncMovies());
-    dispatch(fetchAsyncShows());
-    dispatch(fetchAsyncRecommended());
-  }, []);
-
   return (
     <Wrapper>
       <div className='colons'>
