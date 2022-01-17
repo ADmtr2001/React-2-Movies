@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 
 import {Wrapper} from "./NavbarIcon.styles";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 interface NavbarIcon {
   icon: React.ReactNode;
@@ -11,7 +11,7 @@ interface NavbarIcon {
 const NavbarIcon: FC<NavbarIcon> = ({icon, to}) => {
   return (
     <Wrapper>
-      <Link to={to}>{icon}</Link>
+      <NavLink to={to} className={({isActive}) => isActive ? 'active-link' : ''}>{icon}</NavLink>
     </Wrapper>
   );
 };

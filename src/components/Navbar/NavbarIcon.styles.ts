@@ -3,6 +3,11 @@ import styled from "styled-components";
 import {setFlex} from "../../styles/mixins/Mixins.styles";
 
 export const Wrapper = styled.div`
+  .active-link {
+    background-color: white;
+    color: #1A1F38;
+  }
+    
   a {
     font-size: 2.5rem;
 
@@ -11,6 +16,7 @@ export const Wrapper = styled.div`
 
     border: 2px solid white;
     border-radius: 50%;
+    outline: none;
 
     ${setFlex({justify: 'center', align: 'center'})};
 
