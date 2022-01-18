@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC, useState} from 'react';
 
 import {useFormik} from 'formik';
 
@@ -7,7 +7,15 @@ import Button from "../Button/Button";
 
 import * as Yup from 'yup';
 
-const LoginForm = () => {
+interface LoginFormProps {
+  register: (email: string, password: string) =>  Promise<void>;
+  login: (email: string, password: string) =>  Promise<void>;
+  hideModal: () => void;
+}
+
+const LoginForm: FC<LoginFormProps> = ({register, login, hideModal}) => {
+  const [isLogin, setIsLogin] = useState(true);
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -15,20 +23,27 @@ const LoginForm = () => {
     },
     validationSchema: Yup.object({
       email: Yup.string().email('Invalid email address').required('Required'),
-      password: Yup.string().min(5, 'Must be 5 characters or more').max(15, 'Must be 15 characters or less').required('Required'),
+      password: Yup.string().min(6, 'Must be 6 characters or more').max(15, 'Must be 15 characters or less').required('Required'),
     }),
     onSubmit: (values) => {
-      console.log(values)
+      if (isLogin) {
+        login(values.email, values.password);
+      } else {
+        register(values.email, values.password);
+      }
+      hideModal();
     }
   });
 
   return (
     <>
-      <div className='blur-container'/>
+      <div className='blur-container' onClick={hideModal}/>
       <Wrapper>
         <div className='buttons-container'>
-          <Button color='white' hoverColor='black' hoverBackground='white'>Login</Button>
-          <Button color='white' hoverColor='black' hoverBackground='white'>Logout</Button>
+          <Button color='white' hoverColor='black' hoverBackground='white'
+                  onClick={() => setIsLogin(true)}>Login</Button>
+          <Button color='white' hoverColor='black' hoverBackground='white' onClick={() => setIsLogin(false)}>Sign
+            Up</Button>
         </div>
         <form onSubmit={formik.handleSubmit}>
           <label htmlFor="email">Email:</label>
@@ -46,9 +61,10 @@ const LoginForm = () => {
             placeholder="jq42lxi43"
             {...formik.getFieldProps('password')}
           />
-          {formik.touched.password && formik.errors.password && <div className='error-container'>{formik.errors.password}</div>}
+          {formik.touched.password && formik.errors.password &&
+						<div className='error-container'>{formik.errors.password}</div>}
 
-          <Button type='submit' disabled={!!formik.errors.email || !!formik.errors.password}>Login</Button>
+          <Button type='submit' disabled={!!formik.errors.email || !!formik.errors.password}>{isLogin ? 'Login' : 'Sign Up'}</Button>
         </form>
       </Wrapper>
     </>
