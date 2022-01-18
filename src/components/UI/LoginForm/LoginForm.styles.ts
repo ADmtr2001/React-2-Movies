@@ -18,6 +18,12 @@ export const Wrapper = styled.div`
   
   ${setFlex({align: 'center', direction: 'column'})};
   
+  .buttons-container {
+    ${setFlex({})};
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  
   h2 {
     font-size: 3.5rem;
     

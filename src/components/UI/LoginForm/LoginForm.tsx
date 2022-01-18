@@ -26,7 +26,10 @@ const LoginForm = () => {
     <>
       <div className='blur-container'/>
       <Wrapper>
-        <h2>Login</h2>
+        <div className='buttons-container'>
+          <Button color='white' hoverColor='black' hoverBackground='white'>Login</Button>
+          <Button color='white' hoverColor='black' hoverBackground='white'>Logout</Button>
+        </div>
         <form onSubmit={formik.handleSubmit}>
           <label htmlFor="email">Email:</label>
           <input

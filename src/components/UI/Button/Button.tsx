@@ -6,6 +6,10 @@ interface ButtonProps {
   type?: "button" | "submit" | "reset" | undefined;
   disabled?: boolean | undefined;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  color?: string;
+  hoverColor?: string;
+  hoverBackground?: string;
+  width?: string;
 }
 
 const Button: FC<ButtonProps> = (props) => {

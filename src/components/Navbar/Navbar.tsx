@@ -21,7 +21,7 @@ const icons = [
 
 const Navbar = () => {
   const isAuth = true;
-  const isLoginVisible = false;
+  const isLoginVisible = true;
 
   const listOfIcons = icons.map(icon => (
     <NavbarIcon key={icon.path} to={icon.path} icon={<icon.icon/>}/>
