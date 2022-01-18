@@ -39,7 +39,6 @@ const Navbar = () => {
   const register = async (email: string, password: string) => {
     try {
       const user = await createUserWithEmailAndPassword(auth, email, password);
-      console.log(user);
     } catch(e: any) {
       console.log(e.message);
     }
@@ -48,7 +47,6 @@ const Navbar = () => {
   const login = async (email: string, password: string) => {
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
-      console.log(user);
     } catch(e: any) {
       console.log(e.message);
     }

@@ -3,7 +3,7 @@ import {setFlex} from "../../../styles/mixins/Mixins.styles";
 
 export const Wrapper = styled.div`
   width: 60rem;
-  height: 40rem;
+  height: 45rem;
   
   font-size: 2.5rem;
 
@@ -43,6 +43,22 @@ export const Wrapper = styled.div`
     
     button {
       margin: 2rem auto 0;
+    }
+  }
+  
+  .additional-container {
+    margin-top: 1rem;
+    
+    font-size: 4rem;
+    
+    button {
+      background-color: transparent;
+      border: none;
+      color: white;
+      
+      :hover {
+        color: red;
+      }
     }
   }
 `;

@@ -4,8 +4,10 @@ import {useFormik} from 'formik';
 
 import {Wrapper} from "./LoginForm.styles";
 import Button from "../Button/Button";
+import {AiFillGoogleCircle} from 'react-icons/ai';
 
 import * as Yup from 'yup';
+import {signInWithGoogle} from "../../../common/firebase/firebase-config";
 
 interface LoginFormProps {
   register: (email: string, password: string) =>  Promise<void>;
@@ -34,6 +36,11 @@ const LoginForm: FC<LoginFormProps> = ({register, login, hideModal}) => {
       hideModal();
     }
   });
+
+  const loginWithGoogle = () => {
+    signInWithGoogle();
+    hideModal();
+  }
 
   return (
     <>
@@ -66,6 +73,10 @@ const LoginForm: FC<LoginFormProps> = ({register, login, hideModal}) => {
 
           <Button type='submit' disabled={!!formik.errors.email || !!formik.errors.password}>{isLogin ? 'Login' : 'Sign Up'}</Button>
         </form>
+
+        <div className='additional-container'>
+          <button><AiFillGoogleCircle onClick={loginWithGoogle}/></button>
+        </div>
       </Wrapper>
     </>
   );
