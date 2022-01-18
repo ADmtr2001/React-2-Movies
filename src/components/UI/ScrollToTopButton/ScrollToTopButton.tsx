@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-import {scrollToTop} from "../../../utils/scrollToTop";
+import {scrollToTop} from "../../../helpers/scrollToTop";
 
 
 import {Wrapper} from "./ScrollToTopButton.styles";

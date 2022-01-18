@@ -48,8 +48,8 @@ const LoginForm: FC<LoginFormProps> = ({register, login, hideModal}) => {
       <Wrapper>
         <div className='buttons-container'>
           <Button color='white' hoverColor='black' hoverBackground='white'
-                  onClick={() => setIsLogin(true)}>Login</Button>
-          <Button color='white' hoverColor='black' hoverBackground='white' onClick={() => setIsLogin(false)}>Sign
+                  onClick={() => setIsLogin(true)} className={isLogin ? 'active' : ''}>Login</Button>
+          <Button color='white' hoverColor='black' hoverBackground='white' onClick={() => setIsLogin(false)} className={isLogin ? '' : 'active'}>Sign
             Up</Button>
         </div>
         <form onSubmit={formik.handleSubmit}>

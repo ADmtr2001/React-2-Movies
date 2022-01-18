@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 
-import {scrollToTop} from "../../utils/scrollToTop";
+import {scrollToTop} from "../../helpers/scrollToTop";
 
 import {Wrapper} from "./MovieCard.styles";
 import {BsSearch} from 'react-icons/bs';

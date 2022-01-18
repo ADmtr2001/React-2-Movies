@@ -10,7 +10,7 @@ import {FaUser} from "react-icons/fa";
 import {AiOutlineStar} from "react-icons/ai";
 import {MdOutlineWatchLater} from "react-icons/md";
 import {BiLogIn, BiLogOut} from "react-icons/bi";
-import logo from '../../assets/logo.png';
+import logo from '../../assets/images/logo.png';
 import {Link} from "react-router-dom";
 import LoginForm from "../UI/LoginForm/LoginForm";
 import ReactDOM from "react-dom";
