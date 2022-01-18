@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, {forwardRef, useState} from 'react';
 
 import {Wrapper} from "./SearchForm.styles";
 import {BsSearch} from 'react-icons/bs';
 import {fetchAsyncMovies, fetchAsyncShows} from "../../../store/reducers/movie/MovieActionCreators";
 import {useAppDispatch} from "../../../hooks/redux";
 
-const SearchForm = () => {
+const SearchForm = forwardRef((props, ref: React.Ref<HTMLInputElement>) => {
   const [searchTerm, setSearchTerm] = useState('');
   const dispatch = useAppDispatch();
 
@@ -25,11 +25,11 @@ const SearchForm = () => {
   return (
     <Wrapper onSubmit={onFormSubmit}>
       <div className='container'>
-        <input value={searchTerm} onChange={handleInput}/>
+        <input value={searchTerm} ref={ref} onChange={handleInput}/>
         <button><BsSearch/></button>
       </div>
     </Wrapper>
   );
-};
+});
 
 export default SearchForm;
