@@ -9,17 +9,27 @@ import {AiOutlineStar} from "react-icons/ai";
 
 import {IMovie} from "../../types/IMovie";
 import FilmActionButton from "../UI/FilmActionButton/FilmActionButton";
+import {addFilmToCategory, CategoryType} from "../../common/firebase/database";
+import {useAppSelector} from "../../hooks/redux";
 
 interface MovieCardProps {
   movie: IMovie;
 }
 
 const MovieCard: FC<MovieCardProps> = ({movie}) => {
+  const {user} = useAppSelector(state => state.user);
+
+  const handleAddToFavorite = (e:  React.MouseEvent<HTMLButtonElement>, category: CategoryType) => {
+    if (!user) return;
+
+    addFilmToCategory(e, movie, user, category);
+  }
+
   return (
     <Wrapper to={`/movie/${movie.imdbID}`} onClick={scrollToTop}>
       <div className='buttons-container'>
-        <FilmActionButton><AiOutlineStar/></FilmActionButton>
-        <FilmActionButton><MdOutlineWatchLater/></FilmActionButton>
+        <FilmActionButton onClick={(e) => handleAddToFavorite(e, CategoryType.Favorite)}><AiOutlineStar/></FilmActionButton>
+        <FilmActionButton onClick={(e) => handleAddToFavorite(e, CategoryType.Later)}><MdOutlineWatchLater/></FilmActionButton>
       </div>
       <div className='image-container'>
         <div className='hover-container'><BsSearch/></div>

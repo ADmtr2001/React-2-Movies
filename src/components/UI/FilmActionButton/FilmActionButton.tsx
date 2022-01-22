@@ -2,11 +2,13 @@ import React, {FC} from 'react';
 
 import {Wrapper} from "./FilmActionButton.styles";
 
-const FilmActionButton: FC = ({children}) => {
+interface FilmActionButtonProps {
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+const FilmActionButton: FC<FilmActionButtonProps> = (props) => {
   return (
-    <Wrapper>
-      {children}
-    </Wrapper>
+    <Wrapper {...props}/>
   );
 };
 

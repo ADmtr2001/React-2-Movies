@@ -13,7 +13,7 @@ import {Link} from "react-router-dom";
 import LoginForm from "../UI/LoginForm/LoginForm";
 import ReactDOM from "react-dom";
 
-import {logout} from "../../helpers/auth";
+import {logout} from "../../common/firebase/auth";
 import {useAppSelector} from "../../hooks/redux";
 
 const icons = [

@@ -12,13 +12,16 @@ import {Wrapper} from './styles/App.styles';
 import {onAuthStateChanged} from "firebase/auth";
 import {auth} from "./common/firebase/firebase-config";
 import {setUser} from "./store/reducers/user/userSlice";
-import firebase from "firebase/compat";
 
 const App = () => {
   const dispatch = useAppDispatch();
 
   onAuthStateChanged(auth, (currentUser) => {
-    dispatch(setUser(currentUser as firebase.User));
+    if (!currentUser) {
+      dispatch(setUser(null));
+      return;
+    }
+    dispatch(setUser({uid: currentUser.uid}));
   });
 
   return (
