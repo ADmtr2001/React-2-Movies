@@ -1,9 +1,15 @@
-import {configureStore} from "@reduxjs/toolkit";
+import {configureStore, getDefaultMiddleware} from "@reduxjs/toolkit";
 import {rootReducer} from "./reducers/rootReducer";
+import {setUser} from "./reducers/user/userSlice";
 
 export const setupStore = () => {
   return configureStore({
-    reducer: rootReducer
+    reducer: rootReducer,
+    middleware: getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [setUser.type]
+      }
+    })
   })
 }
 

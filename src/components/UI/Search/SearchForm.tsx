@@ -2,7 +2,7 @@ import React, {forwardRef, useState} from 'react';
 
 import {Wrapper} from "./SearchForm.styles";
 import {BsSearch} from 'react-icons/bs';
-import {fetchAsyncMovies, fetchAsyncShows} from "../../../store/reducers/movie/MovieActionCreators";
+import {fetchAsyncMovies, fetchAsyncShows} from "../../../store/reducers/movie/movieActionCreators";
 import {useAppDispatch} from "../../../hooks/redux";
 
 const SearchForm = forwardRef((props, ref: React.Ref<HTMLInputElement>) => {

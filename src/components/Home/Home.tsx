@@ -3,7 +3,7 @@ import React, {useEffect} from 'react';
 import MovieList from "../MovieList/MovieList";
 
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
-import {fetchAsyncMovies, fetchAsyncRecommended, fetchAsyncShows} from "../../store/reducers/movie/MovieActionCreators";
+import {fetchAsyncMovies, fetchAsyncRecommended, fetchAsyncShows} from "../../store/reducers/movie/movieActionCreators";
 
 import {Wrapper} from "./Home.styles";
 

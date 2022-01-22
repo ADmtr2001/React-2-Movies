@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 
 import NavbarIcon from "./NavbarIcon";
 
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged} from "firebase/auth";
-
 import {Wrapper} from "./Navbar.styles";
 import {BsSearch} from 'react-icons/bs';
 import {FaUser} from "react-icons/fa";
@@ -15,8 +13,8 @@ import {Link} from "react-router-dom";
 import LoginForm from "../UI/LoginForm/LoginForm";
 import ReactDOM from "react-dom";
 
-import {auth} from "../../common/firebase/firebase-config";
-import firebase from "firebase/compat";
+import {logout} from "../../helpers/auth";
+import {useAppSelector} from "../../hooks/redux";
 
 const icons = [
   {path: '/favorite', icon: AiOutlineStar},
@@ -26,35 +24,11 @@ const icons = [
 
 const Navbar = () => {
   const [isLoginVisible, setIsLoginVisible] = useState(false);
-  const [user, setUser] = useState<any>(null);
-
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
+  const {user} = useAppSelector(state => state.user);
 
   const listOfIcons = icons.map(icon => (
     <NavbarIcon key={icon.path} to={icon.path} icon={<icon.icon/>}/>
   ));
-
-  const register = async (email: string, password: string) => {
-    try {
-      const user = await createUserWithEmailAndPassword(auth, email, password);
-    } catch(e: any) {
-      console.log(e.message);
-    }
-  };
-
-  const login = async (email: string, password: string) => {
-    try {
-      const user = await signInWithEmailAndPassword(auth, email, password);
-    } catch(e: any) {
-      console.log(e.message);
-    }
-  }
-
-  const logout = async () => {
-    await signOut(auth);
-  }
 
   const hideModal = () => {
     setIsLoginVisible(false);
@@ -62,7 +36,7 @@ const Navbar = () => {
 
   return (
     <Wrapper>
-      {isLoginVisible && ReactDOM.createPortal(<LoginForm register={register} login={login} hideModal={hideModal}/>, document.querySelector('#modal-root') as Element)}
+      {isLoginVisible && ReactDOM.createPortal(<LoginForm hideModal={hideModal}/>, document.querySelector('#modal-root') as Element)}
       <div className='navbar-container'>
         <h2><Link to='/'><img src={logo} alt='logo'/></Link></h2>
         <NavbarIcon icon={<BsSearch/>} to={'/search'}/>

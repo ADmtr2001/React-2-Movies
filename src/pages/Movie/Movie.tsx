@@ -6,7 +6,7 @@ import {useParams, useNavigate} from "react-router-dom";
 
 import {Wrapper} from "./Movie.styles";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
-import {fetchAsyncSingleMovie} from "../../store/reducers/movie/MovieActionCreators";
+import {fetchAsyncSingleMovie} from "../../store/reducers/movie/movieActionCreators";
 import Loader from "../../components/UI/Loader/Loader";
 import PageNotFound from "../PageNotFound/PageNotFound";
 

@@ -8,14 +8,13 @@ import {AiFillGoogleCircle} from 'react-icons/ai';
 
 import * as Yup from 'yup';
 import {signInWithGoogle} from "../../../common/firebase/firebase-config";
+import {login, register} from "../../../helpers/auth";
 
 interface LoginFormProps {
-  register: (email: string, password: string) =>  Promise<void>;
-  login: (email: string, password: string) =>  Promise<void>;
   hideModal: () => void;
 }
 
-const LoginForm: FC<LoginFormProps> = ({register, login, hideModal}) => {
+const LoginForm: FC<LoginFormProps> = ({hideModal}) => {
   const [isLogin, setIsLogin] = useState(true);
 
   const formik = useFormik({

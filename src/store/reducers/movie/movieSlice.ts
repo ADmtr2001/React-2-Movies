@@ -1,6 +1,6 @@
 import {IMovie, ISingleMovie} from "../../../types/IMovie";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {fetchAsyncMovies, fetchAsyncRecommended, fetchAsyncShows, fetchAsyncSingleMovie} from "./MovieActionCreators";
+import {fetchAsyncMovies, fetchAsyncRecommended, fetchAsyncShows, fetchAsyncSingleMovie} from "./movieActionCreators";
 
 interface MovieState {
   movies: IMovie[];

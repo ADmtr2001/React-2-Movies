@@ -1,7 +1,6 @@
-import React, {useEffect} from "react";
+import React from "react";
 
 import {useAppDispatch} from "./hooks/redux";
-import {fetchAsyncMovies, fetchAsyncRecommended, fetchAsyncShows} from "./store/reducers/movie/MovieActionCreators";
 
 import Navbar from "./components/Navbar/Navbar";
 import {Main, Search, Favorite, WatchLater, User, Movie, PageNotFound} from './pages'
@@ -10,8 +9,18 @@ import ScrollToTopButton from "./components/UI/ScrollToTopButton/ScrollToTopButt
 import {Route, Routes} from "react-router-dom";
 
 import {Wrapper} from './styles/App.styles';
+import {onAuthStateChanged} from "firebase/auth";
+import {auth} from "./common/firebase/firebase-config";
+import {setUser} from "./store/reducers/user/userSlice";
+import firebase from "firebase/compat";
 
 const App = () => {
+  const dispatch = useAppDispatch();
+
+  onAuthStateChanged(auth, (currentUser) => {
+    dispatch(setUser(currentUser as firebase.User));
+  });
+
   return (
     <Wrapper>
       <div className='colons'>
