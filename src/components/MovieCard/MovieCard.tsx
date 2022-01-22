@@ -4,8 +4,11 @@ import {scrollToTop} from "../../helpers/scrollToTop";
 
 import {Wrapper} from "./MovieCard.styles";
 import {BsSearch} from 'react-icons/bs';
+import {MdOutlineWatchLater} from "react-icons/md";
+import {AiOutlineStar} from "react-icons/ai";
 
 import {IMovie} from "../../types/IMovie";
+import FilmActionButton from "../UI/FilmActionButton/FilmActionButton";
 
 interface MovieCardProps {
   movie: IMovie;
@@ -14,6 +17,10 @@ interface MovieCardProps {
 const MovieCard: FC<MovieCardProps> = ({movie}) => {
   return (
     <Wrapper to={`/movie/${movie.imdbID}`} onClick={scrollToTop}>
+      <div className='buttons-container'>
+        <FilmActionButton><AiOutlineStar/></FilmActionButton>
+        <FilmActionButton><MdOutlineWatchLater/></FilmActionButton>
+      </div>
       <div className='image-container'>
         <div className='hover-container'><BsSearch/></div>
         <img src={movie.Poster} alt='film'/>

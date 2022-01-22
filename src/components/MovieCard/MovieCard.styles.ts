@@ -16,6 +16,21 @@ export const Wrapper = styled(Link)`
 
   cursor: pointer;
 
+  position: relative;
+
+  .buttons-container {
+    ${setFlex({direction: 'column'})};
+    gap: 1rem;
+
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1001;
+    
+    opacity: 0;
+    transition: opacity linear .2s;
+  }
+
   .image-container {
     width: 100%;
     height: 75%;
@@ -62,6 +77,7 @@ export const Wrapper = styled(Link)`
   }
 
   &:hover {
+    .buttons-container,
     .hover-container {
       opacity: 1;
     }
