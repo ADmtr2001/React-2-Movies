@@ -6,12 +6,13 @@ import {NavLink} from "react-router-dom";
 interface NavbarIcon {
   icon: React.ReactNode;
   to: string;
+  onClick: () => void;
 }
 
-const NavbarIcon: FC<NavbarIcon> = ({icon, to}) => {
+const NavbarIcon: FC<NavbarIcon> = ({icon, to, onClick}) => {
   return (
     <Wrapper>
-      <NavLink to={to} className={({isActive}) => isActive ? 'active-link' : ''}>{icon}</NavLink>
+      <NavLink to={to} className={({isActive}) => isActive ? 'active-link' : ''} onClick={onClick}>{icon}</NavLink>
     </Wrapper>
   );
 };

@@ -15,6 +15,7 @@ import ReactDOM from "react-dom";
 
 import {logout} from "../../common/firebase/auth";
 import {useAppSelector} from "../../hooks/redux";
+import {scrollToTop} from "../../helpers/scrollToTop";
 
 const icons = [
   {path: '/favorite', icon: AiOutlineStar},
@@ -27,7 +28,7 @@ const Navbar = () => {
   const {user} = useAppSelector(state => state.user);
 
   const listOfIcons = icons.map(icon => (
-    <NavbarIcon key={icon.path} to={icon.path} icon={<icon.icon/>}/>
+    <NavbarIcon key={icon.path} to={icon.path} icon={<icon.icon/>} onClick={scrollToTop}/>
   ));
 
   const hideModal = () => {
@@ -39,7 +40,7 @@ const Navbar = () => {
       {isLoginVisible && ReactDOM.createPortal(<LoginForm hideModal={hideModal}/>, document.querySelector('#modal-root') as Element)}
       <div className='navbar-container'>
         <h2><Link to='/'><img src={logo} alt='logo'/></Link></h2>
-        <NavbarIcon icon={<BsSearch/>} to={'/search'}/>
+        <NavbarIcon icon={<BsSearch/>} to={'/search'} onClick={scrollToTop}/>
         {user && listOfIcons}
         <div className='login-container'>
           <button>{user ? <BiLogOut onClick={logout}/> : <BiLogIn onClick={() => setIsLoginVisible(true)}/>}</button>
