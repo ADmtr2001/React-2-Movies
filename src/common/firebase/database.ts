@@ -11,11 +11,6 @@ export enum CategoryType {
 }
 
 export const addFilmToCategory = async (e: React.MouseEvent<HTMLButtonElement>, movie: IMovie, user: IUser, category: CategoryType) => {
-  e.stopPropagation();
-  e.preventDefault();
-
-  if (!user) return;
-
   const previousData = await getDocument(user, category);
   if (!previousData) {
     await setDoc(doc(db, category, `${user.uid}`), {
@@ -30,7 +25,7 @@ export const addFilmToCategory = async (e: React.MouseEvent<HTMLButtonElement>, 
   });
 }
 
-const getDocument = async (user: IUser, category: CategoryType) => {
+export const getDocument = async (user: IUser, category: CategoryType) => {
   if (!user) return;
 
   const docRef = doc(db, category, user.uid);

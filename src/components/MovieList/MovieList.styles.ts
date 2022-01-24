@@ -1,16 +1,10 @@
 import styled from "styled-components";
+import {setFlex} from "../../styles/mixins/Mixins.styles";
 
 export const Wrapper = styled.div`
-  margin: 0 3rem;
+  ${setFlex({})};
+  gap: 2rem;
+  flex-wrap: wrap;
   
-  h2 {
-    margin: 2.5rem 0 3rem 1rem;
-    
-    font-size: 2.5rem;
-  }
-  
-  .error-container {
-    text-align: center;
-    font-size: 1.5rem;
-  }
+  width: fit-content;
 `;

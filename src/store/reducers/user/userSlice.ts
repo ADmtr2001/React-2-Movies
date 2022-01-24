@@ -21,10 +21,18 @@ export const userSlice = createSlice({
   reducers: {
     setUser(state, action: PayloadAction<IUser | null>) {
       state.user = action.payload;
+    },
+    setFavoriteMovies(state, action: PayloadAction<IMovie[]>) {
+      state.favoriteMovies = action.payload;
+    },
+    setWatchLaterMovies(state, action: PayloadAction<IMovie[]>) {
+      state.watchLaterMovies = action.payload;
     }
   },
 });
 
 export const {
-  setUser
+  setUser,
+  setFavoriteMovies,
+  setWatchLaterMovies
 } = userSlice.actions;

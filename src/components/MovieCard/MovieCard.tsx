@@ -20,6 +20,8 @@ const MovieCard: FC<MovieCardProps> = ({movie}) => {
   const {user} = useAppSelector(state => state.user);
 
   const handleAddToFavorite = (e:  React.MouseEvent<HTMLButtonElement>, category: CategoryType) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (!user) return;
 
     addFilmToCategory(e, movie, user, category);

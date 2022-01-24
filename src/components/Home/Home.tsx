@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 
-import MovieList from "../MovieList/MovieList";
+import MovieSliderList from "../MovieSliderList/MovieSliderList";
 
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {fetchAsyncMovies, fetchAsyncRecommended, fetchAsyncShows} from "../../store/reducers/movie/movieActionCreators";
@@ -19,9 +19,9 @@ const Home = () => {
 
   return (
     <Wrapper>
-      <MovieList movies={recommended} title={'Recommended Movies'} isLoading={recommendedIsLoading}/>
-      <MovieList movies={movies} title={'Trending Movies'} isLoading={moviesIsLoading}/>
-      <MovieList movies={shows} title={'Trending Shows'} isLoading={showsIsLoading}/>
+      <MovieSliderList movies={recommended} title={'Recommended Movies'} isLoading={recommendedIsLoading}/>
+      <MovieSliderList movies={movies} title={'Trending Movies'} isLoading={moviesIsLoading}/>
+      <MovieSliderList movies={shows} title={'Trending Shows'} isLoading={showsIsLoading}/>
     </Wrapper>
   );
 };
