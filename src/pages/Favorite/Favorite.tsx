@@ -11,16 +11,13 @@ const Favorite = () => {
   const {user, favoriteMovies} = useAppSelector(state => state.user);
   const dispatch = useAppDispatch();
 
-
   useEffect(() => {
     if (!user) return;
 
-    if (favoriteMovies.length === 0) {
-       getDocument(user, CategoryType.Favorite)
-         .then(data => dispatch(setFavoriteMovies(Object.values(data as Object))))
-         .catch(err => console.log(err));
-    }
-  }, [favoriteMovies, user]);
+    getDocument(user, CategoryType.Favorite)
+      .then(data => dispatch(setFavoriteMovies(Object.values(data as Object))))
+      .catch(err => console.log(err));
+  }, [user]);
 
   return (
     <Wrapper>

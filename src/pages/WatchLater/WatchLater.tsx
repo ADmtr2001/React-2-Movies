@@ -14,12 +14,10 @@ const WatchLater = () => {
   useEffect(() => {
     if (!user) return;
 
-    if (watchLaterMovies.length === 0) {
-      getDocument(user, CategoryType.Later)
-        .then(data => dispatch(setWatchLaterMovies(Object.values(data as Object))))
-        .catch(err => console.log(err));
-    }
-  }, [watchLaterMovies, user]);
+    getDocument(user, CategoryType.Later)
+      .then(data => dispatch(setWatchLaterMovies(Object.values(data as Object))))
+      .catch(err => console.log(err));
+  }, [user]);
 
   return (
     <Wrapper>
