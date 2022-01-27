@@ -33,13 +33,18 @@ const Navbar = () => {
 
   return (
     <Wrapper>
-      {isLoginVisible && ReactDOM.createPortal(<LoginForm hideModal={hideModal}/>, document.querySelector('#modal-root') as Element)}
+      {isLoginVisible && ReactDOM.createPortal(<LoginForm
+        hideModal={hideModal}/>, document.querySelector('#modal-root') as Element)}
       <div className='navbar-container'>
         <h2><Link to='/'><img src={logo} alt='logo'/></Link></h2>
         <NavbarIcon icon={<BsSearch/>} to={'/search'} onClick={scrollToTop}/>
         {user && listOfIcons}
         <div className='login-container'>
-          <button>{user ? <BiLogOut onClick={logout}/> : <BiLogIn onClick={() => setIsLoginVisible(true)}/>}</button>
+          {
+            user
+              ? (<button onClick={logout}><BiLogOut/></button>)
+              : (<button onClick={() => setIsLoginVisible(true)}><BiLogIn/></button>)
+          }
         </div>
       </div>
     </Wrapper>
