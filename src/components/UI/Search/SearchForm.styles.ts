@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import {BsSearch} from 'react-icons/bs';
-
 import {setFlex} from "../../../styles/mixins/Mixins.styles";
 
 export const Wrapper = styled.form`
@@ -38,6 +36,7 @@ export const Wrapper = styled.form`
     color: #131313;
 
     cursor: pointer;
+    
     margin-left: 1rem;
     
     position: absolute;

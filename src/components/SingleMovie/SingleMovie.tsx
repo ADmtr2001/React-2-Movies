@@ -1,13 +1,14 @@
 import React, {FC, useEffect, useState} from 'react';
 
-import StyledLink from "../UI/StyledLink/StyledLink";
+import {AiFillStar} from "../../common/react-icons/icons";
+
+import {useNavigate} from "react-router-dom";
 
 import {Wrapper} from "./SingleMovie.styles";
-import {AiFillStar} from "react-icons/ai";
 
-import {ISingleMovie} from "../../types/IMovie";
 import Button from "../UI/Button/Button";
-import {useNavigate} from "react-router-dom";
+import {ISingleMovie} from "../../types/IMovie";
+
 
 interface SingleMovieProps {
   movie: ISingleMovie;

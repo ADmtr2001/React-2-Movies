@@ -1,14 +1,11 @@
-import {collection, doc, getDoc, setDoc} from "firebase/firestore";
-import {db} from "./firebase-config";
-import {useAppSelector} from "../../hooks/redux";
 import React from "react";
+
+import {doc, getDoc, setDoc} from "firebase/firestore";
+import {db} from "./firebase-config";
+
 import {IMovie} from "../../types/IMovie";
 import {IUser} from "../../types/IUser";
-
-export enum CategoryType {
-  Favorite = 'favorite',
-  Later = 'later',
-}
+import {CategoryType} from "../../types/IDatabase";
 
 export const addFilmToCategory = async (e: React.MouseEvent<HTMLButtonElement>, movie: IMovie, user: IUser, category: CategoryType) => {
   const previousData = await getDocument(user, category);
@@ -19,6 +16,7 @@ export const addFilmToCategory = async (e: React.MouseEvent<HTMLButtonElement>, 
     return;
   }
 
+  // TODO: Find better way. Too slow.
   await setDoc(doc(db, category, `${user.uid}`), {
     ...previousData,
     [movie.imdbID]: movie

@@ -1,8 +1,10 @@
 import React, {FC} from 'react';
 
-import {Wrapper} from "./MovieList.styles";
-import {IMovie} from "../../types/IMovie";
 import MovieCard from "../MovieCard/MovieCard";
+
+import {Wrapper} from "./MovieList.styles";
+
+import {IMovie} from "../../types/IMovie";
 
 interface MovieListProps {
   movies: IMovie[];

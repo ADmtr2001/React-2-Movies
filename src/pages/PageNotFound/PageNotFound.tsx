@@ -1,7 +1,8 @@
 import React from 'react';
 
-import {Wrapper} from "./PageNotFound.styles";
 import StyledLink from "../../components/UI/StyledLink/StyledLink";
+
+import {Wrapper} from "./PageNotFound.styles";
 
 const PageNotFound = () => {
   return (

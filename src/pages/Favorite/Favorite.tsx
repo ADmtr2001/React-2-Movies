@@ -1,11 +1,15 @@
 import React, {useEffect} from 'react';
 
-import {Wrapper} from "./Favorite.styles";
-import {useAppDispatch, useAppSelector} from "../../hooks/redux";
-import {CategoryType, getDocument} from "../../common/firebase/database";
-import {setFavoriteMovies, setWatchLaterMovies} from "../../store/reducers/user/userSlice";
-import MovieCard from "../../components/MovieCard/MovieCard";
 import MovieList from "../../components/MovieList/MovieList";
+
+import {useAppDispatch, useAppSelector} from "../../hooks/redux";
+import {getDocument} from "../../common/firebase/database";
+import {setFavoriteMovies} from "../../store/reducers/user/userSlice";
+
+import {Wrapper} from "./Favorite.styles";
+
+import {CategoryType} from "../../types/IDatabase";
+
 
 const Favorite = () => {
   const {user, favoriteMovies} = useAppSelector(state => state.user);

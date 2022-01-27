@@ -1,16 +1,16 @@
 import React, {FC} from 'react';
 
+import FilmActionButton from "../UI/FilmActionButton/FilmActionButton";
+import {AiOutlineStar, BsSearch, MdOutlineWatchLater} from "../../common/react-icons/icons";
+
+import {useAppSelector} from "../../hooks/redux";
 import {scrollToTop} from "../../helpers/scrollToTop";
+import {addFilmToCategory} from "../../common/firebase/database";
 
 import {Wrapper} from "./MovieCard.styles";
-import {BsSearch} from 'react-icons/bs';
-import {MdOutlineWatchLater} from "react-icons/md";
-import {AiOutlineStar} from "react-icons/ai";
 
 import {IMovie} from "../../types/IMovie";
-import FilmActionButton from "../UI/FilmActionButton/FilmActionButton";
-import {addFilmToCategory, CategoryType} from "../../common/firebase/database";
-import {useAppSelector} from "../../hooks/redux";
+import {CategoryType} from "../../types/IDatabase";
 
 interface MovieCardProps {
   movie: IMovie;

@@ -1,7 +1,8 @@
 import React, {FC} from 'react';
 
-import {Wrapper} from "./NavbarIcon.styles";
 import {NavLink} from "react-router-dom";
+
+import {Wrapper} from "./NavbarIcon.styles";
 
 interface NavbarIcon {
   icon: React.ReactNode;

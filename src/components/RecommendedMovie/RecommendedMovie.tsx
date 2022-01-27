@@ -1,9 +1,9 @@
 import React from 'react';
 
 import StyledLink from "../UI/StyledLink/StyledLink";
+import {AiFillStar} from "../../common/react-icons/icons";
 
 import {Wrapper} from "./RecommendedMovie.styles";
-import {AiFillStar} from 'react-icons/ai'
 
 const RecommendedMovie = () => {
   return (

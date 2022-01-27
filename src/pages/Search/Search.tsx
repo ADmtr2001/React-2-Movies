@@ -1,13 +1,12 @@
 import React, {useEffect, useRef} from 'react';
 
 import SearchForm from "../../components/UI/Search/SearchForm";
-import MovieSliderList from "../../components/MovieSliderList/MovieSliderList";
+import MovieList from "../../components/MovieList/MovieList";
 
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
+import {fetchAsyncMovies, fetchAsyncShows} from "../../store/reducers/movie/movieActionCreators";
 
 import {Wrapper} from "./Search.styles";
-import MovieList from "../../components/MovieList/MovieList";
-import {fetchAsyncMovies, fetchAsyncShows} from "../../store/reducers/movie/movieActionCreators";
 
 const Search = () => {
   const dispatch = useAppDispatch();
