@@ -1,17 +1,16 @@
 import React from "react";
 
 import {useAppDispatch} from "./hooks/redux";
+import {onAuthStateChanged} from "firebase/auth";
+import {setUser} from "./store/reducers/user/userSlice";
+import {auth} from "./common/firebase/firebase-config";
 
 import Navbar from "./components/Navbar/Navbar";
-import {Main, Search, Favorite, WatchLater, User, Movie, PageNotFound} from './pages'
 import Footer from "./components/Footer/Footer";
 import ScrollToTopButton from "./components/UI/ScrollToTopButton/ScrollToTopButton";
-import {Route, Routes} from "react-router-dom";
+import AppRouter from "./components/AppRouter/AppRouter";
 
 import {Wrapper} from './styles/App.styles';
-import {onAuthStateChanged} from "firebase/auth";
-import {auth} from "./common/firebase/firebase-config";
-import {setUser} from "./store/reducers/user/userSlice";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -29,15 +28,7 @@ const App = () => {
       <div className='colons'>
         <Navbar/>
         <div className='content'>
-          <Routes>
-            <Route path='/' element={<Main/>}/>
-            <Route path='search' element={<Search/>}/>
-            <Route path='favorite' element={<Favorite/>}/>
-            <Route path='watch-later' element={<WatchLater/>}/>
-            <Route path='user' element={<User/>}/>
-            <Route path='movie/:id' element={<Movie/>}/>
-            <Route path='*' element={<PageNotFound/>}/>
-          </Routes>
+          <AppRouter/>
         </div>
       </div>
       <Footer/>
