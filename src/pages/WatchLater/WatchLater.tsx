@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 
-import MovieList from "../../components/MovieList/MovieList";
+import MovieList from "../../components/Lists/MovieList/MovieList";
 
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {getDocument} from "../../common/firebase/database";

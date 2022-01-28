@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 
 import SearchForm from "../../components/UI/Search/SearchForm";
-import MovieList from "../../components/MovieList/MovieList";
+import MovieList from "../../components/Lists/MovieList/MovieList";
 
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {fetchAsyncMovies, fetchAsyncShows} from "../../store/reducers/movie/movieActionCreators";

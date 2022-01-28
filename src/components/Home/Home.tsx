@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 
-import MovieSliderList from "../MovieSliderList/MovieSliderList";
+import MovieSliderList from "../Lists/MovieSliderList/MovieSliderList";
 
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {fetchAsyncMovies, fetchAsyncRecommended, fetchAsyncShows} from "../../store/reducers/movie/movieActionCreators";

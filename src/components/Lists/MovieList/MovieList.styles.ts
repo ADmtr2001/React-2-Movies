@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {setFlex} from "../../styles/mixins/Mixins.styles";
+import {setFlex} from "../../../styles/mixins/Mixins.styles";
 
 export const Wrapper = styled.div`
   ${setFlex({})};

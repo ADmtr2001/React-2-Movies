@@ -8,7 +8,7 @@ export const Wrapper = styled.button`
   right: 3rem;
 
   background-color: transparent;
-  color: #FF4E4E;
+  color: white;
 
   font-size: 4rem;
 
@@ -17,13 +17,13 @@ export const Wrapper = styled.button`
   width: 5rem;
   height: 5rem;
 
-  border: 0.2rem solid #FF4E4E;
+  border: 0.2rem solid white;
   border-radius: 50%;
 
   transition: all linear .2s;
 
   :hover {
-    background-color: #FF4E4E;
-    color: white;
+    background-color: white;
+    color: black;
   }
 `;

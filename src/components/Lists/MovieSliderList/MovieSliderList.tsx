@@ -1,13 +1,13 @@
 import React, {FC} from 'react';
 
-import MovieCard from "../MovieCard/MovieCard";
+import MovieCard from "../../MovieCard/MovieCard";
 import Slider from 'react-slick'
-import Loader from "../UI/Loader/Loader";
+import Loader from "../../UI/Loader/Loader";
 
 import {Wrapper} from "./MovieSliderList.styles";
-import {Settings} from "../../common/slider/settings";
+import {Settings} from "../../../common/slider/settings";
 
-import {IMovie} from "../../types/IMovie";
+import {IMovie} from "../../../types/IMovie";
 
 interface MovieListSliderProps {
   title: string;
