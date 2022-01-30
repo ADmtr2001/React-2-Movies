@@ -4,13 +4,21 @@ import {Link} from "react-router-dom";
 
 import {setFlex} from "../../styles/mixins/Mixins.styles";
 
-export const Wrapper = styled(Link)`
+interface WrapperProps {
+  poster: string;
+}
+
+export const Wrapper = styled(Link)<WrapperProps>`
   display: inline-block;
 
   background-color: #131313;
+  background-image: url(${(props) => props.poster ? props.poster : ''});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-  width: 23rem;
-  height: 40rem;
+  width: 22rem;
+  height: 34rem;
 
   margin-left: 1.2rem;
 
@@ -30,41 +38,28 @@ export const Wrapper = styled(Link)`
     opacity: 0;
     transition: opacity linear .2s;
   }
-
-  .image-container {
+  
+  .content-container {
     width: 100%;
-    height: 75%;
-
+    height: 100%;
     position: relative;
+    
+    background: rgba(0, 0, 0, 0);
+    transition: background-color linear .2s;
 
-    .hover-container {
-      font-size: 4rem;
-
-      ${setFlex({justify: 'center', align: 'center'})};
-
-      width: 100%;
-      height: 100%;
-
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-
-      background-color: rgba(0, 0, 0, .5);
-
-      opacity: 0;
-      transition: opacity linear .2s;
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-    }
+    overflow: auto;
   }
 
   .description-container {
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,0.9355450798483456) 0%, rgba(0,0,0,0.3557131470752364) 72%, rgba(13,13,13,0) 100%);
     padding: .75rem 1rem;
+    padding-top: 3rem;
+    
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 
     h3 {
       font-size: 2rem;
@@ -77,9 +72,12 @@ export const Wrapper = styled(Link)`
   }
 
   &:hover {
-    .buttons-container,
-    .hover-container {
+    .buttons-container {
       opacity: 1;
+    }
+
+    .content-container {
+      background-color: rgba(0, 0, 0, 0.3);
     }
   }
 `;

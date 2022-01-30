@@ -4,6 +4,7 @@ import {auth} from "./firebase-config";
 export const register = async (email: string, password: string) => {
   try {
     const user = await createUserWithEmailAndPassword(auth, email, password);
+    return user;
   } catch(e: any) {
     console.log(e.message);
   }
@@ -12,6 +13,7 @@ export const register = async (email: string, password: string) => {
 export const login = async (email: string, password: string) => {
   try {
     const user = await signInWithEmailAndPassword(auth, email, password);
+    return user;
   } catch(e: any) {
     console.log(e.message);
   }

@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import firebase from "firebase/compat";
+
 import {IMovie} from "../../../types/IMovie";
 import {IUser} from "../../../types/IUser";
 
@@ -27,12 +27,12 @@ export const userSlice = createSlice({
     },
     setWatchLaterMovies(state, action: PayloadAction<IMovie[]>) {
       state.watchLaterMovies = action.payload;
-    }
+    },
   },
 });
 
 export const {
   setUser,
   setFavoriteMovies,
-  setWatchLaterMovies
+  setWatchLaterMovies,
 } = userSlice.actions;

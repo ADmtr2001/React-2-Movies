@@ -14,8 +14,11 @@ interface LoginFormProps {
   hideModal: () => void;
 }
 
+let timer: ReturnType<typeof setTimeout> | null = null;
+
 const LoginForm: FC<LoginFormProps> = ({hideModal}) => {
   const [isLogin, setIsLogin] = useState(true);
+  const [authError, setAuthError] = useState('');
 
   const formik = useFormik({
     initialValues: {
@@ -28,11 +31,32 @@ const LoginForm: FC<LoginFormProps> = ({hideModal}) => {
     }),
     onSubmit: (values) => {
       if (isLogin) {
-        login(values.email, values.password);
+        login(values.email, values.password)
+          .then((user) => {
+            if (user) {
+              hideModal();
+            } else {
+              setAuthError('Wrong email/password')
+              timer = setTimeout(() => {
+                setAuthError('');
+                timer = null;
+              }, 3000);
+            }
+          });
       } else {
-        register(values.email, values.password);
+        register(values.email, values.password)
+          .then((user) => {
+            if (user) {
+              hideModal();
+            } else {
+              setAuthError('Wrong email/password')
+              timer = setTimeout(() => {
+                setAuthError('');
+                timer = null;
+              }, 3000);
+            }
+          });
       }
-      hideModal();
     }
   });
 
@@ -41,14 +65,26 @@ const LoginForm: FC<LoginFormProps> = ({hideModal}) => {
     hideModal();
   }
 
+  const handleChangeOnLoginButton = () => {
+    setIsLogin(true);
+    setAuthError('');
+    if (timer) clearTimeout(timer);
+  }
+
+  const handleChangeOnRegisterButton = () => {
+    setIsLogin(false);
+    setAuthError('');
+    if (timer) clearTimeout(timer);
+  }
+
   return (
     <>
       <div className='blur-container' onClick={hideModal}/>
       <Wrapper>
         <div className='buttons-container'>
           <Button color='white' hoverColor='black' hoverBackground='white'
-                  onClick={() => setIsLogin(true)} className={isLogin ? 'active' : ''}>Login</Button>
-          <Button color='white' hoverColor='black' hoverBackground='white' onClick={() => setIsLogin(false)} className={isLogin ? '' : 'active'}>Sign
+                  onClick={handleChangeOnLoginButton} className={isLogin ? 'active' : ''}>Login</Button>
+          <Button color='white' hoverColor='black' hoverBackground='white' onClick={handleChangeOnRegisterButton} className={isLogin ? '' : 'active'}>Sign
             Up</Button>
         </div>
         <form onSubmit={formik.handleSubmit}>
@@ -69,6 +105,10 @@ const LoginForm: FC<LoginFormProps> = ({hideModal}) => {
           />
           {formik.touched.password && formik.errors.password &&
 						<div className='error-container'>{formik.errors.password}</div>}
+
+          <div className='auth-error-container'>
+            {authError && <p>{authError}</p>}
+          </div>
 
           <Button type='submit' disabled={!!formik.errors.email || !!formik.errors.password}>{isLogin ? 'Login' : 'Sign Up'}</Button>
         </form>

@@ -10,12 +10,12 @@ export const Wrapper = styled.button`
   background-color: transparent;
   color: white;
 
-  font-size: 4rem;
+  font-size: 3rem;
 
   ${setFlex({justify: 'center', align: 'center'})}
 
-  width: 5rem;
-  height: 5rem;
+  width: 4rem;
+  height: 4rem;
 
   border: 0.2rem solid white;
   border-radius: 50%;

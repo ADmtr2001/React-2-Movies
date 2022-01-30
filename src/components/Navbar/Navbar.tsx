@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import ReactDOM from "react-dom";
 
 import NavbarIcon from "./NavbarIcon";
-import {AiOutlineStar, BiLogIn, BiLogOut, BsSearch, FaUser, MdOutlineWatchLater} from "../../common/react-icons/icons";
-import {Link} from "react-router-dom";
+import {AiOutlineStar, BiLogIn, BiLogOut, BsSearch, MdOutlineWatchLater} from "../../common/react-icons/icons";
+import {Link, useNavigate} from "react-router-dom";
 import LoginForm from "../UI/LoginForm/LoginForm";
 
 import {logout} from "../../common/firebase/auth";
@@ -16,12 +16,12 @@ import logo from '../../assets/images/logo.png';
 const icons = [
   {path: '/favorite', icon: AiOutlineStar},
   {path: '/watch-later', icon: MdOutlineWatchLater},
-  {path: '/user', icon: FaUser},
 ];
 
 const Navbar = () => {
   const [isLoginVisible, setIsLoginVisible] = useState(false);
   const {user} = useAppSelector(state => state.user);
+  const navigate = useNavigate();
 
   const listOfIcons = icons.map(icon => (
     <NavbarIcon key={icon.path} to={icon.path} icon={<icon.icon/>} onClick={scrollToTop}/>
@@ -29,6 +29,11 @@ const Navbar = () => {
 
   const hideModal = () => {
     setIsLoginVisible(false);
+  }
+
+  const handleLogout = () => {
+    navigate('/');
+    logout();
   }
 
   return (
@@ -42,7 +47,7 @@ const Navbar = () => {
         <div className='login-container'>
           {
             user
-              ? (<button onClick={logout}><BiLogOut/></button>)
+              ? (<button onClick={handleLogout}><BiLogOut/></button>)
               : (<button onClick={() => setIsLoginVisible(true)}><BiLogIn/></button>)
           }
         </div>

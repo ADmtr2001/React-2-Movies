@@ -46,9 +46,15 @@ export const Wrapper = styled.div`
       text-align: end;
       color: red;
     }
+    
+    .auth-error-container {
+      font-size: 1.5rem;
+      text-align: center;
+      color: red;
+    }
 
     button {
-      margin: 2rem auto 0;
+      margin: 1.5rem auto 0;
     }
   }
 

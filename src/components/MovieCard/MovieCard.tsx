@@ -28,18 +28,16 @@ const MovieCard: FC<MovieCardProps> = ({movie}) => {
   }
 
   return (
-    <Wrapper to={`/movie/${movie.imdbID}`} onClick={scrollToTop}>
+    <Wrapper to={`/movie/${movie.imdbID}`} onClick={scrollToTop} poster={movie.Poster}>
       <div className='buttons-container'>
         <FilmActionButton onClick={(e) => handleAddToFavorite(e, CategoryType.Favorite)}><AiOutlineStar/></FilmActionButton>
         <FilmActionButton onClick={(e) => handleAddToFavorite(e, CategoryType.Later)}><MdOutlineWatchLater/></FilmActionButton>
       </div>
-      <div className='image-container'>
-        <div className='hover-container'><BsSearch/></div>
-        <img src={movie.Poster} alt='film'/>
-      </div>
-      <div className='description-container'>
-        <h3>{movie.Title.length > 50 ? `${movie.Title.slice(0, 50)}...` : movie.Title}</h3>
-        <p>{movie.Year}</p>
+      <div className='content-container'>
+        <div className='description-container'>
+          <h3>{movie.Title.length > 50 ? `${movie.Title.slice(0, 50)}...` : movie.Title}</h3>
+          <p>{movie.Year}</p>
+        </div>
       </div>
     </Wrapper>
   );
