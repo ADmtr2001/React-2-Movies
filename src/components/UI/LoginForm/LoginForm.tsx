@@ -9,16 +9,36 @@ import {AiFillGoogleCircle} from 'react-icons/ai';
 import * as Yup from 'yup';
 import {signInWithGoogle} from "../../../common/firebase/firebase-config";
 import {login, register} from "../../../common/firebase/auth";
-
-interface LoginFormProps {
-  hideModal: () => void;
-}
+import {useAppDispatch} from "../../../hooks/redux";
+import {setIsLoginVisible} from "../../../store/reducers/global/globalSlice";
 
 let timer: ReturnType<typeof setTimeout> | null = null;
 
-const LoginForm: FC<LoginFormProps> = ({hideModal}) => {
+const LoginForm: FC = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [authError, setAuthError] = useState('');
+  const dispatch = useAppDispatch();
+
+  const loginWithGoogle = () => {
+    signInWithGoogle();
+    hideModal();
+  }
+
+  const handleChangeOnLoginButton = () => {
+    setIsLogin(true);
+    setAuthError('');
+    if (timer) clearTimeout(timer);
+  }
+
+  const handleChangeOnRegisterButton = () => {
+    setIsLogin(false);
+    setAuthError('');
+    if (timer) clearTimeout(timer);
+  }
+
+  const hideModal = () => {
+    dispatch(setIsLoginVisible(false));
+  }
 
   const formik = useFormik({
     initialValues: {
@@ -62,23 +82,6 @@ const LoginForm: FC<LoginFormProps> = ({hideModal}) => {
     }
   });
 
-  const loginWithGoogle = () => {
-    signInWithGoogle();
-    hideModal();
-  }
-
-  const handleChangeOnLoginButton = () => {
-    setIsLogin(true);
-    setAuthError('');
-    if (timer) clearTimeout(timer);
-  }
-
-  const handleChangeOnRegisterButton = () => {
-    setIsLogin(false);
-    setAuthError('');
-    if (timer) clearTimeout(timer);
-  }
-
   return (
     <>
       <div className='blur-container' onClick={hideModal}/>
@@ -86,8 +89,10 @@ const LoginForm: FC<LoginFormProps> = ({hideModal}) => {
         <div className='buttons-container'>
           <Button color='white' hoverColor='black' hoverBackground='white'
                   onClick={handleChangeOnLoginButton} className={isLogin ? 'active' : ''}>Login</Button>
-          <Button color='white' hoverColor='black' hoverBackground='white' onClick={handleChangeOnRegisterButton} className={isLogin ? '' : 'active'}>Sign
-            Up</Button>
+          <Button color='white' hoverColor='black' hoverBackground='white' onClick={handleChangeOnRegisterButton}
+                  className={isLogin ? '' : 'active'}>
+            Sign Up
+          </Button>
         </div>
         <form onSubmit={formik.handleSubmit}>
           <label htmlFor="email">Email:</label>

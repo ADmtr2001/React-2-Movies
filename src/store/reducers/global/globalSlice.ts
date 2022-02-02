@@ -12,12 +12,12 @@ export const globalSlice = createSlice({
   name: 'global',
   initialState,
   reducers: {
-    setIsModalVisible(state, action: PayloadAction<boolean>) {
+    setIsLoginVisible(state, action: PayloadAction<boolean>) {
       state.isLoginVisible = action.payload;
     }
   }
 })
 
 export const {
-  setIsModalVisible
+  setIsLoginVisible
 } = globalSlice.actions;
