@@ -19,13 +19,17 @@ const WatchLater = () => {
     if (!user) return;
 
     getDocument(user, CategoryType.Later)
-      .then(data => dispatch(setWatchLaterMovies(Object.values(data as Object))))
+      .then(data => {
+        if (data) {
+          dispatch(setWatchLaterMovies(Object.values(data as Object)));
+        }
+      })
       .catch(err => console.log(err));
   }, [user]);
 
   return (
     <Wrapper>
-      <h1>Favorite Movies</h1>
+      <h1>Watch Later Movies</h1>
       <MovieList movies={watchLaterMovies}/>
     </Wrapper>
   );

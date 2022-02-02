@@ -19,7 +19,11 @@ const Favorite = () => {
     if (!user) return;
 
     getDocument(user, CategoryType.Favorite)
-      .then(data => dispatch(setFavoriteMovies(Object.values(data as Object))))
+      .then(data => {
+        if (data) {
+          dispatch(setFavoriteMovies(Object.values(data as Object)))
+        }
+      })
       .catch(err => console.log(err));
   }, [user]);
 

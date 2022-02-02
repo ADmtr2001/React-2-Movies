@@ -9,12 +9,22 @@ import {Wrapper} from "./Home.styles";
 
 const Home = () => {
   const dispatch = useAppDispatch();
-  const {movies, shows, recommended, moviesIsLoading, showsIsLoading, recommendedIsLoading} = useAppSelector(state => state.movie);
+  const {
+    movies,
+    shows,
+    recommended,
+    moviesIsLoading,
+    showsIsLoading,
+    recommendedIsLoading
+  } = useAppSelector(state => state.movie);
 
   useEffect(() => {
+    if (movies.length !== 0) return;
+
     dispatch(fetchAsyncMovies('Harry Potter'));
     dispatch(fetchAsyncShows('American'));
     dispatch(fetchAsyncRecommended('House'));
+
   }, []);
 
   return (

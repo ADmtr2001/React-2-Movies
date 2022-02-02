@@ -1,6 +1,23 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 
 import {setFlex} from "../../styles/mixins/Mixins.styles";
+
+const blink = keyframes`
+  0% {
+    background-color: transparent;
+    color: white
+  }
+
+  50% {
+    background-color: white;
+    color: black;
+  }
+
+  100% {
+    background-color: transparent;
+    color: white;
+  }
+`;
 
 export const Wrapper = styled.nav`
   position: fixed;
@@ -43,9 +60,9 @@ export const Wrapper = styled.nav`
     }
 
     .login-container {
-        margin-top: auto;
-        margin-bottom: 5rem;
-        
+      margin-top: auto;
+      margin-bottom: 5rem;
+
       button {
         font-size: 2.5rem;
 
@@ -64,6 +81,8 @@ export const Wrapper = styled.nav`
         cursor: pointer;
 
         transition: all linear .2s;
+
+        animation: ${blink} 2s linear infinite;
 
         :hover {
           background-color: white;
