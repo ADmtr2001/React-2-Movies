@@ -30,6 +30,8 @@ const LoginForm: FC<LoginFormProps> = ({hideModal}) => {
       password: Yup.string().min(6, 'Must be 6 characters or more').max(15, 'Must be 15 characters or less').required('Required'),
     }),
     onSubmit: (values) => {
+      if (!!formik.errors.email || !!formik.errors.password) return;
+
       if (isLogin) {
         login(values.email, values.password)
           .then((user) => {
@@ -110,7 +112,7 @@ const LoginForm: FC<LoginFormProps> = ({hideModal}) => {
             {authError && <p>{authError}</p>}
           </div>
 
-          <Button type='submit' disabled={!!formik.errors.email || !!formik.errors.password}>{isLogin ? 'Login' : 'Sign Up'}</Button>
+          <Button type='submit'>{isLogin ? 'Login' : 'Sign Up'}</Button>
         </form>
 
         <div className='additional-container'>
