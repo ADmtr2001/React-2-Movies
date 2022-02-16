@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 import {useAppDispatch} from "./hooks/redux";
 import {onAuthStateChanged} from "firebase/auth";

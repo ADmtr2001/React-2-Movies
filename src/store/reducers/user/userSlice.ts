@@ -21,6 +21,8 @@ export const userSlice = createSlice({
   reducers: {
     setUser(state, action: PayloadAction<IUser | null>) {
       state.user = action.payload;
+      if (action.payload !== null) localStorage.setItem('user', 'true');
+      else localStorage.removeItem('user');
     },
     setFavoriteMovies(state, action: PayloadAction<IMovie[]>) {
       state.favoriteMovies = action.payload;
