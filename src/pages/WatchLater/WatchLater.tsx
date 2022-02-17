@@ -15,17 +15,17 @@ const WatchLater = () => {
   const dispatch = useAppDispatch();
 
 
-  useEffect(() => {
-    if (!user) return;
-
-    getDocument(user, CategoryType.Later)
-      .then(data => {
-        if (data) {
-          dispatch(setWatchLaterMovies(Object.values(data as Object)));
-        }
-      })
-      .catch(err => console.log(err));
-  }, [user]);
+  // useEffect(() => {
+  //   if (!user) return;
+  //
+  //   getDocument(user, CategoryType.Later)
+  //     .then(data => {
+  //       if (data) {
+  //         dispatch(setWatchLaterMovies(Object.values(data as Object)));
+  //       }
+  //     })
+  //     .catch(err => console.log(err));
+  // }, [user]);
 
   return (
     <Wrapper>

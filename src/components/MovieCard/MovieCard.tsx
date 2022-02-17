@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 
 import FilmActionButton from "../UI/FilmActionButton/FilmActionButton";
 import {AiOutlineStar, BsSearch, MdOutlineWatchLater} from "../../common/react-icons/icons";
@@ -14,9 +14,11 @@ import {CategoryType} from "../../types/IDatabase";
 
 interface MovieCardProps {
   movie: IMovie;
+  isFavorite: boolean;
+  isWatchLater: boolean;
 }
 
-const MovieCard: FC<MovieCardProps> = ({movie}) => {
+const MovieCard: FC<MovieCardProps> = ({movie, isFavorite, isWatchLater}) => {
   const {user} = useAppSelector(state => state.user);
 
   const handleAddToFavorite = (e:  React.MouseEvent<HTMLButtonElement>, category: CategoryType) => {
@@ -30,8 +32,8 @@ const MovieCard: FC<MovieCardProps> = ({movie}) => {
   return (
     <Wrapper to={`/movie/${movie.imdbID}`} onClick={scrollToTop} poster={movie.Poster}>
       <div className='buttons-container'>
-        <FilmActionButton onClick={(e) => handleAddToFavorite(e, CategoryType.Favorite)}><AiOutlineStar/></FilmActionButton>
-        <FilmActionButton onClick={(e) => handleAddToFavorite(e, CategoryType.Later)}><MdOutlineWatchLater/></FilmActionButton>
+        <FilmActionButton active={isFavorite} onClick={(e) => handleAddToFavorite(e, CategoryType.Favorite)}><AiOutlineStar/></FilmActionButton>
+        <FilmActionButton active={isWatchLater} onClick={(e) => handleAddToFavorite(e, CategoryType.Later)}><MdOutlineWatchLater/></FilmActionButton>
       </div>
       <div className='content-container'>
         <div className='description-container'>

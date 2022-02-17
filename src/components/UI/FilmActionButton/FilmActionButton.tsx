@@ -5,10 +5,11 @@ import {useAppDispatch, useAppSelector} from "../../../hooks/redux";
 import {setIsLoginVisible} from "../../../store/reducers/global/globalSlice";
 
 interface FilmActionButtonProps {
+  active: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const FilmActionButton: FC<FilmActionButtonProps> = ({onClick, children}) => {
+const FilmActionButton: FC<FilmActionButtonProps> = ({onClick, children, active}) => {
   const {user} = useAppSelector(state => state.user);
   const dispatch = useAppDispatch();
 
@@ -20,7 +21,7 @@ const FilmActionButton: FC<FilmActionButtonProps> = ({onClick, children}) => {
   }
 
   return (
-    <Wrapper onClick={user ? onClick : openModal}>{children}</Wrapper>
+    <Wrapper onClick={user ? onClick : openModal} className={active ? 'active' : ''}>{children}</Wrapper>
   );
 };
 

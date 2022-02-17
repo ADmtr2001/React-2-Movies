@@ -21,4 +21,9 @@ export const Wrapper = styled.button`
     background-color: white;
     color: black
   }
+  
+  &.active {
+    background-color: white;
+    color: black
+  }
 `;

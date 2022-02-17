@@ -1,8 +1,8 @@
-import React, {useEffect} from "react";
+import React from "react";
 
 import {useAppDispatch} from "./hooks/redux";
 import {onAuthStateChanged} from "firebase/auth";
-import {setUser} from "./store/reducers/user/userSlice";
+import {setUser, setWatchLaterMovies} from "./store/reducers/user/userSlice";
 import {auth} from "./common/firebase/firebase-config";
 
 import Navbar from "./components/Navbar/Navbar";
@@ -11,6 +11,10 @@ import ScrollToTopButton from "./components/UI/ScrollToTopButton/ScrollToTopButt
 import AppRouter from "./components/AppRouter/AppRouter";
 
 import {Wrapper} from './styles/App.styles';
+import {getDocument} from "./common/firebase/database";
+import {CategoryType} from "./types/IDatabase";
+import {getFavoriteMovies} from "./helpers/getFavoriteMovies";
+import {getWatchLaterMovies} from "./helpers/getWatchLaterMovies";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -21,6 +25,8 @@ const App = () => {
       return;
     }
     dispatch(setUser({uid: currentUser.uid}));
+    getFavoriteMovies(currentUser, dispatch);
+    getWatchLaterMovies(currentUser, dispatch);
   });
 
   return (
