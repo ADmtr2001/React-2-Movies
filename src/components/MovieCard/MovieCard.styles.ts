@@ -53,8 +53,7 @@ export const Wrapper = styled(Link)<WrapperProps>`
   .description-container {
     background: rgb(0,0,0);
     background: linear-gradient(0deg, rgba(0,0,0,0.9355450798483456) 0%, rgba(0,0,0,0.3557131470752364) 72%, rgba(13,13,13,0) 100%);
-    padding: .75rem 1rem;
-    padding-top: 3rem;
+    padding: 3rem 1rem .75rem;
     
     position: absolute;
     left: 0;

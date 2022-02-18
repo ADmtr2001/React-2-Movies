@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
   a {
     ${setFlex({justify: 'center', align: 'center'})};
     
-    color: white;
     background-color: transparent;
     
     font-size: 2.8rem;
@@ -16,14 +15,14 @@ export const Wrapper = styled.div`
 
     text-decoration: none;
     outline: none;
-    border: 0.2rem solid white;
+    border: 0.2rem solid ${(props) => props.theme.primaryFontColor};
     border-radius: 0.3rem;
 
     transition: all linear .2s;
     
     :hover {
-      background-color: white;
-      color: black;
+      background-color: ${(props) => props.theme.primaryFontColor};
+      color: ${(props) => props.theme.backgroundUIColor};
     }
   }
 `;

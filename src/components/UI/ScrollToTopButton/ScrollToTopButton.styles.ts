@@ -8,7 +8,6 @@ export const Wrapper = styled.button`
   right: 3rem;
 
   background-color: transparent;
-  color: white;
 
   font-size: 3rem;
 
@@ -17,13 +16,13 @@ export const Wrapper = styled.button`
   width: 4rem;
   height: 4rem;
 
-  border: 0.2rem solid white;
+  border: 0.2rem solid ${(props) => props.theme.primaryFontColor};
   border-radius: 50%;
 
   transition: all linear .2s;
 
   :hover {
-    background-color: white;
-    color: black;
+    background-color: ${(props) => props.theme.primaryFontColor};
+    color: ${(props) => props.theme.backgroundUIColor};
   }
 `;

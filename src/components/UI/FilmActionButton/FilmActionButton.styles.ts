@@ -10,7 +10,6 @@ export const Wrapper = styled.button`
   
   font-size: 3.5rem;
   
-  color: white;
   background-color: transparent;
   
   border: 0.2rem solid white;
@@ -18,12 +17,12 @@ export const Wrapper = styled.button`
   transition: all linear 0.25s;
   
   :hover {
-    background-color: white;
-    color: black
+    background-color: ${(props) => props.theme.primaryFontColor};
+    color: ${(props) => props.theme.backgroundUIColor};
   }
   
   &.active {
-    background-color: white;
-    color: black
+    background-color: ${(props) => props.theme.primaryFontColor};
+    color: ${(props) => props.theme.backgroundUIColor};
   }
 `;

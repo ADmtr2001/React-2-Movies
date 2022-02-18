@@ -54,8 +54,7 @@ const SingleMovie: FC<SingleMovieProps> = ({movie}) => {
         <div className='description-container'>
           <h1>{movie.Title}</h1>
           <p className='short-info'>{movie.Year} | {movie.Rated} | {movie.Runtime} | {movie.Genre}</p>
-          <p className='main-text'>{plot}
-          </p>
+          <p className='main-text'>{plot}</p>
           <p className='cast-text'>Starring: {movie.Actors}</p>
           <div className='rating'>
             <AiFillStar/> {movie.imdbRating}

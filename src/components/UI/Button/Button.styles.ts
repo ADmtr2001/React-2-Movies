@@ -9,8 +9,8 @@ interface WrapperProps {
 
 export const Wrapper = styled.button<WrapperProps>`
   ${setFlex({justify: 'center', align: 'center'})};
-
-  color: ${(props) => props.color ? props.color : 'white'};
+  
+  color: ${(props) => props.color ? props.color : props.theme.primaryFontColor};
   background-color: transparent;
 
   font-size: 2.8rem;
@@ -20,14 +20,14 @@ export const Wrapper = styled.button<WrapperProps>`
 
   text-decoration: none;
   outline: none;
-  border: 0.2rem solid ${(props) => props.color ? props.color : 'white'};;
+  border: 0.2rem solid ${(props) => props.color ? props.color : props.theme.primaryFontColor};;
   border-radius: 0.3rem;
 
   transition: all linear .2s;
 
   :hover {
-    background-color: ${(props) => props.hoverBackground ? props.hoverBackground : 'white'};
-    color: ${(props) => props.hoverColor ? props.hoverColor : 'black'};
+    background-color: ${(props) => props.hoverBackground ? props.hoverBackground : props.theme.primaryFontColor};
+    color: ${(props) => props.hoverColor ? props.hoverColor : props.theme.backgroundUIColor};
   }
 `;
 

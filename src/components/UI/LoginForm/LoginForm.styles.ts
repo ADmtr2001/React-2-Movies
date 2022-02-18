@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 
   font-size: 2.5rem;
 
-  background-color: #131313;
+  background-color: ${(props) => props.theme.backgroundUIColor};
 
   position: fixed;
   z-index: 1000;
@@ -26,7 +26,7 @@ export const Wrapper = styled.div`
     
     .active {
       background-color: white;
-      color: black;
+      color: ${(props) => props.theme.backgroundUIColor};
     }
   }
 
@@ -54,23 +54,23 @@ export const Wrapper = styled.div`
     }
 
     button {
-      margin: 1.5rem auto 0;
+      margin: 1rem auto 0;
     }
   }
 
   .additional-container {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 
     font-size: 4rem;
 
-    button {
-      background-color: transparent;
-      border: none;
-      color: white;
-
-      :hover {
-        color: red;
-      }
-    }
+    //button {
+    //  background-color: transparent;
+    //  border: none;
+    //  color: white;
+    //
+    //  :hover {
+    //    color: red;
+    //  }
+    //}
   }
 `;

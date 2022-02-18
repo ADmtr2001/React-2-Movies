@@ -3,12 +3,11 @@ import styled from "styled-components";
 import {setFlex} from "../../styles/mixins/Mixins.styles";
 
 export const Wrapper = styled.footer`
-  color: #747474;
-  background-color: #080808;
+  color: ${(props) => props.theme.footerFontColor};
+  background-color: ${(props) => props.theme.backgroundUIColor};
   
   ${setFlex({justify: "space-around"})};
   
-  //margin-top: 5rem;
   margin-top: auto;
   margin-left: 10rem;
   padding: 0 3rem;

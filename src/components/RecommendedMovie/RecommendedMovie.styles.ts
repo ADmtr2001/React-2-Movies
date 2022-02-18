@@ -42,7 +42,7 @@ export const Wrapper = styled.header`
 
       .short-info {
         font-size: 1.5rem;
-        color: #747474;
+        color: ${(props) => props.theme.secondaryFontColor};
         
         margin-bottom: 2.5rem;
       }

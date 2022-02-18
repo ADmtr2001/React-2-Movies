@@ -25,7 +25,7 @@ const Search = () => {
   return (
     <Wrapper>
       <SearchForm ref={searchRef}/>
-      {movies.length !== 0 && <MovieList movies={[...movies, ...shows]}/>}
+      {movies.length !== 0 && <MovieList movies={[...movies, ...shows]} title='Result'/>}
       {movies.length === 0 && shows.length === 0 && <h1 className='error-container'>Sorry, site search did not return any results. Try changing or shortening your request.</h1>}
     </Wrapper>
   );

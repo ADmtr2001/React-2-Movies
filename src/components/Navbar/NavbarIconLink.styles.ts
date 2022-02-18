@@ -5,7 +5,7 @@ import {setFlex} from "../../styles/mixins/Mixins.styles";
 export const Wrapper = styled.div`
   .active-link {
     background-color: white;
-    color: #1A1F38;
+    color: ${(props) => props.theme.backgroundUIColor}
   }
     
   a {
@@ -26,7 +26,7 @@ export const Wrapper = styled.div`
 
     :hover {
       background-color: white;
-      color: #1A1F38;
+      color: ${(props) => props.theme.backgroundUIColor};
     }
   }
 `;

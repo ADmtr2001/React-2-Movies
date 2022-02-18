@@ -12,7 +12,7 @@ export const Wrapper = styled.nav`
 
   font-size: 1.8rem;
 
-  background-color: #131313;
+  background-color: ${(props) => props.theme.backgroundUIColor};
 
   .navbar-container {
     margin-top: 2rem;
@@ -46,30 +46,8 @@ export const Wrapper = styled.nav`
       margin-top: auto;
       margin-bottom: 5rem;
 
-      button {
-        font-size: 2.5rem;
-
-        width: 40px;
-        height: 40px;
-
-        background-color: transparent;
-        color: white;
-
-        border: 2px solid white;
-        border-radius: 50%;
-        outline: none;
-
-        ${setFlex({justify: 'flex-start', align: 'center'})};
-
-        cursor: pointer;
-
-        transition: all linear .2s;
-
-        :hover {
-          background-color: white;
-          color: #1A1F38;
-        }
-      }
+      ${setFlex({justify: 'flex-start', align: 'center', direction: 'column'})};
+      gap: 3rem 0;
     }
   }
 

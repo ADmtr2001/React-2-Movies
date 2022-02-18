@@ -2,15 +2,15 @@ import React, {FC} from 'react';
 
 import {NavLink} from "react-router-dom";
 
-import {Wrapper} from "./NavbarIcon.styles";
+import {Wrapper} from "./NavbarIconLink.styles";
 
-interface NavbarIcon {
+interface NavbarIconLinkProps {
   icon: React.ReactNode;
   to: string;
   onClick: () => void;
 }
 
-const NavbarIcon: FC<NavbarIcon> = ({icon, to, onClick}) => {
+const NavbarIconLink: FC<NavbarIconLinkProps> = ({icon, to, onClick}) => {
   return (
     <Wrapper>
       <NavLink to={to} className={({isActive}) => isActive ? 'active-link' : ''} onClick={onClick}>{icon}</NavLink>
@@ -18,4 +18,4 @@ const NavbarIcon: FC<NavbarIcon> = ({icon, to, onClick}) => {
   );
 };
 
-export default NavbarIcon;
+export default NavbarIconLink;

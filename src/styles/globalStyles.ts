@@ -1,6 +1,11 @@
 import {createGlobalStyle} from "styled-components";
 
-export const GlobalStyles = createGlobalStyle`
+interface GlobalStylesProps {
+  backgroundColor: string;
+  color: string;
+}
+
+export const GlobalStyles = createGlobalStyle<GlobalStylesProps>`
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -34,17 +39,9 @@ export const GlobalStyles = createGlobalStyle`
   body {
     height: 100%;
     line-height: 1;
-    background-color: #232323;
-    color: white;
+    background-color: ${(props) => props.backgroundColor || 'white'};
+    color: ${(props) => props.color};
     font-family: 'Roboto', sans-serif;
-  }
-  
-  #modal-root {
-    //position: absolute;
-    //top: 0;
-    //left: 0;
-    //right: 0;
-    //bottom: 0;
   }
   
   .blur-container {
@@ -396,7 +393,8 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   
-  a {
+  a,
+  button {
     color: inherit;
     text-decoration: none;
   }

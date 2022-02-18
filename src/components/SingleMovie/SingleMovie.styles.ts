@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {setFlex} from "../../styles/mixins/Mixins.styles";
 
 export const Wrapper = styled.div`
-  background-color: #131313;
+  background-color: ${(props) => props.theme.backgroundUIColor};
   
   width: 90%;
   height: fit-content;
@@ -38,7 +38,7 @@ export const Wrapper = styled.div`
     
     .short-info {
       font-size: 1.5rem;
-      color: #747474;
+      color: ${(props) => props.theme.secondaryFontColor};
       
       margin-bottom: 1.5rem;
     }
@@ -53,7 +53,7 @@ export const Wrapper = styled.div`
         
         border: none;
 
-        color: #747474;
+        color: ${(props) => props.theme.secondaryFontColor};
       }
     }
 

@@ -4,13 +4,14 @@ import {useFormik} from 'formik';
 
 import {Wrapper} from "./LoginForm.styles";
 import Button from "../Button/Button";
-import {AiFillGoogleCircle} from 'react-icons/ai';
+import {AiOutlineGoogle} from '../../../common/react-icons/icons';
 
 import * as Yup from 'yup';
 import {signInWithGoogle} from "../../../common/firebase/firebase-config";
 import {login, register} from "../../../common/firebase/auth";
 import {useAppDispatch} from "../../../hooks/redux";
 import {setIsLoginVisible} from "../../../store/reducers/global/globalSlice";
+import NavbarIconButton from "../../Navbar/NavbarIconButton";
 
 let timer: ReturnType<typeof setTimeout> | null = null;
 
@@ -121,7 +122,7 @@ const LoginForm: FC = () => {
         </form>
 
         <div className='additional-container'>
-          <button><AiFillGoogleCircle onClick={loginWithGoogle}/></button>
+          <NavbarIconButton icon={<AiOutlineGoogle/>} onClick={loginWithGoogle}/>
         </div>
       </Wrapper>
     </>
