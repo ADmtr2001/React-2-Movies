@@ -20,7 +20,7 @@ export const Wrapper = styled(Link)<WrapperProps>`
   width: 22rem;
   height: 34rem;
 
-  margin-left: 1.2rem;
+  //margin-left: 1.2rem;
 
   cursor: pointer;
 

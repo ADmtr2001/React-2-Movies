@@ -5,11 +5,12 @@ export const Settings = {
   slidesToShow: 5,
   slidesToScroll: 3,
   draggable: false,
+  centerMode: true,
   responsive: [
     {
       breakpoint:1500,
       settings: {
-        slidesToShow: 4,
+        slidesToShow: 5,
         slidesToScroll: 2,
         infinite: true,
       }

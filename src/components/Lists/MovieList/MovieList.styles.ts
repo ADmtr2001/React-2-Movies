@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {setFlex} from "../../../styles/mixins/Mixins.styles";
 
 export const Wrapper = styled.div`
-  ${setFlex({})};
+  ${setFlex({justify: 'center'})};
   gap: 2rem;
   flex-wrap: wrap;
   

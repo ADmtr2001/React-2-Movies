@@ -62,15 +62,5 @@ export const Wrapper = styled.div`
     margin-top: 1.5rem;
 
     font-size: 4rem;
-
-    //button {
-    //  background-color: transparent;
-    //  border: none;
-    //  color: white;
-    //
-    //  :hover {
-    //    color: red;
-    //  }
-    //}
   }
 `;

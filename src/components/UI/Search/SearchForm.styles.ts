@@ -25,7 +25,7 @@ export const Wrapper = styled.form`
 
     position: relative;
 
-    border: 2px solid #131313;
+    border: 0.2rem solid ${(props) => props.theme.backgroundUIColor};
     
     font-family: inherit;
   }
@@ -33,7 +33,7 @@ export const Wrapper = styled.form`
   button {
     background-color: transparent;
     border: none;
-    color: #131313;
+    color: ${(props) => props.theme.backgroundUIColor};
 
     cursor: pointer;
     
