@@ -7,7 +7,7 @@ import {IMovie} from "../../types/IMovie";
 import {IUser} from "../../types/IUser";
 import {CategoryType} from "../../types/IDatabase";
 
-export const addFilmToCategory = async (e: React.MouseEvent<HTMLButtonElement>, movie: IMovie, user: IUser, category: CategoryType) => {
+export const addFilmToCategory = async (movie: IMovie, user: IUser, category: CategoryType) => {
   const previousData = await getDocument(user, category);
   if (!previousData) {
     await setDoc(doc(db, category, `${user.uid}`), {
@@ -20,6 +20,17 @@ export const addFilmToCategory = async (e: React.MouseEvent<HTMLButtonElement>, 
   await setDoc(doc(db, category, `${user.uid}`), {
     ...previousData,
     [movie.imdbID]: movie
+  });
+}
+
+export const removeFilmFromCategory = async (id: string, user: IUser, category: CategoryType) => {
+  const previousData = await getDocument(user, category);
+
+  if (!previousData) return;
+
+  // TODO: Find better way. Too slow.
+  await setDoc(doc(db, category, `${user.uid}`), {
+    ...Object.values(previousData).filter((movie: IMovie) => movie.imdbID !== id)
   });
 }
 

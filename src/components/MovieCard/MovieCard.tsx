@@ -1,16 +1,17 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 
 import FilmActionButton from "../UI/FilmActionButton/FilmActionButton";
-import {AiOutlineStar, BsSearch, MdOutlineWatchLater} from "../../common/react-icons/icons";
+import {AiOutlineStar, MdOutlineWatchLater} from "../../common/react-icons/icons";
 
 import {useAppSelector} from "../../hooks/redux";
 import {scrollToTop} from "../../helpers/scrollToTop";
-import {addFilmToCategory} from "../../common/firebase/database";
+import {addFilmToCategory, removeFilmFromCategory} from "../../common/firebase/database";
 
 import {Wrapper} from "./MovieCard.styles";
 
 import {IMovie} from "../../types/IMovie";
 import {CategoryType} from "../../types/IDatabase";
+import {IUser} from "../../types/IUser";
 
 interface MovieCardProps {
   movie: IMovie;
@@ -19,21 +20,27 @@ interface MovieCardProps {
 }
 
 const MovieCard: FC<MovieCardProps> = ({movie, isFavorite, isWatchLater}) => {
-  const {user} = useAppSelector(state => state.user);
+  const handleAddToFavorite = (user: IUser) => {
+    addFilmToCategory(movie, user, CategoryType.Favorite);
+  }
 
-  const handleAddToFavorite = (e:  React.MouseEvent<HTMLButtonElement>, category: CategoryType) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (!user) return;
+  const handleRemoveFromFavorite = (user: IUser) => {
+    removeFilmFromCategory(movie.imdbID, user, CategoryType.Favorite);
+  }
 
-    addFilmToCategory(e, movie, user, category);
+  const handleAddToWatchLater = (user: IUser) => {
+    addFilmToCategory(movie, user, CategoryType.Later);
+  }
+
+  const handleRemoveFromWatchLater = (user: IUser) => {
+    removeFilmFromCategory(movie.imdbID, user, CategoryType.Later);
   }
 
   return (
     <Wrapper to={`/movie/${movie.imdbID}`} onClick={scrollToTop} poster={movie.Poster}>
       <div className='buttons-container'>
-        <FilmActionButton active={isFavorite} onClick={(e) => handleAddToFavorite(e, CategoryType.Favorite)}><AiOutlineStar/></FilmActionButton>
-        <FilmActionButton active={isWatchLater} onClick={(e) => handleAddToFavorite(e, CategoryType.Later)}><MdOutlineWatchLater/></FilmActionButton>
+        <FilmActionButton active={isFavorite} onClick={isFavorite ? handleRemoveFromFavorite : handleAddToFavorite}><AiOutlineStar/></FilmActionButton>
+        <FilmActionButton active={isWatchLater} onClick={isWatchLater ? handleRemoveFromWatchLater : handleAddToWatchLater}><MdOutlineWatchLater/></FilmActionButton>
       </div>
       <div className='content-container'>
         <div className='description-container'>

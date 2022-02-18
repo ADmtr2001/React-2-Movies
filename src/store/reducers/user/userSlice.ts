@@ -26,11 +26,9 @@ export const userSlice = createSlice({
     },
     setFavoriteMovies(state, action: PayloadAction<IMovie[]>) {
       state.favoriteMovies = action.payload;
-      console.log('set favorite movies');
     },
     setWatchLaterMovies(state, action: PayloadAction<IMovie[]>) {
       state.watchLaterMovies = action.payload;
-      console.log('set watch later movies');
     },
   },
 });

@@ -3,10 +3,12 @@ import React, {FC} from 'react';
 import {Wrapper} from "./FilmActionButton.styles";
 import {useAppDispatch, useAppSelector} from "../../../hooks/redux";
 import {setIsLoginVisible} from "../../../store/reducers/global/globalSlice";
+import {addFilmToCategory} from "../../../common/firebase/database";
+import {IUser} from "../../../types/IUser";
 
 interface FilmActionButtonProps {
   active: boolean;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick: (user: IUser) => void;
 }
 
 const FilmActionButton: FC<FilmActionButtonProps> = ({onClick, children, active}) => {
@@ -20,8 +22,20 @@ const FilmActionButton: FC<FilmActionButtonProps> = ({onClick, children, active}
     dispatch(setIsLoginVisible(true));
   }
 
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (!user) {
+      dispatch(setIsLoginVisible(true));
+      return;
+    }
+
+    onClick(user);
+  }
+
   return (
-    <Wrapper onClick={user ? onClick : openModal} className={active ? 'active' : ''}>{children}</Wrapper>
+    <Wrapper onClick={handleClick} className={active ? 'active' : ''}>{children}</Wrapper>
   );
 };
 
