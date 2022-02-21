@@ -10,7 +10,7 @@ import {addFilmToCategory, removeFilmFromCategory} from "../../common/firebase/d
 import {Wrapper} from "./MovieCard.styles";
 
 import {IMovie} from "../../types/IMovie";
-import {CategoryType} from "../../types/IDatabase";
+import {Collection} from "../../types/IDatabase";
 import {IUser} from "../../types/IUser";
 
 interface MovieCardProps {
@@ -21,19 +21,19 @@ interface MovieCardProps {
 
 const MovieCard: FC<MovieCardProps> = ({movie, isFavorite, isWatchLater}) => {
   const handleAddToFavorite = (user: IUser) => {
-    addFilmToCategory(movie, user, CategoryType.Favorite);
+    addFilmToCategory(movie, user, Collection.Favorite);
   }
 
   const handleRemoveFromFavorite = (user: IUser) => {
-    removeFilmFromCategory(movie.imdbID, user, CategoryType.Favorite);
+    removeFilmFromCategory(movie.imdbID, user, Collection.Favorite);
   }
 
   const handleAddToWatchLater = (user: IUser) => {
-    addFilmToCategory(movie, user, CategoryType.Later);
+    addFilmToCategory(movie, user, Collection.Later);
   }
 
   const handleRemoveFromWatchLater = (user: IUser) => {
-    removeFilmFromCategory(movie.imdbID, user, CategoryType.Later);
+    removeFilmFromCategory(movie.imdbID, user, Collection.Later);
   }
 
   return (

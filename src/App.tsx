@@ -11,10 +11,9 @@ import ScrollToTopButton from "./components/UI/ScrollToTopButton/ScrollToTopButt
 import AppRouter from "./components/AppRouter/AppRouter";
 
 import {Wrapper} from './styles/App.styles';
-import {getFavoriteMovies} from "./helpers/getFavoriteMovies";
-import {getWatchLaterMovies} from "./helpers/getWatchLaterMovies";
 import {GlobalStyles} from "./styles/globalStyles";
 import {ThemeProvider} from "styled-components";
+import {getFavoriteMovies, getWatchLaterMovies} from "./common/firebase/database";
 
 const defaultTheme = {
   primaryFontColor: 'white',
@@ -48,7 +47,7 @@ const App = () => {
       dispatch(setWatchLaterMovies([]));
       return;
     }
-    dispatch(setUser({uid: currentUser.uid}));
+    dispatch(setUser({uid: currentUser.uid, displayName: currentUser.displayName || 'unknown', photoURL: currentUser.photoURL || ''}));
     getFavoriteMovies(currentUser, dispatch);
     getWatchLaterMovies(currentUser, dispatch);
   });

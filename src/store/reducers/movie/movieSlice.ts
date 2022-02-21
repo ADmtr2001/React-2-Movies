@@ -1,12 +1,14 @@
 import {IMovie, ISingleMovie} from "../../../types/IMovie";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {fetchAsyncMovies, fetchAsyncRecommended, fetchAsyncShows, fetchAsyncSingleMovie} from "./movieActionCreators";
+import {IComment} from "../../../types/IComment";
 
 interface MovieState {
   movies: IMovie[];
   shows: IMovie[];
   recommended: IMovie[];
   singleMovie: ISingleMovie | null;
+  singleMovieComments: IComment[];
   moviesIsLoading: boolean;
   showsIsLoading: boolean;
   recommendedIsLoading: boolean;
@@ -22,6 +24,7 @@ const initialState: MovieState = {
   shows: [],
   recommended: [],
   singleMovie: null,
+  singleMovieComments: [],
   moviesIsLoading: false,
   showsIsLoading: false,
   recommendedIsLoading: false,
@@ -35,7 +38,11 @@ const initialState: MovieState = {
 export const movieSlice = createSlice({
   name: 'movie',
   initialState,
-  reducers: {},
+  reducers: {
+    setSingleMovieComments(state, action: PayloadAction<IComment[]>) {
+      state.singleMovieComments = action.payload;
+    }
+  },
   extraReducers: {
     [fetchAsyncMovies.fulfilled.type]: (
       state: MovieState,
@@ -111,3 +118,7 @@ export const movieSlice = createSlice({
     }
   }
 });
+
+export const {
+  setSingleMovieComments,
+} = movieSlice.actions;

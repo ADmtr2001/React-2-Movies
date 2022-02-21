@@ -3,6 +3,7 @@ import {setFlex} from "../../../styles/mixins/Mixins.styles";
 
 interface WrapperProps {
   width?: string;
+  height?: string;
   hoverColor?: string;
   hoverBackground?: string;
 }
@@ -16,7 +17,7 @@ export const Wrapper = styled.button<WrapperProps>`
   font-size: 2.8rem;
 
   width: ${(props) => props.width ? props.width : '23rem'};
-  height: 5rem;
+  height: ${(props) => props.width ? props.height : '5rem'};
 
   text-decoration: none;
   outline: none;

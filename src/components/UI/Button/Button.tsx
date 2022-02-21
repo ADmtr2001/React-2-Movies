@@ -10,6 +10,7 @@ interface ButtonProps {
   hoverColor?: string;
   hoverBackground?: string;
   width?: string;
+  height?: string;
   className?: string;
 }
 

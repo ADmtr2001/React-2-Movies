@@ -20,14 +20,14 @@ const SearchForm = forwardRef((props, ref: React.Ref<HTMLInputElement>) => {
     dispatch(fetchAsyncShows(searchTerm));
   }
 
-  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value)
   }
 
   return (
     <Wrapper onSubmit={onFormSubmit}>
       <div className='container'>
-        <input value={searchTerm} ref={ref} onChange={handleInput}/>
+        <input value={searchTerm} ref={ref} onChange={handleInputChange}/>
         <button><BsSearch/></button>
       </div>
     </Wrapper>

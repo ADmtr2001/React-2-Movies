@@ -3,12 +3,9 @@ import React, {useEffect} from 'react';
 import MovieList from "../../components/Lists/MovieList/MovieList";
 
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
-import {getDocument} from "../../common/firebase/database";
 import {setFavoriteMovies} from "../../store/reducers/user/userSlice";
 
 import {Wrapper} from "./Favorite.styles";
-
-import {CategoryType} from "../../types/IDatabase";
 
 
 const Favorite = () => {

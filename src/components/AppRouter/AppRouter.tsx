@@ -10,7 +10,7 @@ const AppRouter = () => {
 
   if (!user) {
     if (localStorage.getItem('user')) {
-      user = {uid: '123'};
+      user = {uid: 'template', photoURL: 'template', displayName: 'template'};
     }
   }
 

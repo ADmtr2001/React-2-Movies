@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import SingleMovie from "../../components/SingleMovie/SingleMovie";
 import Loader from "../../components/UI/Loader/Loader";
@@ -9,18 +9,26 @@ import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {fetchAsyncSingleMovie} from "../../store/reducers/movie/movieActionCreators";
 
 import {Wrapper} from "./Movie.styles";
+import Comments from "../../components/Comments/Comments";
+import Button from "../../components/UI/Button/Button";
+import {getFilmComments} from "../../common/firebase/database";
+import {setSingleMovieComments} from "../../store/reducers/movie/movieSlice";
 
 
 const Movie = () => {
+  const [isCommentsVisible, setIsCommentsVisible] = useState(false);
   const {id} = useParams();
-  const {singleMovie, singleMovieIsLoading, singleMovieError} = useAppSelector(state => state.movie);
+  const {singleMovie, singleMovieIsLoading, singleMovieError, singleMovieComments} = useAppSelector(state => state.movie);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (!id) return;
 
+    dispatch(setSingleMovieComments([]));
     dispatch(fetchAsyncSingleMovie(id));
   }, []);
+
+  if (!id) return <h1>Error...</h1>;
 
   if (singleMovieError) {
     return <PageNotFound/>
@@ -30,9 +38,19 @@ const Movie = () => {
     return <Loader/>;
   }
 
+  const getComments = async () => {
+    await getFilmComments(id, dispatch);
+    setIsCommentsVisible(true);
+  }
+
   return (
     <Wrapper>
-      {singleMovie ? <SingleMovie movie={singleMovie}/> : null}
+      {singleMovie && (
+        <>
+          <SingleMovie movie={singleMovie}/>
+          {isCommentsVisible ? (<Comments filmId = {id} comments={singleMovieComments}/>) : (<Button onClick={getComments}>Load Comments</Button>)}
+        </>
+      )}
     </Wrapper>
   );
 };
