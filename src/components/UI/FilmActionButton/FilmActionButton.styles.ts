@@ -2,8 +2,12 @@ import styled from "styled-components";
 
 import {setFlex} from "../../../styles/mixins/Mixins.styles";
 
-export const Wrapper = styled.button`
-  width: 4.5rem;
+interface WrapperProps {
+  width?: string;
+}
+
+export const Wrapper = styled.button<WrapperProps>`
+  width: ${(props) => props.width ? props.width : '4.5rem'};
   height: 4.5rem;
   
   ${setFlex({justify: 'center', align: 'center'})};

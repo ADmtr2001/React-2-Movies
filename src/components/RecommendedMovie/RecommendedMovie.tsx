@@ -20,7 +20,7 @@ const RecommendedMovie = () => {
               <AiFillStar/> 7.2
             </div>
             <div className='buttons-container'>
-              <StyledLink to='/movie/tt0481499' text='Film Page'/>
+              <StyledLink to='/movie/tt0481499/false/false' text='Film Page'/>
             </div>
           </div>
         </div>

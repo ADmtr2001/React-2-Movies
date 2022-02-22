@@ -9,18 +9,12 @@ import {IUser} from "../../../types/IUser";
 interface FilmActionButtonProps {
   active: boolean;
   onClick: (user: IUser) => void;
+  width?: string;
 }
 
-const FilmActionButton: FC<FilmActionButtonProps> = ({onClick, children, active}) => {
+const FilmActionButton: FC<FilmActionButtonProps> = ({onClick, children, active, width}) => {
   const {user} = useAppSelector(state => state.user);
   const dispatch = useAppDispatch();
-
-  const openModal = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-
-    dispatch(setIsLoginVisible(true));
-  }
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -35,7 +29,7 @@ const FilmActionButton: FC<FilmActionButtonProps> = ({onClick, children, active}
   }
 
   return (
-    <Wrapper onClick={handleClick} className={active ? 'active' : ''}>{children}</Wrapper>
+    <Wrapper onClick={handleClick} className={active ? 'active' : ''} width={width}>{children}</Wrapper>
   );
 };
 

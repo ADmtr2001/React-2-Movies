@@ -73,11 +73,16 @@ export const Wrapper = styled.div`
   .image-container {
     width: 40%;
 
-    ${setFlex({justify: 'center', align: 'center'})};
+    ${setFlex({justify: 'center', align: 'center', direction: 'column'})};
     
     img {
       height: 40rem;
       width: 28rem;
+    }
+    
+    .movie-buttons {
+      width: 28rem;
+      ${setFlex({})}
     }
   }
   

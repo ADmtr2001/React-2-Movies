@@ -15,16 +15,15 @@ export const Wrapper = styled.div`
   .user {
     width: 14rem;
     height: 14rem;
-    background-color: red;
     padding: .5rem;
     text-align: center;
+    color: ${(props) => props.theme.primaryFontColor};
 
     ${setFlex({direction: 'column', align: 'center', justify: "space-around"})}
     img {
       display: block;
       height: 8rem;
       width: 8rem;
-      background-color: black;
       border-radius: 100%;
     }
 
@@ -37,8 +36,9 @@ export const Wrapper = styled.div`
   .text {
     background-color: white;
     width: 100%;
-    overflow: hidden;
+    word-break: break-all;
     padding: 1.5rem;
+    padding-right: 4rem;
     position: relative;
 
     .remove-button {

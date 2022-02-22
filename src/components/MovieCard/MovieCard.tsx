@@ -37,7 +37,7 @@ const MovieCard: FC<MovieCardProps> = ({movie, isFavorite, isWatchLater}) => {
   }
 
   return (
-    <Wrapper to={`/movie/${movie.imdbID}`} onClick={scrollToTop} poster={movie.Poster}>
+    <Wrapper to={`/movie/${movie.imdbID}/${isFavorite}/${isWatchLater}`} onClick={scrollToTop} poster={movie.Poster}>
       <div className='buttons-container'>
         <FilmActionButton active={isFavorite} onClick={isFavorite ? handleRemoveFromFavorite : handleAddToFavorite}><AiOutlineStar/></FilmActionButton>
         <FilmActionButton active={isWatchLater} onClick={isWatchLater ? handleRemoveFromWatchLater : handleAddToWatchLater}><MdOutlineWatchLater/></FilmActionButton>

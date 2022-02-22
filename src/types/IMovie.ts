@@ -15,4 +15,5 @@ export interface ISingleMovie {
   Actors: string;
   Poster: string;
   imdbRating: string;
+  imdbID: string;
 }

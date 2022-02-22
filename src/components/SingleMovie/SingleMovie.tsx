@@ -1,6 +1,6 @@
 import React, {FC, useEffect, useState} from 'react';
 
-import {AiFillStar} from "../../common/react-icons/icons";
+import {AiFillStar, AiOutlineStar, MdOutlineWatchLater} from "../../common/react-icons/icons";
 
 import {useNavigate} from "react-router-dom";
 
@@ -8,13 +8,19 @@ import {Wrapper} from "./SingleMovie.styles";
 
 import Button from "../UI/Button/Button";
 import {ISingleMovie} from "../../types/IMovie";
+import FilmActionButton from "../UI/FilmActionButton/FilmActionButton";
+import {IUser} from "../../types/IUser";
+import {addFilmToCategory, removeFilmFromCategory} from "../../common/firebase/database";
+import {Collection} from "../../types/IDatabase";
 
 
 interface SingleMovieProps {
   movie: ISingleMovie;
+  isFavorite: boolean;
+  isWatchLater: boolean;
 }
 
-const SingleMovie: FC<SingleMovieProps> = ({movie}) => {
+const SingleMovie: FC<SingleMovieProps> = ({movie, isFavorite, isWatchLater}) => {
   const [isPlotFull, setIsPlotFull] = useState(false);
   const [isMoreButtonVisible, setIsMoveButtonVisible] = useState(false);
   const navigate = useNavigate()
@@ -48,6 +54,26 @@ const SingleMovie: FC<SingleMovieProps> = ({movie}) => {
     plot = <>{movie.Plot.slice(0, 500)} <button onClick={togglePlotVisibility}>more...</button></>
   }
 
+  const handleAddToFavorite = (user: IUser) => {
+    addFilmToCategory(movie, user, Collection.Favorite);
+    navigate(`/movie/${movie.imdbID}/true/${isWatchLater}`, {replace: true});
+  }
+
+  const handleRemoveFromFavorite = (user: IUser) => {
+    removeFilmFromCategory(movie.imdbID, user, Collection.Favorite);
+    navigate(`/movie/${movie.imdbID}/false/${isWatchLater}`, {replace: true});
+  }
+
+  const handleAddToWatchLater = (user: IUser) => {
+    addFilmToCategory(movie, user, Collection.Later);
+    navigate(`/movie/${movie.imdbID}/${isFavorite}/true`, {replace: true});
+  }
+
+  const handleRemoveFromWatchLater = (user: IUser) => {
+    removeFilmFromCategory(movie.imdbID, user, Collection.Later);
+    navigate(`/movie/${movie.imdbID}/${isFavorite}/false`, {replace: true});
+  }
+
   return (
     <Wrapper>
       <div className='container'>
@@ -62,6 +88,10 @@ const SingleMovie: FC<SingleMovieProps> = ({movie}) => {
         </div>
         <div className='image-container'>
           <img src={movie.Poster} alt='poster'/>
+          <div className='movie-buttons'>
+            <FilmActionButton active={isFavorite} onClick={isFavorite ? handleRemoveFromFavorite : handleAddToFavorite} width='50%'><AiOutlineStar/></FilmActionButton>
+            <FilmActionButton active={isWatchLater} onClick={isWatchLater ? handleRemoveFromWatchLater : handleAddToWatchLater} width='50%'><MdOutlineWatchLater/></FilmActionButton>
+          </div>
         </div>
       </div>
       <div className='buttons-container'>

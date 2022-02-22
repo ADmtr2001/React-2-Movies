@@ -17,7 +17,7 @@ import {setSingleMovieComments} from "../../store/reducers/movie/movieSlice";
 
 const Movie = () => {
   const [isCommentsVisible, setIsCommentsVisible] = useState(false);
-  const {id} = useParams();
+  const {id, isFavorite, isWatchLater} = useParams();
   const {singleMovie, singleMovieIsLoading, singleMovieError, singleMovieComments} = useAppSelector(state => state.movie);
   const dispatch = useAppDispatch();
 
@@ -28,7 +28,7 @@ const Movie = () => {
     dispatch(fetchAsyncSingleMovie(id));
   }, []);
 
-  if (!id) return <h1>Error...</h1>;
+  if (!id || !isFavorite || !isWatchLater) return <h1>Error...</h1>;
 
   if (singleMovieError) {
     return <PageNotFound/>
@@ -47,7 +47,7 @@ const Movie = () => {
     <Wrapper>
       {singleMovie && (
         <>
-          <SingleMovie movie={singleMovie}/>
+          <SingleMovie movie={singleMovie} isFavorite={isFavorite === 'true'} isWatchLater={isWatchLater === 'true'}/>
           {isCommentsVisible ? (<Comments filmId = {id} comments={singleMovieComments}/>) : (<Button onClick={getComments}>Load Comments</Button>)}
         </>
       )}
