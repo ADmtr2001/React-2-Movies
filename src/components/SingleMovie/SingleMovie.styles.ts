@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import {setFlex} from "../../styles/mixins/Mixins.styles";
+import {setFlex} from "../../styles/mixins/mixins.styles";
 
 export const Wrapper = styled.div`
   background-color: ${(props) => props.theme.backgroundUIColor};
@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
   ${setFlex({justify: 'center', direction: 'column'})};
   
   .container {
-    ${setFlex({})};
+    ${setFlex({align: 'flex-start'})};
     
     margin: 3rem 0;
   }

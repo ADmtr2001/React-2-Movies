@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import {setFlex} from "../../../styles/mixins/Mixins.styles";
+import {setFlex} from "../../../styles/mixins/mixins.styles";
 
 interface WrapperProps {
   width?: string;

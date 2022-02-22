@@ -56,6 +56,7 @@ export const removeFilmFromCategory = async (id: string, user: IUser, collection
 
 export const addCommentToFilm = async (filmID: string, comment: IComment, collection: Collection) => {
   const previousData = await getDocumentByFilmId(filmID, collection);
+
   if (!previousData) {
     await setDoc(doc(db, collection, filmID), {
       [comment.commentId]: comment,
@@ -84,15 +85,14 @@ export const removeFilmComment = async (filmId: string, commentId: string, colle
 
   if (!previousData) return;
 
+  const newData = Object.values(previousData).filter((comment: IComment) => comment.commentId !== commentId);
   // TODO: Find better way. Too slow.
   await setDoc(doc(db, collection, filmId), {
-    ...Object.values(previousData).filter((comment: IComment) => comment.commentId !== commentId)
+    ...newData
   });
 }
 
 export const getDocumentByUserID = async (user: IUser, collection: Collection) => {
-  if (!user) return;
-
   const docRef = doc(db, collection, user.uid);
   const docSnap = await getDoc(docRef);
   return docSnap.data();

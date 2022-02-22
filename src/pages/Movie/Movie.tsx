@@ -26,17 +26,13 @@ const Movie = () => {
 
     dispatch(setSingleMovieComments([]));
     dispatch(fetchAsyncSingleMovie(id));
-  }, []);
+  }, [id]);
 
-  if (!id || !isFavorite || !isWatchLater) return <h1>Error...</h1>;
+  if (!id || !isFavorite || !isWatchLater) return <PageNotFound/>;
 
-  if (singleMovieError) {
-    return <PageNotFound/>
-  }
+  if (singleMovieError) return <PageNotFound/>
 
-  if (singleMovieIsLoading) {
-    return <Loader/>;
-  }
+  if (singleMovieIsLoading) return <Loader/>;
 
   const getComments = async () => {
     await getFilmComments(id, dispatch);

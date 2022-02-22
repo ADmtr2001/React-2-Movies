@@ -1,16 +1,16 @@
 import React, {FC, useEffect, useState} from 'react';
 
 import {AiFillStar, AiOutlineStar, MdOutlineWatchLater} from "../../common/react-icons/icons";
+import Button from "../UI/Button/Button";
+import FilmActionButton from "../UI/FilmActionButton/FilmActionButton";
 
 import {useNavigate} from "react-router-dom";
+import {addFilmToCategory, removeFilmFromCategory} from "../../common/firebase/database";
 
 import {Wrapper} from "./SingleMovie.styles";
 
-import Button from "../UI/Button/Button";
 import {ISingleMovie} from "../../types/IMovie";
-import FilmActionButton from "../UI/FilmActionButton/FilmActionButton";
 import {IUser} from "../../types/IUser";
-import {addFilmToCategory, removeFilmFromCategory} from "../../common/firebase/database";
 import {Collection} from "../../types/IDatabase";
 
 

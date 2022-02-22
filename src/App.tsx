@@ -1,43 +1,22 @@
 import React, {useEffect, useState} from "react";
 
-import {useAppDispatch} from "./hooks/redux";
-import {onAuthStateChanged} from "firebase/auth";
-import {setFavoriteMovies, setUser, setWatchLaterMovies} from "./store/reducers/user/userSlice";
-import {auth} from "./common/firebase/firebase-config";
-
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import ScrollToTopButton from "./components/UI/ScrollToTopButton/ScrollToTopButton";
 import AppRouter from "./components/AppRouter/AppRouter";
+import {ThemeProvider} from "styled-components";
+
+import {useAppDispatch} from "./hooks/redux";
+import {onAuthStateChanged} from "firebase/auth";
+import {setFavoriteMovies, setUser, setWatchLaterMovies} from "./store/reducers/user/userSlice";
+import {getFavoriteMovies, getWatchLaterMovies} from "./common/firebase/database";
+import {auth} from "./common/firebase/firebase-config";
 
 import {Wrapper} from './styles/App.styles';
 import {GlobalStyles} from "./styles/globalStyles";
-import {ThemeProvider} from "styled-components";
-import {getFavoriteMovies, getWatchLaterMovies} from "./common/firebase/database";
+import {darkTheme, defaultTheme, lightTheme} from "./styles/themes/themes";
 
-const defaultTheme = {
-  primaryFontColor: 'white',
-  red: '#ff2020',
-}
-
-const lightTheme = {
-  id: 'light',
-  backgroundPageColor: '#8b9dc3',
-  backgroundUIColor: '#6d8db9',
-  backgroundMainPart: '#95a5c7',
-  secondaryFontColor: '#dcd4d4',
-  footerFontColor: '#dcd4d4',
-}
-
-const darkTheme = {
-  id: 'dark',
-  backgroundPageColor: '#0B0C10',
-  backgroundUIColor: '#1F2833',
-  backgroundMainPart: '#272936',
-  secondaryFontColor: '#747474',
-  footerFontColor: '#747474',
-}
-
+import {IUser} from "./types/IUser";
 
 const App = () => {
   const [theme, setTheme] = useState({...defaultTheme, ...darkTheme});
@@ -57,7 +36,13 @@ const App = () => {
       dispatch(setWatchLaterMovies([]));
       return;
     }
-    dispatch(setUser({uid: currentUser.uid, displayName: currentUser.displayName || 'unknown', photoURL: currentUser.photoURL || ''}));
+
+    const user: IUser = {
+      uid: currentUser.uid,
+      displayName: currentUser.displayName || 'unknown',
+      photoURL: currentUser.photoURL || ''
+    };
+    dispatch(setUser(user));
     getFavoriteMovies(currentUser, dispatch);
     getWatchLaterMovies(currentUser, dispatch);
   });

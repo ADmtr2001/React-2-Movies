@@ -24,7 +24,6 @@ const Home = () => {
     dispatch(fetchAsyncMovies('Harry Potter'));
     dispatch(fetchAsyncShows('American'));
     dispatch(fetchAsyncRecommended('House'));
-
   }, []);
 
   return (

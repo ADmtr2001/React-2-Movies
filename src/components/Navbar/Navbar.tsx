@@ -1,20 +1,29 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import ReactDOM from "react-dom";
 
 import NavbarIconLink from "./NavbarIconLink";
-import {AiOutlineStar, BiLogIn, BiLogOut, BsSearch, MdOutlineWatchLater, AiOutlineHome, BsMoonStars, BsSun} from "../../common/react-icons/icons";
+import {
+  AiOutlineHome,
+  AiOutlineStar,
+  BiLogIn,
+  BiLogOut,
+  BsMoonStars,
+  BsSearch,
+  BsSun,
+  MdOutlineWatchLater
+} from "../../common/react-icons/icons";
 import {Link, useNavigate} from "react-router-dom";
 import LoginForm from "../UI/LoginForm/LoginForm";
+import NavbarIconButton from "./NavbarIconButton";
 
 import {logout} from "../../common/firebase/auth";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {scrollToTop} from "../../helpers/scrollToTop";
+import {setIsLoginVisible} from "../../store/reducers/global/globalSlice";
+
 
 import {Wrapper} from "./Navbar.styles";
 import logo from '../../assets/images/logo.png';
-import {setIsLoginVisible} from "../../store/reducers/global/globalSlice";
-import {setFavoriteMovies, setWatchLaterMovies} from "../../store/reducers/user/userSlice";
-import NavbarIconButton from "./NavbarIconButton";
 
 const publicIcons = [
   {path: '/', icon: AiOutlineHome},

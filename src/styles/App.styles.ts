@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import {correctPosition, setFlex} from "./mixins/Mixins.styles";
+import {correctPosition, setFlex} from "./mixins/mixins.styles";
 
 export const Wrapper = styled.div`
   & > .container {

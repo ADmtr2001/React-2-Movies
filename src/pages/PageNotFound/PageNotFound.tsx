@@ -8,7 +8,7 @@ const PageNotFound = () => {
   return (
     <Wrapper>
       <h1>This page does not exist</h1>
-      <StyledLink to='/' text={'Home'}></StyledLink>
+      <StyledLink to='/' text='Home'/>
     </Wrapper>
   );
 };

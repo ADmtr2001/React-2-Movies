@@ -1,13 +1,16 @@
 import React, {FC, useState} from 'react';
 
-import {Wrapper} from "./CommentForm.styles";
 import Button from "../UI/Button/Button";
+
 import {addCommentToFilm} from "../../common/firebase/database";
-import {Collection} from "../../types/IDatabase";
-import {IComment} from "../../types/IComment";
 import {generateId} from "../../helpers/generateId";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {setIsLoginVisible} from "../../store/reducers/global/globalSlice";
+
+import {Wrapper} from "./CommentForm.styles";
+
+import {Collection} from "../../types/IDatabase";
+import {IComment} from "../../types/IComment";
 
 interface CommentFormProps {
   filmId: string;
@@ -22,13 +25,13 @@ const CommentForm: FC<CommentFormProps> = ({filmId}) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (text.length < 6) {
-      setError('Comment must be more than 5 characters!');
+    if (!user) {
+      dispatch(setIsLoginVisible(true));
       return;
     }
 
-    if (!user) {
-      dispatch(setIsLoginVisible(true));
+    if (text.length < 6) {
+      setError('Comment must be more than 5 characters!');
       return;
     }
 
@@ -40,7 +43,6 @@ const CommentForm: FC<CommentFormProps> = ({filmId}) => {
       photoURL: user.photoURL,
     };
 
-    console.log(comment);
     addCommentToFilm(filmId, comment, Collection.Comments);
     setText('');
   };

@@ -1,4 +1,5 @@
 import {combineReducers} from "@reduxjs/toolkit";
+
 import {movieSlice} from "./movie/movieSlice";
 import {userSlice} from "./user/userSlice";
 import {globalSlice} from "./global/globalSlice";

@@ -4,13 +4,15 @@ import MovieCard from "../../MovieCard/MovieCard";
 import Slider from 'react-slick'
 import Loader from "../../UI/Loader/Loader";
 
+import {useAppSelector} from "../../../hooks/redux";
+import {isFavorite} from "../../../helpers/isFavorite";
+import {isWatchLater} from "../../../helpers/isWatchLater";
+
 import {Wrapper} from "./MovieSliderList.styles";
 import {Settings} from "../../../common/slider/settings";
 
 import {IMovie} from "../../../types/IMovie";
-import {useAppSelector} from "../../../hooks/redux";
-import {isFavorite} from "../../../helpers/isFavorite";
-import {isWatchLater} from "../../../helpers/isWatchLater";
+
 
 interface MovieListSliderProps {
   title: string;
@@ -21,7 +23,7 @@ interface MovieListSliderProps {
 const MovieSliderList: FC<MovieListSliderProps> = ({title, movies, isLoading}) => {
   const {favoriteMovies, watchLaterMovies} = useAppSelector(state => state.user);
 
-  const moviesList = movies.map(movie => <MovieCard key={movie.imdbID} movie={movie} isFavorite={isFavorite(movie.imdbID, favoriteMovies)} isWatchLater={isWatchLater(movie.imdbID, watchLaterMovies)}/>);
+  const moviesList = movies.map(movie => <MovieCard key={movie.imdbID} movie={movie} isFavoriteMovie={isFavorite(movie.imdbID, favoriteMovies)} isWatchLaterMovie={isWatchLater(movie.imdbID, watchLaterMovies)}/>);
 
   let moviesField: React.ReactNode;
   if (isLoading) {

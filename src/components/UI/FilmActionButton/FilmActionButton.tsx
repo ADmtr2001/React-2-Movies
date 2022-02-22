@@ -1,18 +1,19 @@
 import React, {FC} from 'react';
 
-import {Wrapper} from "./FilmActionButton.styles";
 import {useAppDispatch, useAppSelector} from "../../../hooks/redux";
 import {setIsLoginVisible} from "../../../store/reducers/global/globalSlice";
-import {addFilmToCategory} from "../../../common/firebase/database";
+
+import {Wrapper} from "./FilmActionButton.styles";
+
 import {IUser} from "../../../types/IUser";
 
 interface FilmActionButtonProps {
   active: boolean;
-  onClick: (user: IUser) => void;
   width?: string;
+  onClick: (user: IUser) => void;
 }
 
-const FilmActionButton: FC<FilmActionButtonProps> = ({onClick, children, active, width}) => {
+const FilmActionButton: FC<FilmActionButtonProps> = ({active, width, onClick, children}) => {
   const {user} = useAppSelector(state => state.user);
   const dispatch = useAppDispatch();
 

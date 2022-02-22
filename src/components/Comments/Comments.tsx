@@ -1,12 +1,15 @@
 import React, {FC} from 'react';
 
-import {Wrapper} from "./Comments.styles";
 import Comment from "./Comment";
 import CommentForm from "./CommentForm";
-import {IComment} from "../../types/IComment";
+
 import {removeFilmComment} from "../../common/firebase/database";
-import {Collection} from "../../types/IDatabase";
 import {useAppSelector} from "../../hooks/redux";
+
+import {Wrapper} from "./Comments.styles";
+
+import {IComment} from "../../types/IComment";
+import {Collection} from "../../types/IDatabase";
 
 interface CommentsProps {
   filmId: string;
@@ -20,7 +23,9 @@ const Comments: FC<CommentsProps> = ({filmId, comments}) => {
     removeFilmComment(filmId, commentId, Collection.Comments);
   }
 
-  const commentsList = comments.map((comment) => <Comment key={comment.commentId} comment={comment} onClick={handleClick} isDeletable={user?.uid === comment.authorId}/>)
+  const commentsList = comments.map((comment) => (
+    <Comment key={comment.commentId} comment={comment} onClick={handleClick} isDeletable={user?.uid === comment.authorId}/>
+  ))
 
   return (
     <Wrapper>

@@ -5,7 +5,6 @@ export enum RoutesNames {
   SEARCH = '/search',
   FAVORITE = '/favorite',
   WATCH_LATER = '/watch-later',
-  USER = '/user',
   MOVIE = '/movie/:id/:isFavorite/:isWatchLater',
   PAGE_NOT_FOUND = '*'
 };

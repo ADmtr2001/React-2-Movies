@@ -3,9 +3,18 @@ import React from 'react';
 import StyledLink from "../UI/StyledLink/StyledLink";
 import {AiFillStar} from "../../common/react-icons/icons";
 
+import {useAppSelector} from "../../hooks/redux";
+import {isFavorite} from "../../helpers/isFavorite";
+import {isWatchLater} from "../../helpers/isWatchLater";
+
 import {Wrapper} from "./RecommendedMovie.styles";
 
 const RecommendedMovie = () => {
+  const {favoriteMovies, watchLaterMovies} = useAppSelector(state => state.user);
+
+  const isFavoriteMovie = isFavorite('tt0481499', favoriteMovies);
+  const isWatchLaterMovie = isWatchLater('tt0481499', watchLaterMovies);
+
   return (
     <Wrapper>
       <div className='gradient'>
@@ -20,7 +29,7 @@ const RecommendedMovie = () => {
               <AiFillStar/> 7.2
             </div>
             <div className='buttons-container'>
-              <StyledLink to='/movie/tt0481499/false/false' text='Film Page'/>
+              <StyledLink to={`/movie/tt0481499/${isFavoriteMovie}/${isWatchLaterMovie}`} text='Film Page'/>
             </div>
           </div>
         </div>

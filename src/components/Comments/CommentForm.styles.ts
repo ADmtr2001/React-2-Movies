@@ -10,13 +10,16 @@ export const Wrapper = styled.form`
     min-height: 10rem ;
     
     font-size: 1.8rem;
+    
     resize: none;
   }
   
   .error-message {
     color: ${(props) => props.theme.red};
+    
     font-size: 1.5rem;
     text-align: right;
+    
     margin: .5rem 0;
   }
   

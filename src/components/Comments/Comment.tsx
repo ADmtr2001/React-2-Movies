@@ -1,8 +1,9 @@
 import React, {FC} from 'react';
 
 import {Wrapper} from "./Comment.styles";
-import {IComment} from "../../types/IComment";
 import {AiTwotoneDelete} from "../../common/react-icons/icons";
+
+import {IComment} from "../../types/IComment";
 
 interface CommentProps {
   comment: IComment;
