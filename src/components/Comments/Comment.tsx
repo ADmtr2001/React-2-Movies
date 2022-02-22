@@ -6,10 +6,11 @@ import {AiTwotoneDelete} from "../../common/react-icons/icons";
 
 interface CommentProps {
   comment: IComment;
+  isDeletable: boolean;
   onClick: (filmId: string) => void;
 }
 
-const Comment: FC<CommentProps> = ({comment, onClick}) => {
+const Comment: FC<CommentProps> = ({comment, onClick, isDeletable}) => {
   return (
     <Wrapper>
       <div className='user'>
@@ -18,7 +19,7 @@ const Comment: FC<CommentProps> = ({comment, onClick}) => {
       </div>
       <div className='text'>
         {comment.text}
-        <div className='remove-button' onClick={() => onClick(comment.commentId)}><AiTwotoneDelete/></div>
+        {isDeletable && <div className='remove-button' onClick={() => onClick(comment.commentId)}><AiTwotoneDelete/></div>}
       </div>
     </Wrapper>
   );

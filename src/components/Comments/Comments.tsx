@@ -6,6 +6,7 @@ import CommentForm from "./CommentForm";
 import {IComment} from "../../types/IComment";
 import {removeFilmComment} from "../../common/firebase/database";
 import {Collection} from "../../types/IDatabase";
+import {useAppSelector} from "../../hooks/redux";
 
 interface CommentsProps {
   filmId: string;
@@ -13,11 +14,13 @@ interface CommentsProps {
 }
 
 const Comments: FC<CommentsProps> = ({filmId, comments}) => {
+  const {user} = useAppSelector(state => state.user);
+
   const handleClick = (commentId: string) => {
     removeFilmComment(filmId, commentId, Collection.Comments);
   }
 
-  const commentsList = comments.map((comment) => <Comment key={comment.commentId} comment={comment} onClick={handleClick}/>)
+  const commentsList = comments.map((comment) => <Comment key={comment.commentId} comment={comment} onClick={handleClick} isDeletable={user?.uid === comment.authorId}/>)
 
   return (
     <Wrapper>

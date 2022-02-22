@@ -17,6 +17,7 @@ import {getFavoriteMovies, getWatchLaterMovies} from "./common/firebase/database
 
 const defaultTheme = {
   primaryFontColor: 'white',
+  red: '#ff2020',
 }
 
 const lightTheme = {

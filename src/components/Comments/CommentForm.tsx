@@ -6,7 +6,8 @@ import {addCommentToFilm} from "../../common/firebase/database";
 import {Collection} from "../../types/IDatabase";
 import {IComment} from "../../types/IComment";
 import {generateId} from "../../helpers/generateId";
-import {useAppSelector} from "../../hooks/redux";
+import {useAppDispatch, useAppSelector} from "../../hooks/redux";
+import {setIsLoginVisible} from "../../store/reducers/global/globalSlice";
 
 interface CommentFormProps {
   filmId: string;
@@ -14,12 +15,22 @@ interface CommentFormProps {
 
 const CommentForm: FC<CommentFormProps> = ({filmId}) => {
   const [text, setText] = useState('');
+  const [error, setError] = useState('');
   const {user} = useAppSelector(state => state.user);
+  const dispatch = useAppDispatch();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!user) return;
+    if (text.length < 6) {
+      setError('Comment must be more than 5 characters!');
+      return;
+    }
+
+    if (!user) {
+      dispatch(setIsLoginVisible(true));
+      return;
+    }
 
     const comment: IComment = {
       commentId: generateId(),
@@ -36,11 +47,13 @@ const CommentForm: FC<CommentFormProps> = ({filmId}) => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setText(e.target.value);
+    setError('');
   };
 
   return (
     <Wrapper onSubmit={handleSubmit}>
       <textarea onChange={handleInputChange} value={text} placeholder='Comment...'/>
+      {error && <p className='error-message'>{error}</p>}
       <Button width='9rem'>Send</Button>
     </Wrapper>
   );

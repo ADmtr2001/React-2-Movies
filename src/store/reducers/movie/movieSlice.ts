@@ -40,7 +40,7 @@ export const movieSlice = createSlice({
   initialState,
   reducers: {
     setSingleMovieComments(state, action: PayloadAction<IComment[]>) {
-      state.singleMovieComments = action.payload;
+      state.singleMovieComments = action.payload.sort((a, b) => +b.commentId - +a.commentId);
     }
   },
   extraReducers: {

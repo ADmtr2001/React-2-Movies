@@ -1,5 +1,3 @@
-import React from "react";
-
 import {doc, getDoc, onSnapshot, setDoc} from "firebase/firestore";
 import {db} from "./firebase-config";
 
@@ -15,15 +13,15 @@ export const addFilmToCategory = async (movie: IMovie, user: IUser, collection: 
   const previousData = await getDocumentByUserID(user, collection);
   if (!previousData) {
     await setDoc(doc(db, collection, `${user.uid}`), {
-      [movie.imdbID]: movie
+      [movie.imdbID]: movie,
     });
     return;
   }
 
   // TODO: Find better way. Too slow.
   await setDoc(doc(db, collection, `${user.uid}`), {
-    [movie.imdbID]: movie,
     ...previousData,
+    [movie.imdbID]: movie,
   });
 }
 
@@ -60,15 +58,15 @@ export const addCommentToFilm = async (filmID: string, comment: IComment, collec
   const previousData = await getDocumentByFilmId(filmID, collection);
   if (!previousData) {
     await setDoc(doc(db, collection, filmID), {
-      [comment.commentId]: comment
+      [comment.commentId]: comment,
     });
     return;
   }
 
   // TODO: Find better way. Too slow.
   await setDoc(doc(db, collection, filmID), {
-    [comment.commentId]: comment,
     ...previousData,
+    [comment.commentId]: comment,
   });
 }
 
@@ -76,7 +74,7 @@ export const getFilmComments = (filmId: string, dispatch: AppDispatch) => {
   onSnapshot(doc(db, Collection.Comments, filmId), (doc) => {
     const data = doc.data();
     if (data) {
-      dispatch(setSingleMovieComments(Object.values(data as Object)))
+      dispatch(setSingleMovieComments(Object.values(data as Object)));
     }
   });
 }
