@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import {useAppDispatch} from "./hooks/redux";
 import {onAuthStateChanged} from "firebase/auth";
@@ -24,6 +24,7 @@ const lightTheme = {
   id: 'light',
   backgroundPageColor: '#8b9dc3',
   backgroundUIColor: '#6d8db9',
+  backgroundMainPart: '#95a5c7',
   secondaryFontColor: '#dcd4d4',
   footerFontColor: '#dcd4d4',
 }
@@ -32,14 +33,22 @@ const darkTheme = {
   id: 'dark',
   backgroundPageColor: '#0B0C10',
   backgroundUIColor: '#1F2833',
+  backgroundMainPart: '#272936',
   secondaryFontColor: '#747474',
   footerFontColor: '#747474',
 }
 
 
 const App = () => {
-  const [theme, setTheme] = useState({...defaultTheme, ...lightTheme});
+  const [theme, setTheme] = useState({...defaultTheme, ...darkTheme});
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'light') {
+      setTheme({...defaultTheme, ...lightTheme})
+    }
+  }, []);
 
   onAuthStateChanged(auth, (currentUser) => {
     if (!currentUser) {
@@ -55,9 +64,11 @@ const App = () => {
 
   const changeTheme = () => {
     if (theme.id === 'light') {
-      setTheme({...defaultTheme, ...darkTheme})
+      setTheme({...defaultTheme, ...darkTheme});
+      localStorage.setItem('theme', 'dark');
     } else {
-      setTheme({...defaultTheme, ...lightTheme})
+      setTheme({...defaultTheme, ...lightTheme});
+      localStorage.setItem('theme', 'light');
     }
   }
 
