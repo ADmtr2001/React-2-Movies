@@ -1,6 +1,6 @@
 import {BsSearch, BsSun, BsMoonStars} from 'react-icons/bs';
 import {MdOutlineWatchLater} from "react-icons/md";
-import {AiOutlineStar, AiFillStar, AiOutlineHome, AiOutlineGoogle} from "react-icons/ai";
+import {AiOutlineStar, AiFillStar, AiOutlineHome, AiOutlineGoogle, AiTwotoneDelete} from "react-icons/ai";
 import {FaUser} from "react-icons/fa";
 import {BiLogIn, BiLogOut} from "react-icons/bi";
 
@@ -16,4 +16,5 @@ export {
   BsMoonStars,
   BsSun,
   AiOutlineGoogle,
+  AiTwotoneDelete,
 };

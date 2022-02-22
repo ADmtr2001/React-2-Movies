@@ -11,17 +11,17 @@ import {AppDispatch} from "../../store/store";
 import {setFavoriteMovies, setWatchLaterMovies} from "../../store/reducers/user/userSlice";
 import {setSingleMovieComments} from "../../store/reducers/movie/movieSlice";
 
-export const addFilmToCategory = async (movie: IMovie, user: IUser, category: Collection) => {
-  const previousData = await getDocumentByUserID(user, category);
+export const addFilmToCategory = async (movie: IMovie, user: IUser, collection: Collection) => {
+  const previousData = await getDocumentByUserID(user, collection);
   if (!previousData) {
-    await setDoc(doc(db, category, `${user.uid}`), {
+    await setDoc(doc(db, collection, `${user.uid}`), {
       [movie.imdbID]: movie
     });
     return;
   }
 
   // TODO: Find better way. Too slow.
-  await setDoc(doc(db, category, `${user.uid}`), {
+  await setDoc(doc(db, collection, `${user.uid}`), {
     [movie.imdbID]: movie,
     ...previousData,
   });
@@ -45,28 +45,28 @@ export const getWatchLaterMovies = (user: any, dispatch: AppDispatch) => {
   });
 }
 
-export const removeFilmFromCategory = async (id: string, user: IUser, category: Collection) => {
-  const previousData = await getDocumentByUserID(user, category);
+export const removeFilmFromCategory = async (id: string, user: IUser, collection: Collection) => {
+  const previousData = await getDocumentByUserID(user, collection);
 
   if (!previousData) return;
 
   // TODO: Find better way. Too slow.
-  await setDoc(doc(db, category, `${user.uid}`), {
+  await setDoc(doc(db, collection, `${user.uid}`), {
     ...Object.values(previousData).filter((movie: IMovie) => movie.imdbID !== id)
   });
 }
 
-export const addCommentToFilm = async (filmID: string, comment: IComment, category: Collection) => {
-  const previousData = await getDocumentByFilmId(filmID, category);
+export const addCommentToFilm = async (filmID: string, comment: IComment, collection: Collection) => {
+  const previousData = await getDocumentByFilmId(filmID, collection);
   if (!previousData) {
-    await setDoc(doc(db, category, filmID), {
+    await setDoc(doc(db, collection, filmID), {
       [comment.commentId]: comment
     });
     return;
   }
 
   // TODO: Find better way. Too slow.
-  await setDoc(doc(db, category, filmID), {
+  await setDoc(doc(db, collection, filmID), {
     [comment.commentId]: comment,
     ...previousData,
   });
@@ -81,16 +81,27 @@ export const getFilmComments = (filmId: string, dispatch: AppDispatch) => {
   });
 }
 
-export const getDocumentByUserID = async (user: IUser, category: Collection) => {
+export const removeFilmComment = async (filmId: string, commentId: string, collection: Collection) => {
+  const previousData = await getDocumentByFilmId(filmId, collection);
+
+  if (!previousData) return;
+
+  // TODO: Find better way. Too slow.
+  await setDoc(doc(db, collection, filmId), {
+    ...Object.values(previousData).filter((comment: IComment) => comment.commentId !== commentId)
+  });
+}
+
+export const getDocumentByUserID = async (user: IUser, collection: Collection) => {
   if (!user) return;
 
-  const docRef = doc(db, category, user.uid);
+  const docRef = doc(db, collection, user.uid);
   const docSnap = await getDoc(docRef);
   return docSnap.data();
 }
 
-export const getDocumentByFilmId = async (filmId: string, category: Collection) => {
-  const docRef = doc(db, category, filmId);
+export const getDocumentByFilmId = async (filmId: string, collection: Collection) => {
+  const docRef = doc(db, collection, filmId);
   const docSnap = await getDoc(docRef);
   return docSnap.data();
 }

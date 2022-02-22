@@ -13,8 +13,8 @@ export const Wrapper = styled.div`
   margin: 2rem 0;
   
   .user {
-    width: 12rem;
-    height: 12rem;
+    width: 14rem;
+    height: 14rem;
     background-color: red;
     padding: .5rem;
     text-align: center;
@@ -38,6 +38,15 @@ export const Wrapper = styled.div`
   .text {
     background-color: white;
     width: 100%;
+    overflow: hidden;
     padding: 1.5rem;
+    position: relative;
+    
+    .remove-button {
+      position: absolute;
+      font-size: 2rem;
+      top: .5rem;
+      right: .5rem;
+    }
   }
 `;
