@@ -19,7 +19,7 @@ import NavbarIconButton from "./NavbarIconButton";
 import {logout} from "../../common/firebase/auth";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {scrollToTop} from "../../helpers/scrollToTop";
-import {setIsLoginVisible} from "../../store/reducers/global/globalSlice";
+import {setIsLoginVisible, setIsNavbarVisible} from "../../store/reducers/global/globalSlice";
 
 
 import {Wrapper} from "./Navbar.styles";
@@ -41,7 +41,7 @@ interface NavbarProps {
 }
 
 const Navbar: FC<NavbarProps> = ({changeTheme, isDark}) => {
-  const {isLoginVisible} = useAppSelector(state => state.global);
+  const {isLoginVisible, isNavbarVisible} = useAppSelector(state => state.global);
   const {user} = useAppSelector(state => state.user);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -63,8 +63,12 @@ const Navbar: FC<NavbarProps> = ({changeTheme, isDark}) => {
     dispatch(setIsLoginVisible(true));
   }
 
+  const closeNavbar = () => {
+    dispatch(setIsNavbarVisible(false))
+  }
+
   return (
-    <Wrapper>
+    <Wrapper visible={isNavbarVisible}>
       {isLoginVisible && ReactDOM.createPortal(<LoginForm/>, document.querySelector('#modal-root') as Element)}
       <div className='navbar-container'>
         <h2><Link to='/'><img src={logo} alt='logo'/></Link></h2>
@@ -79,6 +83,7 @@ const Navbar: FC<NavbarProps> = ({changeTheme, isDark}) => {
           }
         </div>
       </div>
+      <div className='close' onClick={closeNavbar}>{'>'}</div>
     </Wrapper>
   );
 };

@@ -77,23 +77,30 @@ const SingleMovie: FC<SingleMovieProps> = ({movie, isFavorite, isWatchLater}) =>
   return (
     <Wrapper>
       <div className='container'>
-        <div className='description-container'>
-          <h1>{movie.Title}</h1>
-          <p className='short-info'>{movie.Year} | {movie.Rated} | {movie.Runtime} | {movie.Genre}</p>
-          <p className='main-text'>{plot}</p>
-          <p className='cast-text'>Starring: {movie.Actors}</p>
-          <div className='rating'>
-            <AiFillStar/> {movie.imdbRating}
+        <div className='header'>
+          <div className='info'>
+            <h1>{movie.Title}</h1>
+            <p className='short-info'>{movie.Year} | {movie.Rated} | {movie.Runtime} | {movie.Genre}</p>
+            <p className='cast-text'>Starring: {movie.Actors}</p>
+            <div className='rating'>
+              <AiFillStar/> {movie.imdbRating}
+            </div>
+          </div>
+
+          <div className='image-container'>
+            <img src={movie.Poster} alt='poster'/>
+            <div className='movie-buttons'>
+              <FilmActionButton active={isFavorite} onClick={isFavorite ? handleRemoveFromFavorite : handleAddToFavorite} width='50%'><AiOutlineStar/></FilmActionButton>
+              <FilmActionButton active={isWatchLater} onClick={isWatchLater ? handleRemoveFromWatchLater : handleAddToWatchLater} width='50%'><MdOutlineWatchLater/></FilmActionButton>
+            </div>
           </div>
         </div>
-        <div className='image-container'>
-          <img src={movie.Poster} alt='poster'/>
-          <div className='movie-buttons'>
-            <FilmActionButton active={isFavorite} onClick={isFavorite ? handleRemoveFromFavorite : handleAddToFavorite} width='50%'><AiOutlineStar/></FilmActionButton>
-            <FilmActionButton active={isWatchLater} onClick={isWatchLater ? handleRemoveFromWatchLater : handleAddToWatchLater} width='50%'><MdOutlineWatchLater/></FilmActionButton>
-          </div>
+
+        <div className='description'>
+          <p className='main-text'>{plot}</p>
         </div>
       </div>
+
       <div className='buttons-container'>
         <Button onClick={navigateBack}>Back</Button>
       </div>

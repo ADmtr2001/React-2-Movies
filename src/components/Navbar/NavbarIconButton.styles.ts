@@ -5,8 +5,8 @@ import {setFlex} from "../../styles/mixins/mixins.styles";
 export const Wrapper = styled.button`
   font-size: 2.5rem;
 
-  width: 40px;
-  height: 40px;
+  width: 4rem;
+  height: 4rem;
 
   background-color: transparent;
 
@@ -20,8 +20,10 @@ export const Wrapper = styled.button`
 
   transition: all linear .2s;
 
-  :hover {
-    background-color: white;
-    color: ${(props) => props.theme.backgroundUIColor};
+  @media (min-width: 1000px) {
+    :hover {
+      background-color: white;
+      color: ${(props) => props.theme.backgroundUIColor};
+    }
   }
 `;

@@ -4,7 +4,7 @@ import {setFlex} from "../../styles/mixins/mixins.styles";
 
 export const Wrapper = styled.header`
   width: 100%;
-  height: 70rem;
+  min-height: 60rem;
   
   background-image: url('https://occ-0-2774-2773.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABWPYs_BNraXXJ9USOd12nXFjmMY8EaPHNfJ8mK-M-yAJ-LVIPiI2czdfWF6vufw4Zlx28UQzT_kk5UXaGmQAqKS17cx_.jpg?r=e1a');
   background-repeat: no-repeat;
@@ -16,6 +16,7 @@ export const Wrapper = styled.header`
     background: linear-gradient(90deg, rgba(0,0,0,0.9500175070028011) 0%, rgba(0,0,0,0.47102591036414565) 49%, rgba(255,255,255,0) 100%);
     
     width: 100%;
+    min-height: 60rem;
     height: 100%;
 
     overflow: auto;
@@ -24,7 +25,7 @@ export const Wrapper = styled.header`
   .container {
     ${setFlex({justify: 'space-between'})};
 
-    margin: 10rem 0 0 4rem;
+    margin: 6.5rem 0 0 4rem;
 
     .description-container {
       width: 55rem;
@@ -74,6 +75,38 @@ export const Wrapper = styled.header`
       ${setFlex({justify: 'flex-start', align: 'center'})};
       
       margin-bottom: 5rem;
+    }
+  }
+  
+  .buttons-container {
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 700px) {
+    .container {
+      margin: 3rem 0 0 2rem;
+    }
+  }
+      
+  @media (max-width: 500px) {
+    .container {
+      .description-container {
+        text-align: center;
+        
+        h1 {
+          font-size: 7rem;
+        }
+      }
+
+      .rating {
+        width: fit-content;
+        
+        margin: 0 auto 5rem;
+      }
+    }
+
+    .buttons-container {
+      margin: 0 auto 2rem;
     }
   }
 `;

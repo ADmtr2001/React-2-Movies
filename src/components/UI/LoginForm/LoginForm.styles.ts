@@ -63,4 +63,33 @@ export const Wrapper = styled.div`
 
     font-size: 4rem;
   }
+  
+  @media (max-width: 610px) {
+    width: 50rem;
+    height: 45rem;
+  }
+
+  @media (max-width: 610px) {
+    width:40rem;
+    height: 50rem;
+
+    .buttons-container { 
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 410px) {
+    width:30rem;
+    height: 50rem;
+
+    .buttons-container {
+      flex-direction: column;
+    }
+    
+    form {
+      input {
+        width: 28rem;
+      }
+    }
+  }
 `;

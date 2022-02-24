@@ -17,6 +17,7 @@ import {GlobalStyles} from "./styles/globalStyles";
 import {darkTheme, defaultTheme, lightTheme} from "./styles/themes/themes";
 
 import {IUser} from "./types/IUser";
+import ToggleNavbarButton from "./components/UI/ToggleNavbarButton/ToggleNavbarButton";
 
 const App = () => {
   const [theme, setTheme] = useState({...defaultTheme, ...darkTheme});
@@ -69,6 +70,7 @@ const App = () => {
             </div>
           </div>
           <Footer/>
+          <ToggleNavbarButton/>
           <ScrollToTopButton/>
         </div>
       </Wrapper>

@@ -20,13 +20,15 @@ export const Wrapper = styled.button<WrapperProps>`
   
   transition: all linear 0.25s;
   
-  :hover {
+  &.active {
     background-color: ${(props) => props.theme.primaryFontColor};
     color: ${(props) => props.theme.backgroundUIColor};
   }
   
-  &.active {
-    background-color: ${(props) => props.theme.primaryFontColor};
-    color: ${(props) => props.theme.backgroundUIColor};
+  @media (min-width: 1000px) {
+    :hover {
+      background-color: ${(props) => props.theme.primaryFontColor};
+      color: ${(props) => props.theme.backgroundUIColor};
+    }
   }
 `;

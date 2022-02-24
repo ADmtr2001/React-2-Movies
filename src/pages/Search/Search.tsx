@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 
-import SearchForm from "../../components/UI/Search/SearchForm";
+import SearchForm from "../../components/Search/SearchForm";
 import MovieList from "../../components/Lists/MovieList/MovieList";
 
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";

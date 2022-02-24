@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {setFlex} from "../../styles/mixins/mixins.styles";
 
 export const Wrapper = styled.div`
-  ${setFlex({})};
+  ${setFlex({align: 'center'})};
 
   width: 95%;
   
@@ -11,10 +11,11 @@ export const Wrapper = styled.div`
 
   font-size: 1.7rem;
 
-  margin: 2rem 0;
+  margin: 1rem 0;
 
   .user {
-    ${setFlex({direction: 'column', align: 'center', justify: "space-around"})}
+    ${setFlex({direction: 'column', align: 'center', justify: "space-around"})};
+    align-self: flex-start;
 
     width: 14rem;
     height: 14rem;
@@ -45,6 +46,8 @@ export const Wrapper = styled.div`
     background-color: white;
     
     width: 100%;
+    min-height: 10rem;
+    height: fit-content;
     
     word-break: break-all;
     

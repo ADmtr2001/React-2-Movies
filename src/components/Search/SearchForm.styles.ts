@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import {setFlex} from "../../../styles/mixins/mixins.styles";
+import {setFlex} from "../../styles/mixins/mixins.styles";
 
 export const Wrapper = styled.form`
   ${setFlex({justify: 'center', align: 'center'})};
@@ -9,11 +9,15 @@ export const Wrapper = styled.form`
   
   font-size: 1.5rem;
   
+  width: 28rem;
+  
   .container {
     position: relative;
 
-    width: 50rem;
-    min-width: 18rem;
+    width: 100%;
+    
+    margin-top: 2rem;
+    
     height: 3rem;
   }
 

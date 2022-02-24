@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
     background-color: white;
     color: ${(props) => props.theme.backgroundUIColor}
   }
-    
+
   a {
     font-size: 2.5rem;
 
@@ -28,5 +28,14 @@ export const Wrapper = styled.div`
       background-color: white;
       color: ${(props) => props.theme.backgroundUIColor};
     }
+  }
+
+  @media (min-width: 1000px) {
+      a {
+          :hover {
+              background-color: white;
+              color: ${(props) => props.theme.backgroundUIColor};
+          }
+      }
   }
 `;

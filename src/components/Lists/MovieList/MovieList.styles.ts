@@ -7,5 +7,7 @@ export const Wrapper = styled.div`
   gap: 2rem;
   flex-wrap: wrap;
   
+  margin: 0 1rem;
+  
   width: fit-content;
 `;

@@ -6,8 +6,7 @@ export const Wrapper = styled.div`
   & > .container {
     max-width: 1420px;
     height: 100%;
-
-    padding: 0 10px;
+      
     margin: 0 auto;
   }
 
@@ -19,5 +18,18 @@ export const Wrapper = styled.div`
 
   .content {
     ${correctPosition}
+  }
+
+  @media (min-width: 1000px) {
+    & > .container {
+        padding: 0 10px;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .content {
+      margin-left: 0;
+      width: 100%
+    }
   }
 `

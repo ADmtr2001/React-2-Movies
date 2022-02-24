@@ -82,4 +82,102 @@ export const Wrapper = styled(Link)<WrapperProps>`
       background-color: rgba(0, 0, 0, 0.3);
     }
   }
+  
+  // Desktop
+  @media (max-width: 1500px) {
+    width: 25rem;
+    height: 34rem;
+  }
+
+  @media (max-width: 1330px) {
+    width: 22rem;
+    height: 32rem;
+  }
+
+  @media (max-width: 1200px) {
+    width: 25rem;
+    height: 34rem;
+  }
+
+  @media (max-width: 1100px) {
+    width: 22rem;
+    height: 32rem;
+  }
+
+  //Tablet
+  @media (max-width: 980px) {
+    width: 18rem;
+    height: 28rem;
+  }
+
+  @media (max-width: 940px) {
+    width: 20rem;
+    height: 30rem;
+  }
+
+  @media (max-width: 840px) {
+    width: 20rem;
+    height: 30rem;
+  }
+  
+  @media (max-width: 800px) {
+    width: 18rem;
+    height: 28rem;
+  }
+
+  @media (max-width: 750px) {
+    width: 16rem;
+    height: 23rem;
+  }
+
+  @media (max-width: 690px) {
+    width: 20rem;
+    height: 28rem;
+  }
+
+  @media (max-width: 590px) {
+    width: 16rem;
+    height: 24rem;
+  }
+
+  @media (max-width: 520px) {
+    width: 14rem;
+    height: 22rem;
+
+    .description-container {
+      h3 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    width: 12rem;
+    height: 20rem;
+
+    .description-container {
+      h3 {
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    width: 12rem;
+    height: 20rem;
+  }
+
+  @media (max-width: 430px) {
+    width: 10rem;
+    height: 18rem;
+  }
+
+  @media (max-width: 390px) {
+    width: 14rem;
+    height: 22rem;
+  }
+
+  @media (max-width: 370px) {
+    width: 12rem;
+    height: 20rem;
+  }
 `;

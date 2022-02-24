@@ -2,8 +2,14 @@ import styled, {keyframes} from "styled-components";
 
 import {setFlex} from "../../styles/mixins/mixins.styles";
 
-export const Wrapper = styled.nav`
+interface WrapperProps {
+  visible: boolean;
+}
+
+export const Wrapper = styled.nav<WrapperProps>`
   position: fixed;
+  
+  z-index: 500;
 
   width: 10rem;
   height: 100vh;
@@ -13,6 +19,8 @@ export const Wrapper = styled.nav`
   font-size: 1.8rem;
 
   background-color: ${(props) => props.theme.backgroundUIColor};
+  
+  transition: transform linear .5s;
 
   .navbar-container {
     margin-top: 2rem;
@@ -51,4 +59,28 @@ export const Wrapper = styled.nav`
     }
   }
 
+  .close {
+    background-color: ${(props) => props.theme.backgroundUIColor};
+    width: 6rem;
+    height: 6rem;
+
+    position: fixed;
+    top: 50%;
+    right: 10rem;
+
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+
+    ${setFlex({justify: 'center', align: 'center'})};
+
+    font-size: 3rem;
+
+    transform: translateY(-50%);
+  }
+
+  @media (max-width: 1000px) {
+    right: 0;
+    
+    transform: ${(props) => props.visible ? 'translateX(0)' : 'translateX(20rem)'};
+  }
 `;

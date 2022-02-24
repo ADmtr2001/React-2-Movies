@@ -16,4 +16,10 @@ export const Wrapper = styled.div`
     
     margin: 2rem 0;
   }
+
+  @media (max-width: 400px) {
+    h1 {
+      font-size: 3.25rem;
+    }
+  }
 `;

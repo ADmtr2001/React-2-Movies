@@ -2,8 +2,8 @@ import React, {forwardRef, useState} from 'react';
 
 import {BsSearch} from 'react-icons/bs';
 
-import {useAppDispatch} from "../../../hooks/redux";
-import {fetchAsyncMovies, fetchAsyncShows} from "../../../store/reducers/movie/movieActionCreators";
+import {useAppDispatch} from "../../hooks/redux";
+import {fetchAsyncMovies, fetchAsyncShows} from "../../store/reducers/movie/movieActionCreators";
 
 import {Wrapper} from "./SearchForm.styles";
 

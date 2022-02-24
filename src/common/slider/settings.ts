@@ -16,18 +16,79 @@ export const Settings = {
       }
     },
     {
-      breakpoint: 1160,
+      breakpoint: 1200,
       settings: {
         slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToScroll: 2,
+        infinite: true,
       }
     },
     {
-      breakpoint: 480,
+      breakpoint: 980,
       settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToShow: 4,
+        slidesToScroll: 2,
+        infinite: true,
       }
-    }
+    },
+    {
+      breakpoint: 940,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 2,
+        infinite: true,
+      }
+    },
+    {
+      breakpoint: 840,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 2,
+        infinite: true,
+      }
+    },
+    {
+      breakpoint: 800,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 2,
+        infinite: true,
+      }
+    },
+    {
+      breakpoint: 690,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        infinite: true,
+      }
+    },
+    {
+      breakpoint: 590,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        infinite: true,
+      }
+    },
+    {
+      breakpoint: 430,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 2,
+        infinite: true,
+        centerMode: false,
+      }
+    },
+
+    {
+      breakpoint: 390,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        infinite: true,
+        centerMode: false,
+      }
+    },
   ]
 }
