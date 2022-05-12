@@ -13,7 +13,6 @@ import {Settings} from "../../../common/slider/settings";
 
 import {IMovie} from "../../../types/IMovie";
 
-
 interface MovieListSliderProps {
   title: string;
   movies: IMovie[];

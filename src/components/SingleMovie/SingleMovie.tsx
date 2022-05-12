@@ -1,6 +1,5 @@
 import React, {FC, useEffect, useState} from 'react';
 
-import {AiFillStar, AiOutlineStar, MdOutlineWatchLater} from "../../common/react-icons/icons";
 import Button from "../UI/Button/Button";
 import FilmActionButton from "../UI/FilmActionButton/FilmActionButton";
 
@@ -8,6 +7,7 @@ import {useNavigate} from "react-router-dom";
 import {addFilmToCategory, removeFilmFromCategory} from "../../common/firebase/database";
 
 import {Wrapper} from "./SingleMovie.styles";
+import {AiFillStar, AiOutlineStar, MdOutlineWatchLater} from "../../common/react-icons/icons";
 
 import {ISingleMovie} from "../../types/IMovie";
 import {IUser} from "../../types/IUser";
@@ -23,6 +23,7 @@ interface SingleMovieProps {
 const SingleMovie: FC<SingleMovieProps> = ({movie, isFavorite, isWatchLater}) => {
   const [isPlotFull, setIsPlotFull] = useState(false);
   const [isMoreButtonVisible, setIsMoveButtonVisible] = useState(false);
+
   const navigate = useNavigate()
 
   useEffect(() => {

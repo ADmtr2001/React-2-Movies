@@ -19,7 +19,9 @@ interface CommentFormProps {
 const CommentForm: FC<CommentFormProps> = ({filmId}) => {
   const [text, setText] = useState('');
   const [error, setError] = useState('');
+
   const {user} = useAppSelector(state => state.user);
+
   const dispatch = useAppDispatch();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

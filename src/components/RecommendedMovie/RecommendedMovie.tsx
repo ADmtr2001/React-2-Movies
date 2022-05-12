@@ -1,13 +1,13 @@
 import React from 'react';
 
 import StyledLink from "../UI/StyledLink/StyledLink";
-import {AiFillStar} from "../../common/react-icons/icons";
 
 import {useAppSelector} from "../../hooks/redux";
 import {isFavorite} from "../../helpers/isFavorite";
 import {isWatchLater} from "../../helpers/isWatchLater";
 
 import {Wrapper} from "./RecommendedMovie.styles";
+import {AiFillStar} from "../../common/react-icons/icons";
 
 const RecommendedMovie = () => {
   const {favoriteMovies, watchLaterMovies} = useAppSelector(state => state.user);

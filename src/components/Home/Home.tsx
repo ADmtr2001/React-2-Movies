@@ -19,11 +19,15 @@ const Home = () => {
   } = useAppSelector(state => state.movie);
 
   useEffect(() => {
-    if (movies.length !== 0) return;
-
-    dispatch(fetchAsyncMovies('Harry Potter'));
-    dispatch(fetchAsyncShows('American'));
-    dispatch(fetchAsyncRecommended('House'));
+    if (recommended.length == 0) {
+      dispatch(fetchAsyncRecommended('House'));
+    }
+    if (movies.length == 0) {
+      dispatch(fetchAsyncMovies('Harry Potter'));
+    }
+    if (shows.length == 0) {
+      dispatch(fetchAsyncShows('American'));
+    }
   }, []);
 
   return (

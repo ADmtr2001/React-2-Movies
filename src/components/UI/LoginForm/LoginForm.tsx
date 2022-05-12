@@ -1,16 +1,16 @@
 import React, {FC, useState} from 'react';
 
 import Button from "../Button/Button";
-import {AiOutlineGoogle} from '../../../common/react-icons/icons';
 import NavbarIconButton from "../../Navbar/NavbarIconButton";
-
 import {useFormik} from 'formik';
+
 import {signInWithGoogle} from "../../../common/firebase/firebase-config";
 import {login, register} from "../../../common/firebase/auth";
 import {useAppDispatch} from "../../../hooks/redux";
 import {setIsLoginVisible} from "../../../store/reducers/global/globalSlice";
 
 import {Wrapper} from "./LoginForm.styles";
+import {AiOutlineGoogle} from '../../../common/react-icons/icons';
 
 import * as Yup from 'yup';
 
@@ -19,6 +19,7 @@ let timer: ReturnType<typeof setTimeout> | null = null;
 const LoginForm: FC = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [authError, setAuthError] = useState('');
+
   const dispatch = useAppDispatch();
 
   const loginWithGoogle = () => {

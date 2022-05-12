@@ -5,6 +5,7 @@ import Footer from "./components/Footer/Footer";
 import ScrollToTopButton from "./components/UI/ScrollToTopButton/ScrollToTopButton";
 import AppRouter from "./components/AppRouter/AppRouter";
 import {ThemeProvider} from "styled-components";
+import ToggleNavbarButton from "./components/UI/ToggleNavbarButton/ToggleNavbarButton";
 
 import {useAppDispatch} from "./hooks/redux";
 import {onAuthStateChanged} from "firebase/auth";
@@ -17,7 +18,6 @@ import {GlobalStyles} from "./styles/globalStyles";
 import {darkTheme, defaultTheme, lightTheme} from "./styles/themes/themes";
 
 import {IUser} from "./types/IUser";
-import ToggleNavbarButton from "./components/UI/ToggleNavbarButton/ToggleNavbarButton";
 
 const App = () => {
   const [theme, setTheme] = useState({...defaultTheme, ...darkTheme});

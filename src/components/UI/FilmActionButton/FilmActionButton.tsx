@@ -15,6 +15,7 @@ interface FilmActionButtonProps {
 
 const FilmActionButton: FC<FilmActionButtonProps> = ({active, width, onClick, children}) => {
   const {user} = useAppSelector(state => state.user);
+
   const dispatch = useAppDispatch();
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {

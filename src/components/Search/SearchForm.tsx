@@ -1,6 +1,6 @@
 import React, {forwardRef, useState} from 'react';
 
-import {BsSearch} from 'react-icons/bs';
+import {BsSearch} from "../../common/react-icons/icons";
 
 import {useAppDispatch} from "../../hooks/redux";
 import {fetchAsyncMovies, fetchAsyncShows} from "../../store/reducers/movie/movieActionCreators";
@@ -9,6 +9,7 @@ import {Wrapper} from "./SearchForm.styles";
 
 const SearchForm = forwardRef((props, ref: React.Ref<HTMLInputElement>) => {
   const [searchTerm, setSearchTerm] = useState('');
+
   const dispatch = useAppDispatch();
 
   const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {

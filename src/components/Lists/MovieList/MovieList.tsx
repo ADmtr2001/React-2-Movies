@@ -10,7 +10,6 @@ import {Wrapper} from "./MovieList.styles";
 
 import {IMovie} from "../../../types/IMovie";
 
-
 interface MovieListProps {
   movies: IMovie[];
   title: string;

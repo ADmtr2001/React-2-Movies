@@ -1,6 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {movieApi} from "../../../common/apis/movieApi";
 
+import {movieApi} from "../../../common/apis/movieApi";
 import {APIKey} from "../../../common/apis/movieApiKey";
 
 export  const fetchAsyncMovies = createAsyncThunk(
@@ -31,7 +31,6 @@ export  const fetchAsyncShows = createAsyncThunk(
   }
 );
 
-// Remove this one
 export const fetchAsyncRecommended = createAsyncThunk(
   'movie/fetchRecommended',
   async (term: string, thunkAPI) => {

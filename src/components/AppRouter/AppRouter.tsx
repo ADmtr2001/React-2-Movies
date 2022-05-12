@@ -3,11 +3,13 @@ import React from 'react';
 import {Route, Routes} from "react-router-dom";
 
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
-import {privateRoutes, publicRoutes} from "../../router";
 import {setUser} from "../../store/reducers/user/userSlice";
+
+import {privateRoutes, publicRoutes} from "../../router";
 
 const AppRouter = () => {
   let {user} = useAppSelector(state => state.user);
+
   const dispatch = useAppDispatch();
 
   if (!user) {

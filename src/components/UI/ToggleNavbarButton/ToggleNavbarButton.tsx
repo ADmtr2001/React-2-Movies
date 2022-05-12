@@ -1,13 +1,16 @@
 import React from 'react';
 
-import {Wrapper} from "./ToggleNavbarButton.styles";
 import NavbarIconButton from "../../Navbar/NavbarIconButton";
-import {AiOutlineMenu} from "../../../common/react-icons/icons";
+
 import {useAppDispatch, useAppSelector} from "../../../hooks/redux";
 import {setIsNavbarVisible} from "../../../store/reducers/global/globalSlice";
 
+import {Wrapper} from "./ToggleNavbarButton.styles";
+import {AiOutlineMenu} from "../../../common/react-icons/icons";
+
 const ToggleNavbarButton = () => {
   const {isNavbarVisible} = useAppSelector(state => state.global);
+
   const dispatch = useAppDispatch();
 
   const openNavbar = () => {

@@ -43,6 +43,7 @@ interface NavbarProps {
 const Navbar: FC<NavbarProps> = ({changeTheme, isDark}) => {
   const {isLoginVisible, isNavbarVisible} = useAppSelector(state => state.global);
   const {user} = useAppSelector(state => state.user);
+
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 

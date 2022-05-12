@@ -1,12 +1,12 @@
 import React, {FC} from 'react';
 
 import FilmActionButton from "../UI/FilmActionButton/FilmActionButton";
-import {AiOutlineStar, MdOutlineWatchLater} from "../../common/react-icons/icons";
-
 import {scrollToTop} from "../../helpers/scrollToTop";
+
 import {addFilmToCategory, removeFilmFromCategory} from "../../common/firebase/database";
 
 import {Wrapper} from "./MovieCard.styles";
+import {AiOutlineStar, MdOutlineWatchLater} from "../../common/react-icons/icons";
 
 import {IMovie} from "../../types/IMovie";
 import {IUser} from "../../types/IUser";
