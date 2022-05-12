@@ -8,7 +8,7 @@ interface WrapperProps {
 
 export const Wrapper = styled.nav<WrapperProps>`
   position: fixed;
-  
+
   z-index: 500;
 
   width: 10rem;
@@ -19,7 +19,7 @@ export const Wrapper = styled.nav<WrapperProps>`
   font-size: 1.8rem;
 
   background-color: ${(props) => props.theme.backgroundUIColor};
-  
+
   transition: transform linear .5s;
 
   .navbar-container {
@@ -78,9 +78,15 @@ export const Wrapper = styled.nav<WrapperProps>`
     transform: translateY(-50%);
   }
 
+  @media (min-width: 1000px) {
+    .close {
+      display: none;
+    }
+  }
+  
   @media (max-width: 1000px) {
     right: 0;
-    
+
     transform: ${(props) => props.visible ? 'translateX(0)' : 'translateX(20rem)'};
   }
 `;
