@@ -30,3 +30,4 @@ An online platform for viewing movie information.
 ![Yup](https://img.shields.io/badge/-Yup-black?style=for-the-badge)
 ![React Slick](https://img.shields.io/badge/-React_Slick-black?style=for-the-badge)
 ![Axios](https://img.shields.io/badge/-Axios-black?style=for-the-badge)
+![Netlify](https://img.shields.io/badge/-Netlify-black?style=for-the-badge&logo=netlify)
